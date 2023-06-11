@@ -1,8 +1,10 @@
-package br.edu.ifsp.dmos;
+package br.edu.ifsp.dmos.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import br.edu.ifsp.dmos.R;
 
 public class MainActivity extends AppCompatActivity {
 
