@@ -6,4 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".view.LoginActivity">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:contentPadding="30dp"
+        app:cardCornerRadius="50dp"
+        app:cardBackgroundColor="@color/logo_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxWidth="130dp"
+            android:maxHeight="130dp"
+            android:src="@drawable/rocketservice_logo_foreground"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_rocket_service_title"
+        android:textColor="@color/rocket_service_title"
+        android:fontFamily="@font/hindcolomboregular"
+        android:textSize="38dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintTop_toBottomOf="@id/card_logo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/text_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_rocket_service_subtitle"
+        android:textSize="16dp"
+        android:textColor="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/text_title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/edittext_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:hint="@string/string_hint_user"
+        app:layout_constraintTop_toBottomOf="@id/text_subtitle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/edittext_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="40dp"
+        android:hint="@string/string_hint_senha"
+        app:layout_constraintTop_toBottomOf="@id/edittext_user"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <Button
+        android:id="@+id/button_enter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/string_btn_entrar"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:background="@color/rocket_service_main_blue"
+        android:padding="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@id/edittext_password"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_singup_reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ainda não tem conta? Cadastrar"
+        android:textSize="25dp"
+        android:textColor="@color/gray"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/button_enter"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

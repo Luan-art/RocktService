@@ -22,4 +22,9 @@
     <string name="casa">Casa</string>
     <string name="evento">evento</string>
     <string name="sa_de">saúde</string>
+    <string name="string_rocket_service_title">Rocket Service</string>
+    <string name="string_rocket_service_subtitle">Encontre um profissional mais rápido que um foguete</string>
+    <string name="string_hint_user">* Usuário</string>
+    <string name="string_hint_senha">* Senha</string>
+    <string name="string_btn_entrar">Entrar</string>
 </resources>

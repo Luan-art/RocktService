@@ -9,6 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#757575</color>
     <color name="yellow">#EDDB37</color>
+    <color name="logo_background">#E2F9FF</color>
+    <color name="rocket_service_title">#00A6FF</color>
+    <color name="rocket_service_main_blue">#3B8DFC</color>
 
 
 </resources>
