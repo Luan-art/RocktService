@@ -6,4 +6,20 @@
     <string name="e_mail">* E-mail</string>
     <string name="documento_rg_cpf">* Documento(RG/CPF)</string>
     <string name="usuario">* Usuário</string>
+    <string name="data_de_nascimento">* Data De Nascimento</string>
+    <string name="senha">* Senha</string>
+    <string name="confirmar_senha">* Confirmar senha</string>
+    <string name="telefone_celular">* Telefone celular</string>
+    <string name="cadastrar">CADASTRAR</string>
+    <string name="j_possui_uma_conta">Já possui uma conta?</string>
+    <string name="entrar">Entrar</string>
+    <string name="o_que_voc_est_precisando">O que você está precisando?</string>
+    <string name="ola_nome_de_usuario">Ola, nome de usuario</string>
+    <string name="procure_por_profissionais_ou_servi_os">procure por profissionais ou serviços</string>
+    <string name="tencologia">tencologia</string>
+    <string name="educao">Educação</string>
+    <string name="arte">Arte</string>
+    <string name="casa">Casa</string>
+    <string name="evento">evento</string>
+    <string name="sa_de">saúde</string>
 </resources>
