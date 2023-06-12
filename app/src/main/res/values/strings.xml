@@ -27,4 +27,8 @@
     <string name="string_hint_user">* Usuário</string>
     <string name="string_hint_senha">* Senha</string>
     <string name="string_btn_entrar">Entrar</string>
+    <string name="senha_atual">* Senha Atual</string>
+    <string name="nova_senha">* Nova Senha</string>
+    <string name="confirmar_nova_senha">* Confirmar nova senha</string>
+    <string name="salvar">Salvar</string>
 </resources>
