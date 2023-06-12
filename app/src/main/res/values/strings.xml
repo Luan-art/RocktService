@@ -1,34 +1,49 @@
 <resources>
+    <!--A estrutura dos nomes das variaveis de strings deve ser a seguinte:
+        string + nome ou sigla da activity + elemento origem + nome
+        Exemplo: string_login_edittext_user
+
+        Também deve-se separar as strings com comentarios referenciando a pagina de origem
+    -->
     <string name="app_name">RocktService</string>
-    <string name="vamos_comecar">Vamos Começar</string>
-    <string name="add_info">Preencha algumas informações para se cadastrar</string>
-    <string name="nome_completo">* Nome Completo</string>
-    <string name="e_mail">* E-mail</string>
-    <string name="documento_rg_cpf">* Documento(RG/CPF)</string>
-    <string name="usuario">* Usuário</string>
-    <string name="data_de_nascimento">* Data De Nascimento</string>
-    <string name="senha">* Senha</string>
-    <string name="confirmar_senha">* Confirmar senha</string>
-    <string name="telefone_celular">* Telefone celular</string>
-    <string name="cadastrar">CADASTRAR</string>
-    <string name="j_possui_uma_conta">Já possui uma conta?</string>
-    <string name="entrar">Entrar</string>
-    <string name="o_que_voc_est_precisando">O que você está precisando?</string>
-    <string name="ola_nome_de_usuario">Ola, nome de usuario</string>
-    <string name="procure_por_profissionais_ou_servi_os">procure por profissionais ou serviços</string>
-    <string name="tencologia">tencologia</string>
-    <string name="educao">Educação</string>
-    <string name="arte">Arte</string>
-    <string name="casa">Casa</string>
-    <string name="evento">evento</string>
-    <string name="sa_de">saúde</string>
-    <string name="string_rocket_service_title">Rocket Service</string>
-    <string name="string_rocket_service_subtitle">Encontre um profissional mais rápido que um foguete</string>
-    <string name="string_hint_user">* Usuário</string>
-    <string name="string_hint_senha">* Senha</string>
-    <string name="string_btn_entrar">Entrar</string>
-    <string name="senha_atual">* Senha Atual</string>
-    <string name="nova_senha">* Nova Senha</string>
-    <string name="confirmar_nova_senha">* Confirmar nova senha</string>
-    <string name="salvar">Salvar</string>
+
+    <!-- activity_sing_up -->
+    <string name="string_singup_textview_vamos_comecar">Vamos Começar</string>
+    <string name="string_singup_textview_add_info">Preencha algumas informações para se cadastrar</string>
+    <string name="string_singup_edittext_nome_completo">* Nome Completo</string>
+    <string name="string_singup_edittext_e_mail">* E-mail</string>
+    <string name="string_singup_edittext_documento_rg_cpf">* Documento(RG/CPF)</string>
+    <string name="string_singup_edittext_data_de_nascimento">* Data De Nascimento</string>
+    <string name="string_singup_edittext_usuario">* Usuário</string>
+    <string name="string_singup_edittext_senha">* Senha</string>
+    <string name="string_singup_edittext_confirmar_senha">* Confirmar senha</string>
+    <string name="string_singup_edittext_telefone_celular">* Telefone celular</string>
+    <string name="string_singup_btn_cadastrar">CADASTRAR</string>
+    <string name="string_singup_textview_ja_possui_uma_conta">Já possui uma conta?</string>
+    <string name="string_singup_textview_entrar">Entrar</string>
+
+    <!-- activity_home -->
+    <string name="string_home_textview_ola_nome_de_usuario">Ola, nome de usuario</string>
+    <string name="string_home_textview_o_que_voce_esta_precisando">O que você está precisando?</string>
+    <string name="string_home_edittext_procure_por_profissionais_ou_servicos">procure por profissionais ou serviços</string>
+    <string name="string_home_btn_tencologia">tencologia</string>
+    <string name="string_home_btn_educacao">Educação</string>
+    <string name="string_home_btn_casa">Casa</string>
+    <string name="string_home_btn_arte">Arte</string>
+    <string name="string_home_btn_evento">evento</string>
+    <string name="string_home_btn_saude">saúde</string>
+
+    <!-- activity_login -->
+    <string name="string_login_textview_title">Rocket Service</string>
+    <string name="string_login_textview_subtitle">Encontre um profissional mais rápido que um foguete</string>
+    <string name="string_login_edittext_hint_user">* Usuário</string>
+    <string name="string_login_edittext_hint_senha">* Senha</string>
+    <string name="string_login_btn_entrar">Entrar</string>
+
+    <!-- update_password -->
+    <string name="string_updatepssw_edittext_senha_atual">* Senha Atual</string>
+    <string name="string_updatepssw_edittext_nova_senha">* Nova Senha</string>
+    <string name="string_updatepssw_edittext_confirmar_nova_senha">* Confirmar nova senha</string>
+    <string name="string_updatepssw_btn_salvar">Salvar</string>
+
 </resources>
