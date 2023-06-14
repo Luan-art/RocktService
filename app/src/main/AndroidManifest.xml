@@ -12,6 +12,12 @@
         android:theme="@style/Theme.RocktService"
         tools:targetApi="31">
         <activity
+            android:name=".AddServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditServiceActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity

@@ -47,6 +47,13 @@
     <string name="string_updatepssw_btn_salvar">Salvar</string>
     <string name="string_menu_nomeUser">Nome usuario</string>
     <string name="string_menu_perfil">Perfil</string>
+    <string name="string_edit_service_nomeServico">* Nome serviço</string>
+    <string name="string_edit_service_category">* Categoria</string>
+    <string name="string_edit_service_mediaPreco">* Média de preço por hora / dia</string>
+    <string name="string_edit_service_formasPagamento">* Formas de pagamento aceitas</string>
+    <string name="string_edit_service_formaExecucao">* Forma execução</string>
+    <string name="string_edit_service_textInfo">* Informações adicionais</string>
+    <string name="string_edit_service_salvar">Salvar</string>
 
     <!-- activity_menu -->
 
