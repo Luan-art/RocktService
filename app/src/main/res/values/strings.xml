@@ -45,5 +45,10 @@
     <string name="string_updatepssw_edittext_nova_senha">* Nova Senha</string>
     <string name="string_updatepssw_edittext_confirmar_nova_senha">* Confirmar nova senha</string>
     <string name="string_updatepssw_btn_salvar">Salvar</string>
+    <string name="string_menu_nomeUser">Nome usuario</string>
+    <string name="string_menu_perfil">Perfil</string>
+
+    <!-- activity_menu -->
+
 
 </resources>
