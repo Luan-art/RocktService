@@ -9,44 +9,44 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RocktService"
+        android:theme="@style/Theme.RocketService"
         tools:targetApi="31">
         <activity
-            android:name=".ServiceDescriptionActivity"
+            android:name=".view.ServiceDescriptionActivity"
             android:exported="false" />
         <activity
-            android:name=".ListServiceByCategoryActivity"
+            android:name=".view.ListServiceByCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".ServiceCancelationActivity"
+            android:name=".view.ServiceCancelationActivity"
             android:exported="false" />
         <activity
-            android:name=".ServiceRatingActivity"
+            android:name=".view.ServiceRatingActivity"
             android:exported="false" />
         <activity
-            android:name=".ServiceSolicitationActivity"
+            android:name=".view.ServiceSolicitationActivity"
             android:exported="false" />
         <activity
-            android:name=".ServiceOfferedAcitivity"
+            android:name=".view.ServiceOfferedAcitivity"
             android:exported="false" />
         <activity
-            android:name=".AddServiceActivity"
+            android:name=".view.AddServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".EditServiceActivity"
+            android:name=".view.EditServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".view.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".UpdatePasswordActivity"
+            android:name=".view.UpdatePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".view.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
+            android:name=".view.LoginActivity"
+            android:exported="true" />
         <activity
             android:name=".view.MainActivity"
             android:exported="true">

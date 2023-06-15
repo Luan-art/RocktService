@@ -5,7 +5,8 @@
 
         Também deve-se separar as strings com comentarios referenciando a pagina de origem
     -->
-    <string name="app_name">RocktService</string>
+
+    <string name="app_name">RocketService</string>
 
     <!-- activity_sing_up -->
     <string name="string_singup_textview_vamos_comecar">Vamos Começar</string>
