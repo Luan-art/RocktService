@@ -1,4 +1,16 @@
 package br.edu.ifsp.dmos.view;
 
-public class ListServiceByCategoryActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+import br.edu.ifsp.dmos.R;
+
+public class ListServiceByCategoryActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_service_by_category);
+    }
 }

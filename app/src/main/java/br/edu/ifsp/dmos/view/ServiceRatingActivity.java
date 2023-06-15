@@ -1,4 +1,16 @@
 package br.edu.ifsp.dmos.view;
 
-public class ServiceRatingActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+import br.edu.ifsp.dmos.R;
+
+public class ServiceRatingActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_service_rating);
+    }
 }

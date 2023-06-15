@@ -54,6 +54,26 @@
     <string name="string_edit_service_formaExecucao">* Forma execução</string>
     <string name="string_edit_service_textInfo">* Informações adicionais</string>
     <string name="string_edit_service_salvar">Salvar</string>
+    <string name="string_listView_titlo">titulo</string>
+    <string name="string_listView_cost">preço</string>
+    <string name="string_listViewSolicited_name">nome</string>
+    <string name="string_listViewSolicited_Date">data</string>
+    <string name="string_rating_service_rating">Avaliar</string>
+    <string name="string_service_rating_comments">* Comentário</string>
+    <string name="string_service_rating_title">Dados do serviço selecionados</string>
+    <string name="string_service_rating_note">*Nota</string>
+    <string name="string_cancel_service_btn">Cancelar</string>
+    <string name="strinf_cancel_service_info">* Informe o motivo do cancelamento</string>
+    <string name="string_activity_descriptio_service">Servico</string>
+    <string name="string_activity_description_nameProf">Nome do profissional</string>
+    <string name="string_activity_description_contact">Contato</string>
+    <string name="string_activity_description_tel">telefone</string>
+    <string name="string_activity_description_email">email</string>
+    <string name="string_activity_description_mediaPreco">Média de preço por hora/dia</string>
+    <string name="string_activity_description_formasPag">Formas de pagamento aceitas</string>
+    <string name="string_activity_description_formaExecu">Formas de execução</string>
+    <string name="string_activity_description_addInfo">Informação adcional</string>
+    <string name="string_acticity_description_contract">Contratar</string>
 
     <!-- activity_menu -->
 

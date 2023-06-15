@@ -12,6 +12,24 @@
         android:theme="@style/Theme.RocktService"
         tools:targetApi="31">
         <activity
+            android:name=".ServiceDescriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListServiceByCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceCancelationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceRatingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceSolicitationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceOfferedAcitivity"
+            android:exported="false" />
+        <activity
             android:name=".AddServiceActivity"
             android:exported="false" />
         <activity
