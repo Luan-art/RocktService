@@ -101,7 +101,15 @@
     <string name="string_servicedescription_textview_informacaoadicionaldesc">Informação adcional descrição</string>
     <string name="string_servicedescription_btn_contratar">Contratar</string>
 
-    <!-- activity_ -->
+    <!-- activity_add_service -->
+    <string name="string_addservice_edittext_nomeservico">Nome do serviço</string>
+    <string name="string_addservice_textview_categoria">Categoria</string>
+    <string name="string_addservice_edittext_mediapreco">Média de preço por hora/dia</string>
+    <string name="string_addservice_edittext_formapag">Formas de pagamento aceitas</string>
+    <string name="string_addservice_edittext_formaexecucao">Formas de execucao</string>
+    <string name="string_addservice_edittext_informacaoadicional">Informações adicionais</string>
+    <string name="string_addservice_btn_salvar">SALVAR</string>
+
 
 
 </resources>
