@@ -27,8 +27,8 @@
             android:name=".view.ServiceSolicitationActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ServiceOfferedAcitivity"
-            android:exported="false" />
+            android:name=".view.ServiceOfferedActivity"
+            android:exported="true" />
         <activity
             android:name=".view.AddServiceActivity"
             android:exported="false" />

@@ -10,7 +10,7 @@
         android:id="@+id/text_vamosComecar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_singup_textview_vamos_comecar"
+        android:text="@string/string_singup_textview_titulo"
         android:textColor="@color/teal_700"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -40,7 +40,7 @@
         android:layout_marginTop="10dp"
         android:background="@color/white"
         android:inputType="text"
-        android:hint="@string/string_singup_edittext_nome_completo"
+        android:hint="@string/string_singup_edittext_nomecompleto"
         android:padding="8dp"
         android:textAlignment="textStart"
         android:textColor="@color/black"
@@ -55,7 +55,7 @@
         android:layout_marginTop="10dp"
         android:background="@color/white"
         android:inputType="textEmailAddress"
-        android:hint="@string/string_singup_edittext_e_mail"
+        android:hint="@string/string_singup_edittext_email"
         android:padding="8dp"
         android:textAlignment="textStart"
         android:textColor="@color/black"
@@ -70,7 +70,7 @@
         android:layout_marginTop="10dp"
         android:background="@color/white"
         android:inputType="number"
-        android:hint="@string/string_singup_edittext_documento_rg_cpf"
+        android:hint="@string/string_singup_edittext_documento"
         android:padding="8dp"
         android:textAlignment="textStart"
         android:textColor="@color/black"
@@ -80,13 +80,13 @@
 
 
     <EditText
-        android:id="@+id/edittext_datanasce"
+        android:id="@+id/edittext_datanasc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@color/white"
         android:inputType="date"
-        android:hint="@string/string_singup_edittext_data_de_nascimento"
+        android:hint="@string/string_singup_edittext_datanasc"
         android:padding="8dp"
         android:textAlignment="textStart"
         android:textColor="@color/black"
@@ -107,7 +107,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_datanasce" />
+        app:layout_constraintTop_toBottomOf="@+id/edittext_datanasc" />
 
     <EditText
         android:id="@+id/edittext_password"

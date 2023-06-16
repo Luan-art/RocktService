@@ -11,6 +11,6 @@ public class ServiceCancelationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service_cancelation);
+        setContentView(R.layout.activity_service_cancellation);
     }
 }

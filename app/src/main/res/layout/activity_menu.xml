@@ -8,15 +8,16 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_topo"
-        android:layout_width="445dp"
+        android:layout_width="match_parent"
         android:layout_height="195dp"
         app:cardBackgroundColor="@color/logo_background"
         app:layout_constraintBottom_toTopOf="@id/card_Info"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="436dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -33,9 +34,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/string_menu_nomeUser"
+                android:text="@string/string_menu_textview_nomeUser"
                 android:textColor="@color/rocket_service_main_blue"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -43,7 +44,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_Info"
-        android:layout_width="421dp"
+        android:layout_width="match_parent"
         android:layout_height="536dp"
         app:cardBackgroundColor="@color/rocket_service_main_blue"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,9 +65,9 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="30dp"
-                android:text="@string/string_menu_perfil"
+                android:text="@string/string_menu_textview_perfil"
                 android:textColor="@color/ic_launcher_background"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_pagina_inicial"
@@ -74,9 +75,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="30dp"
-                android:text="Pagina inicial"
+                android:text="@string/string_menu_textview_paginainicial"
                 android:textColor="@color/ic_launcher_background"
-                android:textSize="20dp" />
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/text_servicos_contratados"
@@ -84,9 +85,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="30dp"
-                android:text="Serviços contratados"
+                android:text="@string/string_menu_textview_servicoscontratados"
                 android:textColor="@color/ic_launcher_background"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_servicos_oferecidos"
@@ -94,9 +95,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="30dp"
-                android:text="Serviços oferecidos"
+                android:text="@string/string_menu_textview_servicosoferecidos"
                 android:textColor="@color/ic_launcher_background"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_servicos_solicitados"
@@ -104,9 +105,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="30dp"
-                android:text="Serviços solicitados para você"
+                android:text="@string/string_menu_textview_servicossolicitados"
                 android:textColor="@color/ic_launcher_background"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_servicos_favoritos"
@@ -114,9 +115,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="80dp"
-                android:text="Serviços favoritos"
+                android:text="@string/string_menu_textview_servicosfavoritos"
                 android:textColor="@color/ic_launcher_background"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_Alterar_senha"
@@ -124,9 +125,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="20dp"
-                android:text="Alterar senha"
+                android:text="@string/string_menu_textview_alterarsenha"
                 android:textColor="@color/ic_launcher_background"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_sair"
@@ -134,9 +135,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="30dp"
-                android:text="Sair"
+                android:text="@string/string_menu_textview_sair"
                 android:textColor="@color/ic_launcher_background"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
