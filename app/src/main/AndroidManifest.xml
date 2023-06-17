@@ -34,7 +34,7 @@
             android:exported="false" />
         <activity
             android:name=".view.EditServiceActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".view.MenuActivity"
             android:exported="false" />

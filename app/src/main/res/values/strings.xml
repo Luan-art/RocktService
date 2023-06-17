@@ -110,6 +110,9 @@
     <string name="string_addservice_edittext_informacaoadicional">Informações adicionais</string>
     <string name="string_addservice_btn_salvar">SALVAR</string>
 
+    <!-- Toolbar -->
+    <string name="string_toolbar_editservice_title">Editar serviço oferecido</string>
+
 
 
 </resources>

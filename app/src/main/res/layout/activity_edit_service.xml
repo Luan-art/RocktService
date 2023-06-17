@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".view.EditServiceActivity">
 
+    <include
+        android:id="@+id/edit_service_toolbar"
+        layout="@layout/toolbar_edit_service"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
     <EditText
         android:id="@+id/edittext_nomeServico"
         android:layout_width="match_parent"
