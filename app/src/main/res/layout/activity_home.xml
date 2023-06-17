@@ -45,7 +45,7 @@
         app:tint="@color/black" />
 
 
-    <!--
+    <!--                  ANTIGA MANEIRA DE FAZER A SEARCH VIEW BASEADA EM ITEMS INDIVIDUAIS
     <EditText
         android:id="@+id/procureProf"
         android:layout_width="match_parent"
@@ -100,82 +100,83 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@color/logo_background"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="25dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/AddInfo" />
 
-    <Button
-        android:id="@+id/btn_tec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
-        android:backgroundTint="@color/teal_200"
-        android:text="@string/string_home_btn_tencologia"
-        android:textSize="20dp"
+    <ImageButton
+        android:id="@+id/home_btn_tecnologia"
+        android:layout_height="150dp"
+        android:layout_width="150dp"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@color/logo_background"
+        app:layout_constraintTop_toBottomOf="@id/home_searchview"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_searchview" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/ic_home_tecnologia"
+        />
 
-    <Button
-        android:id="@+id/btn_edu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:backgroundTint="@color/yellow"
-        android:text="@string/string_home_btn_educacao"
-        android:textSize="20dp"
+    <ImageButton
+        android:id="@+id/home_btn_educacao"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@color/orange_background"
+        app:layout_constraintTop_toBottomOf="@id/home_searchview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_tec"
-        app:layout_constraintTop_toBottomOf="@+id/home_searchview" />
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/ic_home_educacao"/>
 
-    <Button
-        android:id="@+id/btn_casa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="68dp"
-        android:backgroundTint="@color/yellow"
-        android:text="@string/string_home_btn_casa"
-        android:textSize="20dp"
+    <ImageButton
+        android:id="@+id/home_btn_casa"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@color/orange_background"
+        app:layout_constraintTop_toBottomOf="@id/home_btn_tecnologia"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_tec" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_home_casa"/>
 
-    <Button
-        android:id="@+id/btn_art"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:backgroundTint="@color/teal_200"
-        android:text="@string/string_home_btn_arte"
-        android:textSize="20dp"
+    <ImageButton
+        android:id="@+id/home_btn_arte"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@color/logo_background"
+        app:layout_constraintTop_toBottomOf="@id/home_btn_educacao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_casa"
-        app:layout_constraintTop_toBottomOf="@id/btn_edu" />
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_home_arte"/>
 
-    <Button
-        android:id="@+id/btn_evento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="80dp"
-        android:backgroundTint="@color/teal_200"
-        android:text="@string/string_home_btn_evento"
-        android:textSize="20dp"
+
+    <ImageButton
+        android:id="@+id/home_btn_evento"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@color/logo_background"
+        app:layout_constraintTop_toBottomOf="@id/home_btn_casa"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_casa"/>
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_home_evento"/>
 
-    <Button
-        android:id="@+id/btn_saude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:backgroundTint="@color/yellow"
-        android:text="@string/string_home_btn_saude"
-        android:textSize="20dp"
+    <ImageButton
+        android:id="@+id/home_btn_saude"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@color/orange_background"
+        app:layout_constraintTop_toBottomOf="@id/home_btn_arte"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_evento"
-        app:layout_constraintTop_toBottomOf="@+id/btn_art" />
-
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_home_saude"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
