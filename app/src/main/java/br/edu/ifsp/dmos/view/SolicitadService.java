@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import br.edu.ifsp.dmos.R;
+
 public class SolicitadService extends AppCompatActivity {
 
     @Override
