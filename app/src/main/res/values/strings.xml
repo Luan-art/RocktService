@@ -112,7 +112,14 @@
 
     <!-- Toolbar -->
     <string name="string_toolbar_editservice_title">Editar serviço oferecido</string>
-
+    <string name="string_solicitad_service_title">Dados de servico selecionados</string>
+    <string name="string_solicitad_serivice_addInfo">* Informações adicionais</string>
+    <string name="string_solicitad_service_finalizar">Finalizar</string>
+    <string name="string_list_view_solicitadeForYou">Data</string>
+    <string name="string_solicitadForYou_desciption">Derscrição</string>
+    <string name="string_edit_profile_endereco">* Endereço</string>
+    <string name="string_edit_profice_cidade">* cidade</string>
+    <string name="string_edit_profile_estado">* Estado</string>
 
 
 </resources>

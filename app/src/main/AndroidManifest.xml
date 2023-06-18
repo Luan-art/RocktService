@@ -12,6 +12,18 @@
         android:theme="@style/Theme.RocketService"
         tools:targetApi="31">
         <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceSolicitad"
+            android:exported="false" />
+        <activity
+            android:name=".FavoritedServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SolicitadService"
+            android:exported="false" />
+        <activity
             android:name=".view.ServiceDescriptionActivity"
             android:exported="false" />
         <activity

@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import br.edu.ifsp.dmos.R;
-
-public class EditProfileActivity extends AppCompatActivity {
+public class SolicitadService extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_profile);
+        setContentView(R.layout.activity_solicitad_service);
     }
 }
