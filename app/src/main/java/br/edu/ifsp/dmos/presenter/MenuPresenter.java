@@ -12,6 +12,7 @@ import br.edu.ifsp.dmos.view.LoginActivity;
 import br.edu.ifsp.dmos.view.ServiceOfferedActivity;
 import br.edu.ifsp.dmos.view.ServiceSolicitationActivity;
 import br.edu.ifsp.dmos.view.UpdatePasswordActivity;
+import br.edu.ifsp.dmos.view.ServiceSolicitationActivity;
 
 public class MenuPresenter implements MenuMVP.Presenter {
 
