@@ -8,8 +8,8 @@ public interface LoginMVP {
     interface View{
         Context getContext();
 
-        void showEmptyFieldsMessage();
 
+        void showEmptyFieldsMessage();
     }
 
     interface Presenter{

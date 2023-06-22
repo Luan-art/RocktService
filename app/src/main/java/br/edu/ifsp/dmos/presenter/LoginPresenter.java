@@ -29,7 +29,8 @@ public class LoginPresenter implements LoginMVP.Presenter {
 
         } else{
             Intent intent = new Intent(context, HomeActivity.class);
-            context.startActivity(intent);        }
+            context.startActivity(intent);
+        }
     }
 
     @Override
