@@ -7,8 +7,8 @@
     tools:context=".view.EditServiceActivity">
 
     <include
-        android:id="@+id/edit_service_toolbar"
-        layout="@layout/toolbar_edit_service"
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>

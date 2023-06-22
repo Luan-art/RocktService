@@ -13,4 +13,5 @@
     <color name="rocket_service_title">#00A6FF</color>
     <color name="rocket_service_main_blue">#3B8DFC</color>
     <color name="orange_background">#FEEDCB</color>
+    <color name="toolbar_title">#4F9AFC</color>
 </resources>

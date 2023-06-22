@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.HiredActivity">
+    tools:context=".view.HiredServiceActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_service_hired"

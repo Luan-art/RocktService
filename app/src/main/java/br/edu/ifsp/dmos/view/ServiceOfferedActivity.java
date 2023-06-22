@@ -18,9 +18,9 @@ public class ServiceOfferedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_service_offered);
 
 
-        Toolbar toolbar = findViewById(R.id.service_offered_toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle("Serviços Oferecidos");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 

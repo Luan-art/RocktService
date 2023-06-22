@@ -21,13 +21,7 @@
             android:name=".view.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ServiceSolicited"
-            android:exported="false" />
-        <activity
             android:name=".view.FavoritedServiceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.SolicitadService"
             android:exported="false" />
         <activity
             android:name=".view.ServiceDescriptionActivity"

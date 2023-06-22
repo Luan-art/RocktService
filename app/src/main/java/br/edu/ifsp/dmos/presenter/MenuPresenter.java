@@ -5,10 +5,9 @@ import android.content.Intent;
 
 import br.edu.ifsp.dmos.mvp.MenuMVP;
 import br.edu.ifsp.dmos.view.EditProfileActivity;
-import br.edu.ifsp.dmos.view.HiredActivity;
+import br.edu.ifsp.dmos.view.HiredServiceActivity;
 import br.edu.ifsp.dmos.view.HomeActivity;
 import br.edu.ifsp.dmos.view.ServiceOfferedActivity;
-import br.edu.ifsp.dmos.view.ServiceSolicited;
 
 public class MenuPresenter implements MenuMVP.Presenter {
 
@@ -41,7 +40,7 @@ public class MenuPresenter implements MenuMVP.Presenter {
 
     @Override
     public void servicosContratados() {
-        Intent intent = new Intent(context, HiredActivity.class);
+        Intent intent = new Intent(context, HiredServiceActivity.class);
         context.startActivity(intent);
 
     }
@@ -55,7 +54,7 @@ public class MenuPresenter implements MenuMVP.Presenter {
 
     @Override
     public void servicosSolicitados() {
-        Intent intent = new Intent(context, ServiceSolicited.class);
+        Intent intent = new Intent(context, SolicitService.class);
         context.startActivity(intent);
 
     }
