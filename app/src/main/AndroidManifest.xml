@@ -15,6 +15,9 @@
         android:theme="@style/Theme.RocketService"
         tools:targetApi="31">
         <activity
+            android:name=".ServiceSolicitedByYou"
+            android:exported="false" />
+        <activity
             android:name=".view.HiredServiceActivity"
             android:exported="false" />
         <activity
@@ -29,7 +32,6 @@
         <activity
             android:name=".view.ListServiceByCategoryActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.ServiceCancelationActivity"
             android:exported="false" />

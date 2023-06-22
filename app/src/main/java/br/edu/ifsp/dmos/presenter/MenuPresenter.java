@@ -11,6 +11,7 @@ import br.edu.ifsp.dmos.view.HomeActivity;
 import br.edu.ifsp.dmos.view.LoginActivity;
 import br.edu.ifsp.dmos.view.ServiceOfferedActivity;
 import br.edu.ifsp.dmos.view.ServiceSolicitationActivity;
+import br.edu.ifsp.dmos.view.ServiceSolicitionForYou;
 import br.edu.ifsp.dmos.view.UpdatePasswordActivity;
 
 public class MenuPresenter implements MenuMVP.Presenter {
@@ -58,7 +59,7 @@ public class MenuPresenter implements MenuMVP.Presenter {
 
     @Override
     public void servicosSolicitados() {
-        Intent intent = new Intent(context, HiredServiceActivity.class);
+        Intent intent = new Intent(context, ServiceSolicitionForYou.class);
         context.startActivity(intent);
 
     }
