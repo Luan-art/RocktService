@@ -28,6 +28,8 @@ public class LoginPresenter implements LoginMVP.Presenter {
             view.showEmptyFieldsMessage();
 
         } else{
+
+
             Intent intent = new Intent(context, HomeActivity.class);
             context.startActivity(intent);
         }

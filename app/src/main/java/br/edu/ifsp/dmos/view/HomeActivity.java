@@ -98,7 +98,6 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
             }
         });
 
-        // Dentro do método setListener()
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

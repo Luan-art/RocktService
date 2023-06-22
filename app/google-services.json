@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1034399820141",
+    "project_id": "rocktservice",
+    "storage_bucket": "rocktservice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034399820141:android:50bae4710ac437e23f5264",
+        "android_client_info": {
+          "package_name": "br.edu.ifsp.dmos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034399820141-4bptli7fuc9mvc9q352bstrb9oig9evo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMiJ6TAX3Ig3y3JSVYy3qiUPAv1QtBJpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034399820141-4bptli7fuc9mvc9q352bstrb9oig9evo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
