@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import br.edu.ifsp.dmos.R;
 
-public class ServiceSolicitad extends AppCompatActivity {
+public class HiredActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service_solicitad);
+        setContentView(R.layout.activity_hired);
     }
 }

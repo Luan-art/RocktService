@@ -17,8 +17,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="651dp"
+            android:layout_height="210dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -45,7 +45,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_Info"
         android:layout_width="match_parent"
-        android:layout_height="536dp"
+        android:layout_height="679dp"
         app:cardBackgroundColor="@color/rocket_service_main_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="935dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:orientation="vertical">
@@ -77,7 +77,7 @@
                 android:layout_marginBottom="30dp"
                 android:text="@string/string_menu_textview_paginainicial"
                 android:textColor="@color/ic_launcher_background"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_servicos_contratados"

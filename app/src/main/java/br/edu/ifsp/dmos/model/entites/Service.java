@@ -9,11 +9,11 @@ public class Service {
     private String formasDePagamento;
     private String formaExecucao;
     private String addInfo;
-    private int nota;
+    private double nota;
     private String coment;
 
     public Service(String nomeServico, String nomeProfissional, String categoria, boolean mediaPreco,
-                   String formasDePagamento, String formaExecucao, String addInfo, int nota, String coment) {
+                   String formasDePagamento, String formaExecucao, String addInfo, double nota, String coment) {
 
         setNomeServico(nomeServico);
         setNomeProfissional(nomeProfissional);
@@ -81,11 +81,11 @@ public class Service {
         this.addInfo = addInfo;
     }
 
-    public int getNota() {
+    public double getNota() {
         return nota;
     }
 
-    public void setNota(int nota) {
+    public void setNota(double nota) {
         this.nota = nota;
     }
 

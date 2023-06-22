@@ -7,6 +7,7 @@ import java.sql.Date;
 
 import br.edu.ifsp.dmos.mvp.SignUpMVP;
 import br.edu.ifsp.dmos.view.HomeActivity;
+import br.edu.ifsp.dmos.view.LoginActivity;
 import br.edu.ifsp.dmos.view.SingUpActivity;
 
 public class SingUpPresenter implements SignUpMVP.Presenter {
@@ -34,7 +35,7 @@ public class SingUpPresenter implements SignUpMVP.Presenter {
             view.showEmptyFieldsMessage();
         } else {
             //RealizarCadastro(nome, email, doc, dataNasci, usuario, telCel,  senha);
-            Intent intent = new Intent(context, HomeActivity.class);
+            Intent intent = new Intent(context, LoginActivity.class);
             context.startActivity(intent);
         }
     }

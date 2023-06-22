@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import br.edu.ifsp.dmos.R;
 
-public class SolicitadService extends AppCompatActivity {
+public class ServiceSolicited extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
