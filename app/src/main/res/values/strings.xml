@@ -111,5 +111,21 @@
     <string name="string_addservice_btn_salvar">SALVAR</string>
     <string name="string_toolbar_editservice_title">Editar serviços</string>
 
+    <!-- list view -->
+    <string name="string_solicitadForYou_desciption">descrição do serviço</string>
+
+    <!-- Solicitad Service -->
+    <string name="String_solicitad_service_infoAdd">* Informação Adcional</string>
+    <string name="string_solicitad_service_finalizar">finalizar</string>
+    <string name="string_solicitad_service_title">Solicitar Serviço</string>
+
+    <!-- Edit Service-->
+    <string name="string_edit_profile_endereco">* Endereço</string>
+    <string name="string_edit_profile_city">* Cidade</string>
+    <string name="string_edit_profile_estaty">* Estado</string>
+
+    <!--Error mensagens-->
+    <string name="string_campos_vazios"> Prencha todos os campos </string>
+
 
 </resources>

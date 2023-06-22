@@ -10,7 +10,12 @@ public interface MainMVP {
     }
 
     interface Presenter{
+
+        void detach();
+
         void toch(MotionEvent motionEvent);
+
+
 
     }
 }

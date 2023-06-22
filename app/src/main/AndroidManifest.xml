@@ -12,16 +12,16 @@
         android:theme="@style/Theme.RocketService"
         tools:targetApi="31">
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".view.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".ServiceSolicitad"
+            android:name=".view.ServiceSolicitad"
             android:exported="false" />
         <activity
-            android:name=".FavoritedServiceActivity"
+            android:name=".view.FavoritedServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".SolicitadService"
+            android:name=".view.SolicitadService"
             android:exported="false" />
         <activity
             android:name=".view.ServiceDescriptionActivity"
@@ -58,6 +58,9 @@
             android:exported="false" />
         <activity
             android:name=".view.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.SingUpActivity"
             android:exported="true" />
         <activity
             android:name=".view.MainActivity"

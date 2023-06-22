@@ -39,7 +39,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
-        android:text="@string/string_solicitad_serivice_addInfo"
+        android:text="@string/String_solicitad_service_infoAdd"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
