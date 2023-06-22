@@ -15,7 +15,7 @@
         android:theme="@style/Theme.RocketService"
         tools:targetApi="31">
         <activity
-            android:name=".HiredActivity"
+            android:name=".view.HiredServiceActivity"
             android:exported="false" />
         <activity
             android:name=".view.EditProfileActivity"
@@ -29,6 +29,7 @@
         <activity
             android:name=".view.ListServiceByCategoryActivity"
             android:exported="false" />
+
         <activity
             android:name=".view.ServiceCancelationActivity"
             android:exported="false" />

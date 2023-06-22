@@ -9,6 +9,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -96,6 +97,34 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
                 presenter.BuscarTema("Evento");
             }
         });
+
+        // Dentro do método setListener()
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                presenter.search(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        // Adicione o setOnKeyListener para capturar a tecla "Enter"
+        search.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                    String query = search.getQuery().toString();
+                    presenter.search(query);
+                    return true;
+                }
+                return false;
+            }
+        });
+
     }
 
 

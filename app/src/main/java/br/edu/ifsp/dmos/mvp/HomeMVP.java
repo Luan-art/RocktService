@@ -13,7 +13,7 @@ public interface HomeMVP {
 
         void GoToMenu();
         void BuscarTema(String tema);
-        void search();
+        void search(String nome);
 
     }
 }

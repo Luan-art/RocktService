@@ -5,9 +5,13 @@ import android.content.Intent;
 
 import br.edu.ifsp.dmos.mvp.MenuMVP;
 import br.edu.ifsp.dmos.view.EditProfileActivity;
+import br.edu.ifsp.dmos.view.FavoritedServiceActivity;
 import br.edu.ifsp.dmos.view.HiredServiceActivity;
 import br.edu.ifsp.dmos.view.HomeActivity;
+import br.edu.ifsp.dmos.view.LoginActivity;
 import br.edu.ifsp.dmos.view.ServiceOfferedActivity;
+import br.edu.ifsp.dmos.view.ServiceSolicitationActivity;
+import br.edu.ifsp.dmos.view.UpdatePasswordActivity;
 
 public class MenuPresenter implements MenuMVP.Presenter {
 
@@ -54,28 +58,28 @@ public class MenuPresenter implements MenuMVP.Presenter {
 
     @Override
     public void servicosSolicitados() {
-        Intent intent = new Intent(context, SolicitService.class);
+        Intent intent = new Intent(context, HiredServiceActivity.class);
         context.startActivity(intent);
 
     }
 
     @Override
     public void servicosFavoritos() {
-        Intent intent = new Intent(context, Service.class);
+        Intent intent = new Intent(context, FavoritedServiceActivity.class);
         context.startActivity(intent);
 
     }
 
     @Override
     public void alterSenha() {
-        Intent intent = new Intent(context, HomeActivity.class);
+        Intent intent = new Intent(context, UpdatePasswordActivity.class);
         context.startActivity(intent);
 
     }
 
     @Override
     public void exist() {
-        Intent intent = new Intent(context, HomeActivity.class);
+        Intent intent = new Intent(context, LoginActivity.class);
         context.startActivity(intent);
 
     }

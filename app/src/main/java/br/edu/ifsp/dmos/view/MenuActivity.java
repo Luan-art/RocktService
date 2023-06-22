@@ -78,7 +78,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
         alterarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.servicosFavoritos();
+                presenter.alterSenha();
             }
         });
 
