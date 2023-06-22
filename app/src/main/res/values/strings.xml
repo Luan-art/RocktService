@@ -114,10 +114,10 @@
     <!-- list view -->
     <string name="string_solicitadForYou_desciption">descrição do serviço</string>
 
-    <!-- Solicitad Service -->
-    <string name="String_solicitad_service_infoAdd">* Informação Adcional</string>
-    <string name="string_solicitad_service_finalizar">finalizar</string>
-    <string name="string_solicitad_service_title">Solicitar Serviço</string>
+    <!-- Service Solicitation -->
+    <string name="String_service_solicitation_infoAdd">* Informação Adcional</string>
+    <string name="string_service_solicitation_finalizar">finalizar</string>
+    <string name="string_service_solicitation_title">Dados do serviço selecionado</string>
 
     <!-- Edit Service-->
     <string name="string_edit_profile_endereco">* Endereço</string>

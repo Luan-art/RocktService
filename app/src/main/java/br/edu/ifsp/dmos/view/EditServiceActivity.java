@@ -17,7 +17,7 @@ public class EditServiceActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Editar Serviços");
+        getSupportActionBar().setTitle("Editar Serviço Oferecido");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
