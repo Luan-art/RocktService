@@ -41,8 +41,7 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
     }
 
     private void findByID() {
-       // mActionButton = findViewById(R.id.);
-        mRecyclerView = findViewById(R.id.recyclerview_service);
+        mRecyclerView = findViewById(R.id.recyclerview_service_socicitated_category);
     }
 
     @Override

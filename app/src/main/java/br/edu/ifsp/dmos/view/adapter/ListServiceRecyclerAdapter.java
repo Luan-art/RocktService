@@ -17,6 +17,7 @@ import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.mvp.ListServiceByCategoryMVP;
 import br.edu.ifsp.dmos.presenter.ListServiceByCategoryPresenter;
 import br.edu.ifsp.dmos.presenter.ListServiceByCategoryRecyclerPresenter;
+import br.edu.ifsp.dmos.view.ItemClickListener;
 
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -27,6 +28,11 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
     private Context context;
     private ListServiceByCategoryPresenter presenter;
     private List<Service> data;
+    private ItemClickListener clickListener;
+
+    public void setClickListener(ItemClickListener clickListener){
+        this.clickListener = clickListener;
+    }
 
     public ListServiceRecyclerAdapter(@NonNull FirestoreRecyclerOptions<Service> options){
         super(options);
@@ -43,15 +49,20 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Service model) {
-
+        holder.titleTextView.setText(model.getNomeServico());
+        holder.costTextView.setText(String.valueOf(model.isMediaPreco()));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        if (data != null) {
+            return data.size();
+        } else {
+            return 0;
+        }
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public ImageView infoImageView;
         public TextView titleTextView;
@@ -70,6 +81,12 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
                     presenter.descricaoServico();
                 }
             });
+        }
+
+        @Override
+        public void onClick(View view) {
+            clickListener.onClick( getSnapshots().getSnapshot(getBindingAdapterPosition()).getId() );
+
         }
     }
 }

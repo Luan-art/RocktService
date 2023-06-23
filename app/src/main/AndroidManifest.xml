@@ -29,6 +29,9 @@
         <activity
             android:name=".view.ListServiceByCategoryActivity"
             android:exported="true" />
+        <activity
+            android:name=".view.ServiceSolicitionForYou"
+            android:exported="true" />
 
         <activity
             android:name=".view.ServiceCancelationActivity"

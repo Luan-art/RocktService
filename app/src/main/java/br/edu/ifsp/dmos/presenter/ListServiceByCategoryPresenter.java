@@ -43,4 +43,14 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(adapter);
     }
+
+    @Override
+    public void startListener() {
+
+    }
+
+    @Override
+    public void stopListener() {
+
+    }
 }
