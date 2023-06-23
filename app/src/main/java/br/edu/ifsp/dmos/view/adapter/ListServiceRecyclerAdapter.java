@@ -16,8 +16,12 @@ import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.mvp.ListServiceByCategoryMVP;
 import br.edu.ifsp.dmos.presenter.ListServiceByCategoryPresenter;
+import br.edu.ifsp.dmos.presenter.ListServiceByCategoryRecyclerPresenter;
 
-public class ListServiceRecyclerAdapter extends RecyclerView.Adapter<ListServiceRecyclerAdapter.ViewHolder>{
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+
+public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service, ListServiceRecyclerAdapter.ViewHolder>{
 
     private Context context;
     private ListServiceByCategoryPresenter presenter;
@@ -48,11 +52,13 @@ public class ListServiceRecyclerAdapter extends RecyclerView.Adapter<ListService
         return 0;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements ListServiceByCategoryMVP.Adapter {
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView infoImageView;
         public TextView titleTextView;
         public TextView costTextView;
+
+        private ListServiceByCategoryRecyclerPresenter presenter;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -62,7 +68,7 @@ public class ListServiceRecyclerAdapter extends RecyclerView.Adapter<ListService
             infoImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    presenter.
+                    presenter.descricaoServico();
                 }
             });
         }

@@ -12,5 +12,6 @@ public interface ListServiceByCategoryMVP {
 
     interface Adapter {
 
+        void descricaoServico ();
     }
 }
