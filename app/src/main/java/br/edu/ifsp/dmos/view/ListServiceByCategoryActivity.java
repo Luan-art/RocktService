@@ -9,8 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.edu.ifsp.dmos.R;
+import br.edu.ifsp.dmos.mvp.ListServiceByCategoryMVP;
 
-public class ListServiceByCategoryActivity extends AppCompatActivity {
+public class ListServiceByCategoryActivity extends AppCompatActivity implements ListServiceByCategoryMVP.View {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
