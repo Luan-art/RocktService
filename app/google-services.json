@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1034399820141-g51si2jl83jnjfitqs82bumijmvmb1pc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.edu.ifsp.dmos",
+            "certificate_hash": "036306a7068022958f9bca798f74808a1996ed93"
+          }
+        },
+        {
           "client_id": "1034399820141-4bptli7fuc9mvc9q352bstrb9oig9evo.apps.googleusercontent.com",
           "client_type": 3
         }

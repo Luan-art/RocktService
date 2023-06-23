@@ -27,10 +27,8 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
     private ListServiceByCategoryPresenter presenter;
     private List<Service> data;
 
-    public ListServiceRecyclerAdapter(Context context,ListServiceByCategoryPresenter presenter,List<Service> data){
-        this.context = context;
-        this.presenter = presenter;
-        this.data = data;
+    public ListServiceRecyclerAdapter(@NonNull FirestoreRecyclerOptions<Service> options){
+        super(options);
     }
 
     @NonNull
@@ -43,7 +41,7 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Service model) {
 
     }
 
