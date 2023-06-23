@@ -17,33 +17,25 @@ import java.sql.Date;
 import br.edu.ifsp.dmos.constants.Constants;
 import br.edu.ifsp.dmos.model.entites.User;
 import br.edu.ifsp.dmos.mvp.SignUpMVP;
-import br.edu.ifsp.dmos.view.HomeActivity;
 import br.edu.ifsp.dmos.view.LoginActivity;
-import br.edu.ifsp.dmos.view.SingUpActivity;
 
 public class SingUpPresenter implements SignUpMVP.Presenter {
 
     private SignUpMVP.View view;
-    private  Context context;
-
-    private String firestoreId = "";
-
+    private Context context;
     private FirebaseFirestore database;
 
-
-
+    private String firestoreId = "";
 
     public SingUpPresenter(SignUpMVP.View view, Context context) {
         this.view = view;
         this.context = context;
         database = FirebaseFirestore.getInstance();
-
-
     }
 
     @Override
     public void Enter() {
-        Intent intent = new Intent(context, LoginPresenter.class);
+        Intent intent = new Intent(context, LoginActivity.class);
         context.startActivity(intent);
     }
 
@@ -51,32 +43,33 @@ public class SingUpPresenter implements SignUpMVP.Presenter {
     public void RealizarCadastro(String nome, String email, String doc, Date dataNasci,
                                  String usuario, String telCel,  String senha, String confSenha) {
 
-        User user;
-        user = new User( nome,  email,  doc, dataNasci, usuario,  telCel,
-                null ,null, null,  senha);
-
         CollectionReference listUsuarios = database.collection(Constants.USERS_COLLECTION);
 
-        listUsuarios.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Toast.makeText(view.getContext(), "Usuario cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context, LoginActivity.class);
-                context.startActivity(intent);
+        // Consulta para verificar se o nome de usuário já existe
+        listUsuarios.whereEqualTo("usuario", usuario).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                boolean userExists = !task.getResult().isEmpty();
+                if (userExists) {
+                    Toast.makeText(view.getContext(), "Nome de usuário já está em uso", Toast.LENGTH_SHORT).show();
+                } else {
+                    User user = new User(nome, email, doc, dataNasci, usuario, telCel, null, null, null, senha);
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(view.getContext(), "Erro ao cadastrar Usuario.", Toast.LENGTH_SHORT).show();
+                    listUsuarios.add(user).addOnSuccessListener(documentReference -> {
+                        Toast.makeText(view.getContext(), "Usuário cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(context, LoginActivity.class);
+                        context.startActivity(intent);
+                    }).addOnFailureListener(e -> {
+                        Toast.makeText(view.getContext(), "Erro ao cadastrar usuário.", Toast.LENGTH_SHORT).show();
+                    });
+                }
+            } else {
+                Toast.makeText(view.getContext(), "Erro ao verificar nome de usuário.", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     @Override
     public boolean isNewUser() {
         return firestoreId.isEmpty();
-
     }
 }

@@ -68,12 +68,10 @@ public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View
                 Date data = new Date(utilDate.getTime());
 
                 if (nome.isEmpty() || email.isEmpty() || doc.isEmpty() || data == null ||
-                        username.isEmpty() || telcel.isEmpty() || password.isEmpty() || confPassword.isEmpty()) {
+                        username.isEmpty() || telcel.isEmpty() || password.isEmpty() || confPassword.isEmpty() || !password.equals(confPassword)) {
                     showEmptyFieldsMessage();
 
-                } else if (password != confPassword) {
-                    showPasswordFieldsMessage();
-                }else {
+                } else {
 
                     presenter.RealizarCadastro(nome, email, doc, data, username, telcel, password, confPassword);
             }
@@ -111,7 +109,5 @@ public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View
         Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
     }
 
-    public void showPasswordFieldsMessage() {
-        Toast.makeText(this, "Senhas diferentes", Toast.LENGTH_SHORT).show();
-    }
+
 }
