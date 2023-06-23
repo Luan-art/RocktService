@@ -8,7 +8,7 @@ public interface LoginMVP {
     interface View{
         Context getContext();
 
-        void showEmptyFieldsMessage();
+        void showErrorMessage(String erro_ao_buscar_usuário);
     }
 
     interface Presenter{

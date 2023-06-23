@@ -19,5 +19,8 @@ public interface SignUpMVP {
         void RealizarCadastro(String nome, String email, String doc, Date dataNasci, String usuario,
                           String senha, String conSenha, String telCel);
 
+        boolean isNewUser();
+        
+
     }
 }

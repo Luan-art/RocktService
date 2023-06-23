@@ -59,16 +59,26 @@ public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View
                 String telcel = edittextTelcel.getText().toString();
 
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                Date data = null;
+                java.util.Date utilDate = null;
                 try {
-                    data = (Date) dateFormat.parse(datanasc);
+                    utilDate = dateFormat.parse(datanasc);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+                Date data = new Date(utilDate.getTime());
 
-                presenter.RealizarCadastro(nome, email, doc, data, username, telcel, password, confPassword);
+                if (nome.isEmpty() || email.isEmpty() || doc.isEmpty() || data == null ||
+                        username.isEmpty() || telcel.isEmpty() || password.isEmpty() || confPassword.isEmpty()) {
+                    showEmptyFieldsMessage();
+
+                } else if (password != confPassword) {
+                    showPasswordFieldsMessage();
+                }else {
+
+                    presenter.RealizarCadastro(nome, email, doc, data, username, telcel, password, confPassword);
             }
-        });
+        }
+            });
 
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,5 +109,9 @@ public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View
     @Override
     public void showEmptyFieldsMessage() {
         Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+    }
+
+    public void showPasswordFieldsMessage() {
+        Toast.makeText(this, "Senhas diferentes", Toast.LENGTH_SHORT).show();
     }
 }

@@ -73,8 +73,9 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
     }
 
     @Override
-    public void showEmptyFieldsMessage() {
-        Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
-
+    public void showErrorMessage(String erro_ao_buscar_usuário) {
+        Toast.makeText(this, erro_ao_buscar_usuário, Toast.LENGTH_SHORT).show();
     }
+
+
 }
