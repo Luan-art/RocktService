@@ -3,20 +3,31 @@ package br.edu.ifsp.dmos.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.mvp.ListServiceByCategoryMVP;
+import br.edu.ifsp.dmos.presenter.ListServiceByCategoryPresenter;
 
-public class ListServiceByCategoryActivity extends AppCompatActivity implements ListServiceByCategoryMVP.View {
+public class ListServiceByCategoryActivity extends AppCompatActivity implements ListServiceByCategoryMVP.View{
+
+    private ListServiceByCategoryMVP presenter;
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_service_by_category);
+
+        //findByID();
+        //setListener();
+        presenter = new ListServiceByCategoryPresenter(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -44,5 +55,34 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
             }
         });
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        presenter.populate(mRecyclerView);
+        presenter.startListener();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.stopListener();
+    }
+
+    @Override
+    protected void onDestroy() {
+        presenter.detach();
+        super.onDestroy();
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
+    }
+
+    private void findById(){
+        mActionButton = findViewById(R.id.);
+        mRecyclerView = findViewById(R.id.recyclerview_service);
     }
 }
