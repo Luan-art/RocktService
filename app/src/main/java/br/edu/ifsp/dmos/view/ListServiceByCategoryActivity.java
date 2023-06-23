@@ -17,7 +17,7 @@ import br.edu.ifsp.dmos.presenter.ListServiceByCategoryPresenter;
 
 public class ListServiceByCategoryActivity extends AppCompatActivity implements ListServiceByCategoryMVP.View{
 
-    private ListServiceByCategoryMVP presenter;
+    private ListServiceByCategoryMVP.Presenter presenter;
     private RecyclerView mRecyclerView;
 
     @Override
@@ -25,8 +25,8 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_service_by_category);
 
-        //findByID();
-        //setListener();
+        findByID();
+        setListener();
         presenter = new ListServiceByCategoryPresenter(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -34,6 +34,15 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
         getSupportActionBar().setTitle("Listar Serviço por categoria");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    private void setListener() {
+
+    }
+
+    private void findByID() {
+       // mActionButton = findViewById(R.id.);
+        mRecyclerView = findViewById(R.id.recyclerview_service);
     }
 
     @Override
@@ -81,8 +90,4 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
         return this;
     }
 
-    private void findById(){
-        mActionButton = findViewById(R.id.);
-        mRecyclerView = findViewById(R.id.recyclerview_service);
-    }
 }
