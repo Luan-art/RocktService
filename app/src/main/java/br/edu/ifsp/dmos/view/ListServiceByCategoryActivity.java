@@ -25,7 +25,6 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_service_by_category);
 
-        findByID();
         setListener();
         presenter = new ListServiceByCategoryPresenter(this);
 
@@ -38,11 +37,6 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
 
     private void setListener() {
 
-    }
-
-    private void findByID() {
-       // mActionButton = findViewById(R.id.);
-        mRecyclerView = findViewById(R.id.recyclerview_service);
     }
 
     @Override
