@@ -11,18 +11,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.mvp.ListServiceByCategoryMVP;
 import br.edu.ifsp.dmos.presenter.ListServiceByCategoryPresenter;
-import br.edu.ifsp.dmos.view.adapter.ListServiceRecyclerAdapter;
 
 public class ListServiceByCategoryActivity extends AppCompatActivity implements ListServiceByCategoryMVP.View{
 
     private ListServiceByCategoryMVP.Presenter presenter;
     private RecyclerView mRecyclerView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +41,8 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
     }
 
     private void findByID() {
-        mRecyclerView = findViewById(R.id.recyclerview_service_socicitated_category);
+       // mActionButton = findViewById(R.id.);
+        mRecyclerView = findViewById(R.id.recyclerview_service);
     }
 
     @Override
@@ -92,6 +89,5 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
     public Context getContext() {
         return this;
     }
-
 
 }

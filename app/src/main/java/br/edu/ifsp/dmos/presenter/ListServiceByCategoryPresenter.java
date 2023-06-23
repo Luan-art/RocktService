@@ -21,7 +21,7 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
     public ListServiceByCategoryPresenter(ListServiceByCategoryMVP.View view){
         this.view = view;
         database = FirebaseFirestore.getInstance();
-    }   
+    }
 
     @Override
     public void detach() {
@@ -33,24 +33,14 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
         FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>().setQuery(query, Service.class).build();
 
         adapter = new ListServiceRecyclerAdapter(options);
-
+        /*adapter.setClickListener(new ItemClicklListener() {
+            @Override
+            public void onClick(String referenceId) {
+                abrirDetalhes(referenceId);
+            }
+        });
+        */
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(adapter);
     }
-
-    @Override
-    public void startListener() {
-
-        if (adapter != null)
-            adapter.startListening();
-    }
-
-    @Override
-    public void stopListener() {
-        if (adapter != null)
-            adapter.stopListening();
-    }
-
-
 }
-

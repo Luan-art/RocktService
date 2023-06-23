@@ -28,7 +28,7 @@
             android:exported="false" />
         <activity
             android:name=".view.ListServiceByCategoryActivity"
-            android:exported="false" />
+            android:exported="true" />
 
         <activity
             android:name=".view.ServiceCancelationActivity"
