@@ -2,11 +2,14 @@ package br.edu.ifsp.dmos.presenter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.sql.Date;
 
@@ -36,14 +39,19 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
 
 
     @Override
-    public void CadastrarTarefa(String nomeServico, String idProfissional, String nomeProfissional, String categoria, boolean precoHora,
+    public void CadastrarTarefa(String nomeServico, String categoria, boolean precoHora,
                                 String formasDePagamento, String formaExecucao, String addInfo,
                                 String coment, Date date, String status) {
         CollectionReference listaServicos = database.collection(Constants.SERVICE_COLLECTION);
 
         CollectionReference listUsuarios = database.collection(Constants.USERS_COLLECTION);
+        
 
-        Service servico = new Service(nomeServico, idProfissional, nomeProfissional, categoria, precoHora,
+        Log.d("Valor Variavel idUsuarioBundle", "Value: " + usuario);
+
+
+
+        Service servico = new Service(nomeServico, usuario, nomeProfissional, categoria, precoHora,
                 formasDePagamento, formaExecucao, addInfo, coment, date, status);
 
            listaServicos.add(servico).addOnSuccessListener(documentReference -> {
