@@ -15,7 +15,7 @@ public interface AddServiceMVP {
     interface Presenter {
 
 
-        void CadastrarTarefa(String nomeServico, String idProfissional, String nomeProfissional, String categoria, boolean mediaPreco,
+        void CadastrarTarefa(String nomeServico, String nomeProfissional, String categoria, boolean mediaPreco,
                                     String formasDePagamento, String formaExecucao, String addInfo,
                              String coment, Date date, String status);
 

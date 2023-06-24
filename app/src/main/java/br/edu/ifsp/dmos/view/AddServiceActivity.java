@@ -42,8 +42,6 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
             idUsuarioBundle = intent.getStringExtra("idUsuarioBundle");
         }
 
-        System.out.println(idUsuarioBundle);
-
         findById();
         setListener();
         presenter = new AddServicePresenter(this, this, idUsuarioBundle);
@@ -91,7 +89,7 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
 
                 String categoria = menu.getSelectedItem().toString();
 
-                presenter.CadastrarTarefa(nomeServico, idUsuarioBundle,  "", categoria, Boolean.parseBoolean(mediaPreco),
+                presenter.CadastrarTarefa(nomeServico,  "", categoria, Boolean.parseBoolean(mediaPreco),
                         formasPagamento, formaExecucao, informacaoAdicional, "", null, "Nulo");
 
             }
