@@ -5,15 +5,14 @@ import java.sql.Date;
 public class Service {
 
     private String nomeServico;
+
+    private String idProfissional;
     private String nomeProfissional;
     private String categoria;
     private boolean mediaPreco;
     private String formasDePagamento;
     private String formaExecucao;
     private String addInfo;
-
-    private double nota;
-
     private String status;
 
     private Date date;
@@ -24,18 +23,18 @@ public class Service {
         // Inicialize os campos, se necessário
     }
 
-    public Service(String nomeServico, String nomeProfissional, String categoria, boolean mediaPreco,
-                   String formasDePagamento, String formaExecucao, String addInfo, double nota,
+    public Service(String nomeServico,String idProfissional ,String nomeProfissional, String categoria, boolean mediaPreco,
+                   String formasDePagamento, String formaExecucao, String addInfo,
                    String coment, Date date, String status) {
 
         setNomeServico(nomeServico);
+        setIdProfissional(idProfissional);
         setNomeProfissional(nomeProfissional);
         setCategoria(categoria);
         setMediaPreco(mediaPreco);
         setFormasDePagamento(formasDePagamento);
         setFormaExecucao(formaExecucao);
         setAddInfo(addInfo);
-        setNota(nota);
         setComent(coment);
         setDate(date);
         setStatus(status);
@@ -49,6 +48,10 @@ public class Service {
     public void setNomeServico(String nomeServico) {
         this.nomeServico = nomeServico;
     }
+
+    public String getIdProfissional() { return idProfissional;}
+
+    public void setIdProfissional(String idProfissional) {this.idProfissional = idProfissional;}
 
     public String getNomeProfissional() {
         return nomeProfissional;
@@ -95,14 +98,6 @@ public class Service {
 
     public void setAddInfo(String addInfo) {
         this.addInfo = addInfo;
-    }
-
-    public double getNota() {
-        return nota;
-    }
-
-    public void setNota(double nota) {
-        this.nota = nota;
     }
 
     public String getComent() {

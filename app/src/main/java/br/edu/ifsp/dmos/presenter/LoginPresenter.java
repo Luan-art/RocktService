@@ -68,6 +68,9 @@ public class LoginPresenter implements LoginMVP.Presenter {
                                     editor.putString("usuario", username);
                                     editor.apply();
 
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("usuario", username);
+                                    bundle.putString("idUsuarioBundle", userId);
                                     Intent intent = new Intent(context, HomeActivity.class);
                                     context.startActivity(intent);
                                 } else {

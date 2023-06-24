@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -25,6 +26,8 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
     private Button btnCad;
     private Spinner menu;
 
+    private String idUsuarioBundle;
+
     private AddServiceMVP.Presenter presenter;
 
 
@@ -34,9 +37,16 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_service);
 
+        Intent intent = getIntent();
+        if (intent != null) {
+            idUsuarioBundle = intent.getStringExtra("idUsuarioBundle");
+        }
+
+        System.out.println(idUsuarioBundle);
+
         findById();
         setListener();
-        presenter = new AddServicePresenter(this, this);
+        presenter = new AddServicePresenter(this, this, idUsuarioBundle);
 
     }
 
@@ -81,8 +91,8 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
 
                 String categoria = menu.getSelectedItem().toString();
 
-                presenter.CadastrarTarefa(nomeServico, "", categoria, Boolean.parseBoolean(mediaPreco),
-                        formasPagamento, formaExecucao, informacaoAdicional, 0.0, "", null, "Nulo");
+                presenter.CadastrarTarefa(nomeServico, idUsuarioBundle,  "", categoria, Boolean.parseBoolean(mediaPreco),
+                        formasPagamento, formaExecucao, informacaoAdicional, "", null, "Nulo");
 
             }
         });

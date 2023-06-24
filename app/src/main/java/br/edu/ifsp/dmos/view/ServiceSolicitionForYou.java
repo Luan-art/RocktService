@@ -30,7 +30,7 @@ public class ServiceSolicitionForYou extends AppCompatActivity implements Servic
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         findById();
-        presenter = new ServiceSolicitionForYouPresenter(this, this);
+        //presenter = new ServiceSolicitionForYouPresenter(this, this);
     }
 
 

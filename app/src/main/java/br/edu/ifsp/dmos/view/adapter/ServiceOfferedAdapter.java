@@ -42,7 +42,7 @@ public class ServiceOfferedAdapter extends FirestoreRecyclerAdapter<Service, Ser
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_list_view, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_view_offered, parent, false);
         Holder holder = new Holder(view);
         return holder;
     }
