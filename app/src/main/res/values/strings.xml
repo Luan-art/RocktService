@@ -127,5 +127,15 @@
     <!--Error mensagens-->
     <string name="string_campos_vazios"> Prencha todos os campos </string>
 
+    <!--SimpleArray-->
+    <string-array name="categoria_array">
+        <item>Tecnologia</item>
+        <item>Educação</item>
+        <item>Casa</item>
+        <item>Arte</item>
+        <item>Evento</item>
+        <item>Saúde</item>
+    </string-array>
+
 
 </resources>

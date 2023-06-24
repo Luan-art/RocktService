@@ -30,10 +30,6 @@ public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View
     private EditText edittextTelcel;
     private Button btnCad;
     private TextView entrar;
-
-
-
-
     private SingUpPresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +43,7 @@ public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View
 
     private void setListener() {
         btnCad.setOnClickListener(new View.OnClickListener() {
-            @Override
+                @Override
             public void onClick(View view) {
                 String nome = edittextNomeCompleto.getText().toString();
                 String email = edittextEmail.getText().toString();

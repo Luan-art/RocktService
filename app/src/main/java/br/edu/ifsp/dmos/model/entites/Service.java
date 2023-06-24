@@ -12,6 +12,10 @@ public class Service {
     private double nota;
     private String coment;
 
+    public Service() {
+        // Inicialize os campos, se necessário
+    }
+
     public Service(String nomeServico, String nomeProfissional, String categoria, boolean mediaPreco,
                    String formasDePagamento, String formaExecucao, String addInfo, double nota, String coment) {
 
