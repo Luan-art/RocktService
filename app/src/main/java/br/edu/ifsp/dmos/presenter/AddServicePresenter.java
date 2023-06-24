@@ -7,6 +7,8 @@ import android.widget.Toast;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.sql.Date;
+
 import br.edu.ifsp.dmos.constants.Constants;
 import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.model.entites.User;
@@ -30,10 +32,13 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
 
 
     @Override
-    public void CadastrarTarefa(String nomeServico, String nomeProfissional, String categoria, boolean mediaPreco, String formasDePagamento, String formaExecucao, String addInfo, double nota, String coment) {
+    public void CadastrarTarefa(String nomeServico, String nomeProfissional, String categoria, boolean mediaPreco,
+                                String formasDePagamento, String formaExecucao, String addInfo, double nota,
+                                String coment, Date date, String status) {
         CollectionReference listaServicos = database.collection(Constants.SERVICE_COLLECTION);
 
-        Service servico = new Service(nomeServico, nomeProfissional, categoria, mediaPreco, formasDePagamento, formaExecucao, addInfo, nota, coment);
+        Service servico = new Service(nomeServico, nomeProfissional, categoria, mediaPreco,
+                formasDePagamento, formaExecucao, addInfo, nota, coment, date, status);
 
            listaServicos.add(servico).addOnSuccessListener(documentReference -> {
                Toast.makeText(view.getContext(), "Tarefa cadastrada com sucesso!", Toast.LENGTH_SHORT).show();

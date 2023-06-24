@@ -18,6 +18,7 @@ import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.mvp.ServiceOfferedMVP;
 import br.edu.ifsp.dmos.view.AddServiceActivity;
 import br.edu.ifsp.dmos.view.EditProfileActivity;
+import br.edu.ifsp.dmos.view.HiredServiceActivity;
 import br.edu.ifsp.dmos.view.ItemClickListener;
 import br.edu.ifsp.dmos.view.adapter.ServiceOfferedAdapter;
 
@@ -46,12 +47,7 @@ public class ServiceOfferedPresenter implements ServiceOfferedMVP.Presenter {
         FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>().setQuery(query, Service.class).build();
 
         adapter = new ServiceOfferedAdapter(options, view,context);
-        adapter.setClickListener(new ItemClickListener() {
-            @Override
-            public void onClick(String referenceId) {
-                addService(referenceId);
-            }
-        });
+
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(adapter);
     }

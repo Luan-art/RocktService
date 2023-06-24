@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_title_listitem"
+        android:id="@+id/text_title_listitemContratado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_name"
+        android:id="@+id/text_namePro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -41,7 +41,7 @@
         android:textColor="@color/gray"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_title_listitem" />
+        app:layout_constraintTop_toBottomOf="@id/text_title_listitemContratado" />
 
     <TextView
         android:id="@+id/text_date"
@@ -52,7 +52,7 @@
         android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@id/text_title_listitem"
+        app:layout_constraintStart_toEndOf="@id/text_title_listitemContratado"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -61,12 +61,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
-        android:text="@string/string_listView_cost"
+        android:text="@string/string_Status"
         android:textAllCaps="true"
         android:textColor="@color/gray"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/text_name"
-        app:layout_constraintTop_toBottomOf="@id/text_title_listitem" />
+        app:layout_constraintStart_toEndOf="@id/text_namePro"
+        app:layout_constraintTop_toBottomOf="@id/text_title_listitemContratado" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

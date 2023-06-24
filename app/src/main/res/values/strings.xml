@@ -126,6 +126,7 @@
 
     <!--Error mensagens-->
     <string name="string_campos_vazios"> Prencha todos os campos </string>
+    <string name="string_Status">status</string>
 
     <!--SimpleArray-->
     <string-array name="categoria_array">

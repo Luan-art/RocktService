@@ -1,5 +1,7 @@
 package br.edu.ifsp.dmos.model.entites;
 
+import java.sql.Date;
+
 public class Service {
 
     private String nomeServico;
@@ -9,15 +11,22 @@ public class Service {
     private String formasDePagamento;
     private String formaExecucao;
     private String addInfo;
+
     private double nota;
-    private String coment;
+
+    private String status;
+
+    private Date date;
+
+   private String coment;
 
     public Service() {
         // Inicialize os campos, se necessário
     }
 
     public Service(String nomeServico, String nomeProfissional, String categoria, boolean mediaPreco,
-                   String formasDePagamento, String formaExecucao, String addInfo, double nota, String coment) {
+                   String formasDePagamento, String formaExecucao, String addInfo, double nota,
+                   String coment, Date date, String status) {
 
         setNomeServico(nomeServico);
         setNomeProfissional(nomeProfissional);
@@ -28,6 +37,9 @@ public class Service {
         setAddInfo(addInfo);
         setNota(nota);
         setComent(coment);
+        setDate(date);
+        setStatus(status);
+
     }
 
     public String getNomeServico() {
@@ -100,4 +112,21 @@ public class Service {
     public void setComent(String coment) {
         this.coment = coment;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
+

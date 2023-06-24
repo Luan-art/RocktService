@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import br.edu.ifsp.dmos.model.entites.Service;
 
-public interface FavoritServiceAdapterMVP {
+public interface FavoritServiceMVP {
 
     interface View{
         Context getContext();
@@ -15,12 +15,10 @@ public interface FavoritServiceAdapterMVP {
     interface Presenter{
         void deatach();
 
-        void openDetails(Service service);
 
-        void populateList(RecyclerView recyclerView);
+        void populate(RecyclerView recyclerView);
 
         void deletTesk(Service service);
 
-        void updateList();
     }
 }

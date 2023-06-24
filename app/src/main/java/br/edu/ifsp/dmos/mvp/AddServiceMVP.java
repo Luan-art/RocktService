@@ -16,7 +16,8 @@ public interface AddServiceMVP {
 
 
         void CadastrarTarefa(String nomeServico, String nomeProfissional, String categoria, boolean mediaPreco,
-                                    String formasDePagamento, String formaExecucao, String addInfo, double nota, String coment);
+                                    String formasDePagamento, String formaExecucao, String addInfo, double nota,
+                             String coment, Date date, String status);
 
         boolean isNewUser();
 
