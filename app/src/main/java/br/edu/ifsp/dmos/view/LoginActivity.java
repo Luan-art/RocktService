@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,8 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
     private LoginPresenter presenter;
     private SharedPreferences sharedPreferences;
 
+    private RadioButton lembrarDeMim;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +40,10 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
         setListener();
 
         // Carregar o usuário salvo, se existir
-        String savedUser = sharedPreferences.getString("usuario", "");
-        textUser.setText(savedUser);
+        if (lembrarDeMim.isChecked()) {
+            String savedUser = sharedPreferences.getString("usuario", "");
+            textUser.setText(savedUser);
+        }
     }
 
     private void findById() {
@@ -46,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
         textPassword = findViewById(R.id.edittext_password);
         btnEnter = findViewById(R.id.button_enter);
         cadastrar = findViewById(R.id.text_singup_reminder);
+        lembrarDeMim = findViewById(R.id.radio_remember_me);
     }
 
     private void setListener() {
@@ -55,6 +61,13 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
                 String user = textUser.getText().toString();
                 String password = textPassword.getText().toString();
                 presenter.login(user, password);
+
+                if (lembrarDeMim.isChecked()) {
+                    // Salvar o usuário no SharedPreferences
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("usuario", user);
+                    editor.apply();
+                }
             }
         });
 

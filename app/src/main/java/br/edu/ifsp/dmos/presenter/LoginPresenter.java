@@ -5,6 +5,7 @@ import static br.edu.ifsp.dmos.constants.Constants.USERS_COLLECTION;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 

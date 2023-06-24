@@ -40,6 +40,8 @@
     <string name="string_login_edittext_hint_user">* Usuário</string>
     <string name="string_login_edittext_hint_senha">* Senha</string>
     <string name="string_login_btn_entrar">Entrar</string>
+    <string name="lembre_de_mim">Lembrar de mim</string>
+
 
     <!-- activity_update_password -->
     <string name="string_updatepssw_edittext_senha_atual">* Senha Atual</string>
