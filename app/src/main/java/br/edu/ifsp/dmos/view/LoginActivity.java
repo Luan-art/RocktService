@@ -1,10 +1,9 @@
 package br.edu.ifsp.dmos.view;
 
-import static br.edu.ifsp.dmos.R.string.string_campos_vazios;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,39 +11,39 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.button.MaterialButtonToggleGroup;
-
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.mvp.LoginMVP;
-import br.edu.ifsp.dmos.mvp.MainMVP;
 import br.edu.ifsp.dmos.presenter.LoginPresenter;
 
 public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
 
     private EditText textUser;
-    private EditText textPassoword;
+    private EditText textPassword;
     private Button btnEnter;
     private TextView cadastrar;
 
     private LoginPresenter presenter;
-
-
-
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        sharedPreferences = getSharedPreferences("login_preferences", Context.MODE_PRIVATE);
+        presenter = new LoginPresenter(this, this);
+
         findById();
         setListener();
-        presenter = new LoginPresenter(this, this);
-    }
 
+        // Carregar o usuário salvo, se existir
+        String savedUser = sharedPreferences.getString("usuario", "");
+        textUser.setText(savedUser);
+    }
 
     private void findById() {
         textUser = findViewById(R.id.edittext_user);
-        textPassoword = findViewById(R.id.edittext_password);
+        textPassword = findViewById(R.id.edittext_password);
         btnEnter = findViewById(R.id.button_enter);
         cadastrar = findViewById(R.id.text_singup_reminder);
     }
@@ -53,19 +52,19 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.Login( textUser.getText().toString(), textPassoword.getText().toString());
+                String user = textUser.getText().toString();
+                String password = textPassword.getText().toString();
+                presenter.login(user, password);
             }
         });
 
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                presenter.Cadast();
+                presenter.cadast();
             }
         });
     }
-
 
     @Override
     public Context getContext() {
@@ -73,9 +72,7 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
     }
 
     @Override
-    public void showErrorMessage(String erro_ao_buscar_usuário) {
-        Toast.makeText(this, erro_ao_buscar_usuário, Toast.LENGTH_SHORT).show();
+    public void showErrorMessage(String errorMessage) {
+        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
-
-
 }

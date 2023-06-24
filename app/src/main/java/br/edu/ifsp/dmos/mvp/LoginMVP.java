@@ -13,8 +13,8 @@ public interface LoginMVP {
 
     interface Presenter{
 
-        void Login(String user, String passoword);
-        void Cadast();
+        void login(String user, String passoword);
+        void cadast();
 
     }
 }
