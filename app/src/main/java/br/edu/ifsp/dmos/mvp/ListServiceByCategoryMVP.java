@@ -26,6 +26,6 @@ public interface ListServiceByCategoryMVP {
 
     interface Adapter {
 
-        void descricaoServico ();
+        void descricaoServico (Context context);
     }
 }

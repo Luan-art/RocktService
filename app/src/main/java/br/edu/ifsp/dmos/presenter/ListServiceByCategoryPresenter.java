@@ -1,5 +1,7 @@
 package br.edu.ifsp.dmos.presenter;
 
+import android.content.Context;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,10 +19,13 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
     private ListServiceByCategoryMVP.View view;
     private FirebaseFirestore database;
     private ListServiceRecyclerAdapter adapter;
+    private Context context;
 
-    public ListServiceByCategoryPresenter(ListServiceByCategoryMVP.View view){
+
+    public ListServiceByCategoryPresenter(ListServiceByCategoryMVP.View view, Context context){
         this.view = view;
         database = FirebaseFirestore.getInstance();
+        this.context = context;
     }
 
     @Override
@@ -32,25 +37,21 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
         Query query = database.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO, Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>().setQuery(query, Service.class).build();
 
-        adapter = new ListServiceRecyclerAdapter(options);
-        /*adapter.setClickListener(new ItemClicklListener() {
-            @Override
-            public void onClick(String referenceId) {
-                abrirDetalhes(referenceId);
-            }
-        });
-        */
+        adapter = new ListServiceRecyclerAdapter(options, view, view.getContext());
+
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(adapter);
     }
 
     @Override
     public void startListener() {
-
+        if (adapter != null)
+            adapter.startListening();
     }
 
     @Override
     public void stopListener() {
-
+        if (adapter != null)
+            adapter.stopListening();
     }
 }

@@ -27,7 +27,7 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
 
         findByID();
         setListener();
-        presenter = new ListServiceByCategoryPresenter(this);
+        presenter = new ListServiceByCategoryPresenter(this, this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

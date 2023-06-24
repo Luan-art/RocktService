@@ -10,39 +10,43 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+
 import java.util.List;
 
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.mvp.ListServiceByCategoryMVP;
-import br.edu.ifsp.dmos.presenter.ListServiceByCategoryPresenter;
 import br.edu.ifsp.dmos.presenter.ListServiceByCategoryRecyclerPresenter;
 import br.edu.ifsp.dmos.view.ItemClickListener;
 
 
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-
-public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service, ListServiceRecyclerAdapter.ViewHolder>{
+public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service, ListServiceRecyclerAdapter.ViewHolder> {
 
     private Context context;
-    private ListServiceByCategoryPresenter presenter;
     private List<Service> data;
     private ItemClickListener clickListener;
 
-    public void setClickListener(ItemClickListener clickListener){
+    private ListServiceByCategoryMVP.View view;
+
+    private ListServiceByCategoryRecyclerPresenter presenter;
+
+    public void setClickListener(ItemClickListener clickListener) {
         this.clickListener = clickListener;
     }
 
-    public ListServiceRecyclerAdapter(@NonNull FirestoreRecyclerOptions<Service> options){
+    public ListServiceRecyclerAdapter(@NonNull FirestoreRecyclerOptions<Service> options, ListServiceByCategoryMVP.View view, Context context) {
         super(options);
+        this.context = context;
+        presenter = new ListServiceByCategoryRecyclerPresenter(); // Inicializa o presenter
+        this.view = view;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view;
-        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_view_category, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_view_category, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
@@ -53,24 +57,13 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
         holder.costTextView.setText(String.valueOf(model.isMediaPreco()));
     }
 
-    @Override
-    public int getItemCount() {
-        if (data != null) {
-            return data.size();
-        } else {
-            return 0;
-        }
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ImageView infoImageView;
         public TextView titleTextView;
         public TextView costTextView;
 
-        private ListServiceByCategoryRecyclerPresenter presenter;
-
-        public ViewHolder(View itemView){
+        public ViewHolder(View itemView) {
             super(itemView);
             infoImageView = itemView.findViewById(R.id.image_info);
             titleTextView = itemView.findViewById(R.id.text_title_listitemCategory);
@@ -78,15 +71,17 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
             infoImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    presenter.descricaoServico();
+                    presenter.descricaoServico(context);
                 }
             });
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            clickListener.onClick( getSnapshots().getSnapshot(getBindingAdapterPosition()).getId() );
-
+            if (clickListener != null) {
+                clickListener.onClick(getSnapshots().getSnapshot(getBindingAdapterPosition()).getId());
+            }
         }
     }
 }
