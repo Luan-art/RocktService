@@ -36,7 +36,7 @@ public class ServiceOfferedActivity extends AppCompatActivity implements Service
 
         findById();
         setListener();
-        presenter = new ServiceOfferedPresenter(this);
+        presenter = new ServiceOfferedPresenter(this, this);
     }
 
     private void setListener() {

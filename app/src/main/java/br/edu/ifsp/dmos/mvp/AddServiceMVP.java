@@ -4,6 +4,8 @@ import android.content.Context;
 
 import java.sql.Date;
 
+import br.edu.ifsp.dmos.model.entites.Service;
+
 public interface AddServiceMVP {
     interface View{
         Context getContext();
@@ -17,5 +19,7 @@ public interface AddServiceMVP {
                                     String formasDePagamento, String formaExecucao, String addInfo, double nota, String coment);
 
         boolean isNewUser();
+
+
     }
 }

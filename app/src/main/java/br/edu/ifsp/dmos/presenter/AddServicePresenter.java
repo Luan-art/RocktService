@@ -48,4 +48,6 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
     public boolean isNewUser() {
         return  firestoreId.isEmpty();
     }
+
+
 }
