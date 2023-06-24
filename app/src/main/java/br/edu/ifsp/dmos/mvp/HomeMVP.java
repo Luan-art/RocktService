@@ -11,7 +11,7 @@ public interface HomeMVP {
 
     interface Presenter{
 
-        void GoToMenu();
+        void GoToMenu(String usuario);
         void BuscarTema(String tema);
         void search(String nome);
 

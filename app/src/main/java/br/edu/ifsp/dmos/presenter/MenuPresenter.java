@@ -19,10 +19,15 @@ public class MenuPresenter implements MenuMVP.Presenter {
 
     private Context context;
     private MenuMVP.View view;
+    private String usuario;
 
     public MenuPresenter(MenuMVP.View view, Context context) {
         this.view = view;
         this.context = context;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     @Override
@@ -31,58 +36,52 @@ public class MenuPresenter implements MenuMVP.Presenter {
     }
 
     @Override
-    public void visualizarPerfil() {
+    public void visualizarPerfil(String usuario) {
         Intent intent = new Intent(context, EditProfileActivity.class);
+        intent.putExtra("usuario", usuario);
         context.startActivity(intent);
-
     }
 
     @Override
     public void backToHome() {
         Intent intent = new Intent(context, HomeActivity.class);
         context.startActivity(intent);
-
     }
 
     @Override
     public void servicosContratados() {
         Intent intent = new Intent(context, HiredServiceActivity.class);
         context.startActivity(intent);
-
     }
 
     @Override
     public void servicosOferecidos() {
         Intent intent = new Intent(context, ServiceOfferedActivity.class);
         context.startActivity(intent);
-
     }
 
     @Override
     public void servicosSolicitados() {
         Intent intent = new Intent(context, ServiceSolicitionForYou.class);
         context.startActivity(intent);
-
     }
 
     @Override
     public void servicosFavoritos() {
         Intent intent = new Intent(context, FavoritedServiceActivity.class);
         context.startActivity(intent);
-
     }
 
     @Override
-    public void alterSenha() {
+    public void alterSenha( String usuario) {
         Intent intent = new Intent(context, UpdatePasswordActivity.class);
+        intent.putExtra("usuario", usuario);
         context.startActivity(intent);
-
     }
 
     @Override
     public void exist() {
         Intent intent = new Intent(context, LoginActivity.class);
         context.startActivity(intent);
-
     }
 }

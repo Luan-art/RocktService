@@ -5,6 +5,7 @@ import static br.edu.ifsp.dmos.constants.Constants.USERS_COLLECTION;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -62,24 +63,23 @@ public class LoginPresenter implements LoginMVP.Presenter {
                         if (task.isSuccessful()) {
                             QuerySnapshot querySnapshot = task.getResult();
                             if (querySnapshot != null && !querySnapshot.isEmpty()) {
-
                                 DocumentSnapshot documentSnapshot = querySnapshot.getDocuments().get(0);
                                 String storedPassword = documentSnapshot.getString("senha");
                                 assert storedPassword != null;
                                 if (storedPassword.equals(password)) {
-
+                                    String userId = documentSnapshot.getId();
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("usuario", username);
                                     Intent intent = new Intent(context, HomeActivity.class);
+                                    intent.putExtras(bundle);
                                     context.startActivity(intent);
                                 } else {
-
                                     view.showErrorMessage("Senha incorreta");
                                 }
                             } else {
-
                                 view.showErrorMessage("Usuário não encontrado");
                             }
                         } else {
-
                             view.showErrorMessage("Erro ao buscar usuário");
                         }
                     }

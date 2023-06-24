@@ -13,7 +13,7 @@ public interface MenuMVP {
 
         void detach();
 
-        void  visualizarPerfil ();
+        void  visualizarPerfil (String usuario);
 
         void backToHome();
 
@@ -25,7 +25,7 @@ public interface MenuMVP {
 
         void servicosFavoritos();
 
-        void alterSenha();
+        void alterSenha(String usuario);
 
         void exist();
 

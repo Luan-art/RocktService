@@ -22,21 +22,34 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
     private TextView alterarSenha;
     private TextView sair;
     private MenuPresenter presenter;
+
+    private String usuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            String usuario = bundle.getString("usuario");
+            setUsuario(usuario);
+        }
 
         presenter = new MenuPresenter(this, this);
         findVById();
         setListener();
     }
 
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     private void setListener() {
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.visualizarPerfil();
+                presenter.visualizarPerfil(usuario);
             }
         });
 
@@ -78,7 +91,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
         alterarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.alterSenha();
+                presenter.alterSenha( usuario);
             }
         });
 

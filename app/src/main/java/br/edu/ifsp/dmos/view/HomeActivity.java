@@ -46,13 +46,19 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
 
         presenter = new HomePresenter(this, this);
 
+
     }
 
     private void setListener() {
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.GoToMenu();
+                Bundle bundle = getIntent().getExtras();
+                if (bundle != null) {
+                    String usuario = bundle.getString("usuario");
+                    presenter.GoToMenu(usuario);
+                }
+
             }
         });
 
@@ -182,4 +188,5 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
     public Context getContext() {
         return this;
     }
+
 }
