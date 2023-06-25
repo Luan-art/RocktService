@@ -31,12 +31,19 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
 
     private AddServiceMVP.Presenter presenter;
 
-
+    String nomeProfissional;
+    String idUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_service);
+
+        Bundle bundle = getIntent().getExtras();
+        nomeProfissional = bundle.getString("usuario");
+        idUsuario = bundle.getString("idUsuarioBundle");
+        Log.d("nome Do Usuario no add service activity", "Value: " + (nomeProfissional));
+        Log.d("nome Do Usuario no add service activity", "Value: " + (idUsuario));
 
         findById();
         setListener();
@@ -76,12 +83,6 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
         btnCad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Bundle bundle = getIntent().getExtras();
-                String nomeProfissional = bundle.getString("usuario");
-                String idUsuario = bundle.getString("idUsuarioBundle");
-                Log.d("nome Do Usuario no add service activity", "Value: " + (nomeProfissional));
-                Log.d("nome Do Usuario no add service activity", "Value: " + (idUsuario));
 
                 String nomeServico = edittextNomeServico.getText().toString();
                 String mediaPreco = editTextmediaPreco.getText().toString();

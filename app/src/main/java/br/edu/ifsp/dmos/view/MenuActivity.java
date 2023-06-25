@@ -69,6 +69,10 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
 
                 Bundle bundle = getIntent().getExtras();
 
+                String nomeProfissional = bundle.getString("usuario");
+                String idUsuario = bundle.getString("idUsuarioBundle");
+                Log.d("nome Do Usuario no menu activity", "Value: " + (nomeProfissional));
+                Log.d("nome Do Usuario no menu service activity", "Value: " + (idUsuario));
                 presenter.servicosOferecidos(bundle);
             }
         });
