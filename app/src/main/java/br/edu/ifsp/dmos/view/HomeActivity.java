@@ -93,7 +93,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
         btnSaude.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.BuscarTema("Saude");
+                presenter.BuscarTema("Saúde");
             }
         });
 
@@ -101,6 +101,19 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
             @Override
             public void onClick(View v) {
                 presenter.BuscarTema("Evento");
+            }
+        });
+
+        // Adicione o setOnKeyListener para capturar a tecla "Enter"
+        search.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                    String query = search.getQuery().toString();
+                    presenter.search(query);
+                    return true;
+                }
+                return false;
             }
         });
 
@@ -117,18 +130,6 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
             }
         });
 
-        // Adicione o setOnKeyListener para capturar a tecla "Enter"
-        search.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                    String query = search.getQuery().toString();
-                    presenter.search(query);
-                    return true;
-                }
-                return false;
-            }
-        });
 
     }
 

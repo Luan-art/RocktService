@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -68,8 +69,22 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
     @Override
     protected void onStart() {
         super.onStart();
-        presenter.populate(mRecyclerView);
-        presenter.startListener();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            if (extras.containsKey("tema")) {
+                String tema = extras.getString("tema");
+                presenter.populateByCategoria(mRecyclerView, tema);
+                presenter.startListener();
+            } else if (extras.containsKey("nome")) {
+                String nome = extras.getString("nome");
+                presenter.populateByName(mRecyclerView, nome);
+                Log.d("chegueiListActivity", nome);
+
+                presenter.startListener();
+            }
+        }
+
+
     }
 
     @Override

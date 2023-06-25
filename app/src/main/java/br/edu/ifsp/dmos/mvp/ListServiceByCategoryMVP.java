@@ -16,12 +16,13 @@ public interface ListServiceByCategoryMVP {
 
         void detach();
 
-        void populate(RecyclerView recyclerView);
-
         void startListener();
 
         void stopListener();
 
+        void populateByCategoria(RecyclerView mRecyclerView, String tema);
+
+        void populateByName(RecyclerView mRecyclerView, String nome);
     }
 
     interface Adapter {

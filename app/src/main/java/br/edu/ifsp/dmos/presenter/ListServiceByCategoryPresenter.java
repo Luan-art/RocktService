@@ -1,6 +1,9 @@
 package br.edu.ifsp.dmos.presenter;
 
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME_SERVICO;
+
 import android.content.Context;
+import android.util.Log;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,16 +36,6 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
         this.view = null;
     }
 
-    public void populate(RecyclerView recyclerView) {
-        Query query = database.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO, Query.Direction.ASCENDING);
-        FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>().setQuery(query, Service.class).build();
-
-        adapter = new ListServiceRecyclerAdapter(options, view, view.getContext());
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(adapter);
-    }
-
     @Override
     public void startListener() {
         if (adapter != null)
@@ -53,5 +46,30 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
     public void stopListener() {
         if (adapter != null)
             adapter.stopListening();
+    }
+
+    @Override
+    public void populateByCategoria(RecyclerView mRecyclerView, String tema) {
+        Query query = database.collection(Constants.SERVICE_COLLECTION).whereEqualTo("categoria", tema)
+                .orderBy(FIELD_NOME_SERVICO, Query.Direction.ASCENDING);
+        FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>().setQuery(query, Service.class).build();
+
+        adapter = new ListServiceRecyclerAdapter(options, view, view.getContext());
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        mRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void populateByName(RecyclerView mRecyclerView, String nome) {
+        Query query = database.collection(Constants.SERVICE_COLLECTION).whereEqualTo(FIELD_NOME_SERVICO, nome).
+                orderBy(FIELD_NOME_SERVICO, Query.Direction.ASCENDING);
+        FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>().setQuery(query, Service.class).build();
+        Log.d("chegueiPresenter", nome);
+
+        adapter = new ListServiceRecyclerAdapter(options, view, view.getContext());
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        mRecyclerView.setAdapter(adapter);
     }
 }

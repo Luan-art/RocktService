@@ -3,6 +3,7 @@ package br.edu.ifsp.dmos.presenter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import br.edu.ifsp.dmos.mvp.HomeMVP;
 import br.edu.ifsp.dmos.view.ListServiceByCategoryActivity;
@@ -42,6 +43,7 @@ public class HomePresenter implements HomeMVP.Presenter {
         Intent intent = new Intent(context, ListServiceByCategoryActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("nome", nome);
+        Log.d("chegueiSearch", nome);
         intent.putExtras(bundle);
         context.startActivity(intent);
     }

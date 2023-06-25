@@ -20,11 +20,10 @@ public class Service {
    private String coment;
 
     public Service() {
-        // Inicialize os campos, se necessário
+        // Construtor sem argumentos
     }
-
-    public Service(String nomeServico,String idProfissional ,String nomeProfissional, String categoria, boolean mediaPreco,
-                   String formasDePagamento, String formaExecucao, String addInfo,
+    public Service(String nomeServico,String idProfissional ,String nomeProfissional, String categoria,
+                   boolean mediaPreco, String formasDePagamento, String formaExecucao, String addInfo,
                    String coment, Date date, String status) {
 
         setNomeServico(nomeServico);
