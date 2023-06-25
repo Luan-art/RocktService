@@ -41,8 +41,7 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
 
     @Override
     public void CadastrarTarefa(String nomeServico, String idProfissional, String nomeProfissional, String categoria, boolean precoHora,
-                                String formasDePagamento, String formaExecucao, String addInfo,
-                                String coment, Date date, String status) {
+                                String formasDePagamento, String formaExecucao, String addInfo, Date date) {
 
         Log.d("Nome Servico chegando", "Value: " + (nomeServico));
         Log.d("id Profissional chegando", "Value: " + (idProfissional));
@@ -52,9 +51,7 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
         Log.d("forma pagamento chegando", "Value: " + (formasDePagamento));
         Log.d("forma execucao chegando", "Value: " + (formaExecucao));
         Log.d("add info chegando", "Value: " + (addInfo));
-        Log.d("coment chegando", "Value: " + (coment));
         Log.d("date", "Value: " + (date));
-        Log.d("status", "Value: " + (status));
 
         CollectionReference listaServicos = database.collection(Constants.SERVICE_COLLECTION);
 
@@ -62,7 +59,7 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
 
         Log.d("nome Profissional chegando", "Value: " + (nomeProfissional));
         Service servico = new Service(nomeServico, idProfissional, nomeProfissional, categoria, precoHora,
-                formasDePagamento, formaExecucao, addInfo, coment, date, status);
+                formasDePagamento, formaExecucao, addInfo, date);
 
         listaServicos.add(servico)
                 .addOnSuccessListener(documentReference -> {

@@ -19,7 +19,7 @@ public class Service {
 
    private String coment;
 
-    public Service() {
+    public Service(String nomeServico, String idProfissional, String nomeProfissional, String categoria, boolean precoHora, String formasDePagamento, String formaExecucao, String addInfo, Date date) {
         // Inicialize os campos, se necessário
     }
 
