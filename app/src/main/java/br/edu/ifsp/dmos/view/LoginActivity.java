@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -26,21 +27,29 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
     private LoginPresenter presenter;
     private SharedPreferences sharedPreferences;
 
-    private RadioButton lembrarDeMim;
+    private CheckBox lembrarDeMim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        findById();
+        setListener();
 
         sharedPreferences = getSharedPreferences("login_preferences", Context.MODE_PRIVATE);
         presenter = new LoginPresenter(this, this);
 
-        findById();
-        setListener();
+        boolean lembrarDeMimChecked = sharedPreferences.getBoolean("lembrarDeMim", false);
+        lembrarDeMim.setChecked(lembrarDeMimChecked);
 
+        if (lembrarDeMimChecked) {
             String savedUser = sharedPreferences.getString("usuario", "");
             textUser.setText(savedUser);
+        }
+    }
+
+    public boolean isLembrarDeMimChecked() {
+        return lembrarDeMim.isChecked();
     }
 
     private void findById() {
@@ -59,12 +68,30 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
                 String password = textPassword.getText().toString();
                 presenter.login(user, password);
 
-                if (lembrarDeMim.isChecked()) {
+                // Salvar o estado do lembrarDeMim no SharedPreferences
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("lembrarDeMim", isLembrarDeMimChecked());
+                editor.apply();
+
+                if (isLembrarDeMimChecked()) {
                     // Salvar o usuário no SharedPreferences
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("usuario", user);
                     editor.apply();
+                } else {
+                    // Remover o usuário do SharedPreferences
+                    editor.remove("usuario");
+                    editor.apply();
                 }
+            }
+        });
+
+        lembrarDeMim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Salvar o estado do lembrarDeMim no SharedPreferences
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("lembrarDeMim", isLembrarDeMimChecked());
+                editor.apply();
             }
         });
 

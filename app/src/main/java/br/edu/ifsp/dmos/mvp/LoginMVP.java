@@ -9,6 +9,7 @@ public interface LoginMVP {
         Context getContext();
 
         void showErrorMessage(String erro_ao_buscar_usuário);
+
     }
 
     interface Presenter{

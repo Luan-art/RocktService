@@ -35,7 +35,6 @@ public class LoginPresenter implements LoginMVP.Presenter {
         this.view = view;
         this.context = context;
         firebaseAuth = FirebaseAuth.getInstance();
-        sharedPreferences = context.getSharedPreferences("login_preferences", Context.MODE_PRIVATE);
     }
 
     @Override
@@ -64,17 +63,13 @@ public class LoginPresenter implements LoginMVP.Presenter {
                                 if (storedPassword.equals(password)) {
                                     String userId = documentSnapshot.getId();
 
-                                    // Salvar o usuário no SharedPreferences
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString("usuario", username);
-                                    editor.apply();
-
                                     Bundle bundle = new Bundle();
                                     bundle.putString("usuario", username);
                                     bundle.putString("idUsuarioBundle", userId);
                                     Intent intent = new Intent(context, HomeActivity.class);
                                     intent.putExtras(bundle);
                                     context.startActivity(intent);
+
                                 } else {
                                     view.showErrorMessage("Senha incorreta");
                                 }
