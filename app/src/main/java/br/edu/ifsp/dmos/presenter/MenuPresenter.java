@@ -35,9 +35,9 @@ public class MenuPresenter implements MenuMVP.Presenter {
     }
 
     @Override
-    public void visualizarPerfil(String usuario) {
+    public void visualizarPerfil(Bundle bundle) {
         Intent intent = new Intent(context, EditProfileActivity.class);
-        intent.putExtra("usuario", usuario);
+        intent.putExtras(bundle);
         context.startActivity(intent);
     }
 

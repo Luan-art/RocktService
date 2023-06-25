@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import br.edu.ifsp.dmos.mvp.EditProfilePresenterMVP;
@@ -28,20 +29,18 @@ public class EditProfilePresenter implements EditProfilePresenterMVP.Presenter {
     private Context context;
     private FirebaseFirestore database;
 
-    private String usuario;
 
-    public EditProfilePresenter(EditProfilePresenterMVP.View view, Context context, String usuario) {
+    public EditProfilePresenter(EditProfilePresenterMVP.View view, Context context) {
         this.view = view;
         this.context = context;
-        this.usuario = usuario;
         database = FirebaseFirestore.getInstance();
     }
     @Override
-    public void updatePerfil(String usuarioOld, String nome,String email, String doc,  String dataNasc,
+    public void updatePerfil(String idUsuario, String nome,String email, String doc,  String dataNasc,
                              String usuario, String telCel, String endereco,String cidade, String estado) {
 
         database.collection(USERS_COLLECTION)
-                .whereEqualTo("usuario", usuarioOld)
+                .whereEqualTo(FieldPath.documentId(), idUsuario)
 
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
@@ -78,7 +77,6 @@ public class EditProfilePresenter implements EditProfilePresenterMVP.Presenter {
 
         public void retornoHome(){
             Bundle bundle = new Bundle();
-            bundle.putString(FIELD_USUARIO, usuario);
 
             // Iniciar a HomeActivity e passar a Bundle
             Intent intent = new Intent(context, HomeActivity.class);

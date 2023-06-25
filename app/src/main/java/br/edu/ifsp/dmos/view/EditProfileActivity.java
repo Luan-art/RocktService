@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -34,7 +35,8 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
     private Spinner estadoSpinner;
     private Button salvarButton;
     private EditProfilePresenter presenter;
-    private String usuarioOld;
+    private String idUsuario;
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,15 +49,14 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        Intent intent = getIntent();
-        if (intent != null) {
-            usuarioOld = intent.getStringExtra("usuario");
-            setUsuario(usuarioOld);
-        }
+        bundle = getIntent().getExtras();
+        idUsuario = bundle.getString("idUsuarioBundle");
+        Log.d("nome Do Usuario no edit profile activity", "Value: " + (idUsuario));
+
 
         findById();
         setListener();
-        presenter = new EditProfilePresenter(this, this, usuarioOld);
+        presenter = new EditProfilePresenter(this, this);
     }
 
     private void setListener() {
@@ -85,7 +86,7 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
                         usuario.isEmpty() || telCel.isEmpty() || endereco.isEmpty() || cidade.isEmpty() || estado.isEmpty()) {
                     showMessage("Preencha todos os campos");
                 } else {
-                    presenter.updatePerfil(usuarioOld, nome,email, doc,  dataNasc,
+                    presenter.updatePerfil(idUsuario, nome, email, doc,  dataNasc,
                             usuario, telCel, endereco,cidade, estado);
                 }
             }
@@ -109,9 +110,6 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         estadoSpinner.setAdapter(adapter);
     }
 
-    private void setUsuario(String usuario) {
-        this.usuarioOld = usuario;
-    }
 
     @Override
     public Context getContext() {
