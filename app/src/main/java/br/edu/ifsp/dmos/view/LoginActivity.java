@@ -39,11 +39,8 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
         findById();
         setListener();
 
-        // Carregar o usuário salvo, se existir
-        if (lembrarDeMim.isChecked()) {
             String savedUser = sharedPreferences.getString("usuario", "");
             textUser.setText(savedUser);
-        }
     }
 
     private void findById() {
