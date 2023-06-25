@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
         findById();
         verificarPermissoes();
         setListener();
-        Bundle bundleId = getIntent().getExtras();
+        //Bundle bundleId = getIntent().getExtras();
         presenter = new HomePresenter(this, this);
     }
 
@@ -56,6 +56,11 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
                 Bundle bundle = getIntent().getExtras();
                 if (bundle != null) {
                     //String usuario = bundle.getString("usuario");
+
+                    String nomeProfissional = bundle.getString("usuario");
+                    String idUsuario = bundle.getString("idUsuarioBundle");
+                    Log.d("nome Do Usuario no home activity", "Value: " + (nomeProfissional));
+                    Log.d("nome Do Usuario no home activity", "Value: " + (idUsuario));
                     presenter.GoToMenu(bundle);
                 }
 
