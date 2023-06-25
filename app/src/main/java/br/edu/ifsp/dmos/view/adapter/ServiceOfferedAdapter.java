@@ -56,14 +56,14 @@ public class ServiceOfferedAdapter extends FirestoreRecyclerAdapter<Service, Ser
         holder.edittClickImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.edit(model);
+                presenter.delet(model);
             }
         });
 
         holder.deletClickImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.delet(model);
+                presenter.edit(model);
             }
         });
 

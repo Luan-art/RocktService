@@ -3,7 +3,6 @@ package br.edu.ifsp.dmos.presenter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -77,23 +76,24 @@ public class ServiceOfferedPresenter implements ServiceOfferedMVP.Presenter {
     public void delet(Service service) {
         if (service != null) {
 
-             data.collection(Constants.SERVICE_COLLECTION)
+            // Acesse a coleção e o documento correspondente
+            data.collection(Constants.SERVICE_COLLECTION)
                     .document()
                     .delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-
+                            // Exclusão bem-sucedida
+                            // Implemente qualquer lógica adicional, se necessário
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-
+                            // Exclusão falhou
+                            // Implemente qualquer lógica adicional, se necessário
                         }
                     });
-        } else{
-            Log.d("nome Do Usuario no menu activity", "Value: " + (service));
         }
     }
 
