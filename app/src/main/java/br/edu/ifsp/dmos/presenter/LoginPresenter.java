@@ -73,6 +73,7 @@ public class LoginPresenter implements LoginMVP.Presenter {
                                     bundle.putString("usuario", username);
                                     bundle.putString("idUsuarioBundle", userId);
                                     Intent intent = new Intent(context, HomeActivity.class);
+                                    intent.putExtras(bundle);
                                     context.startActivity(intent);
                                 } else {
                                     view.showErrorMessage("Senha incorreta");
