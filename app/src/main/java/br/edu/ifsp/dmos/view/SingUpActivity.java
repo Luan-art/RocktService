@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Calendar;
 
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.mvp.SignUpMVP;
@@ -64,11 +67,18 @@ public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View
                 }
                 Date data = new Date(utilDate.getTime());
 
+
+
                 if (nome.isEmpty() || email.isEmpty() || doc.isEmpty() || data == null ||
                         username.isEmpty() || telcel.isEmpty() || password.isEmpty() || confPassword.isEmpty() || !password.equals(confPassword)) {
                     showEmptyFieldsMessage();
 
-                } else {
+                } else if(!isMaiorIdade(datanasc)) {
+
+                    Toast.makeText(SingUpActivity.this, "Você precisa ser maior de idade para se cadastrar.", Toast.LENGTH_SHORT).show();
+
+                }else{
+
                     String criptSenha = Criptografia.criptografar(password);
 
                     presenter.RealizarCadastro(nome, email, doc, data, username, telcel, criptSenha, confPassword);
@@ -106,6 +116,31 @@ public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View
     public void showEmptyFieldsMessage() {
         Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
     }
+
+    private boolean isMaiorIdade(String dataNascimento) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataNasc = null;
+        try {
+            dataNasc = new Date(dateFormat.parse(dataNascimento).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if (dataNasc != null) {
+            Calendar calDataNasc = Calendar.getInstance();
+            calDataNasc.setTime(dataNasc);
+
+            Calendar calDataAtual = Calendar.getInstance();
+
+            int idadeMinima = 18;
+
+            calDataNasc.add(Calendar.YEAR, idadeMinima);
+            return calDataNasc.before(calDataAtual);
+        }
+
+        return false;
+    }
+
 
 
 }

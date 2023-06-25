@@ -27,6 +27,8 @@ public class SingUpPresenter implements SignUpMVP.Presenter {
 
     private String firestoreId = "";
 
+
+
     public SingUpPresenter(SignUpMVP.View view, Context context) {
         this.view = view;
         this.context = context;
@@ -43,14 +45,15 @@ public class SingUpPresenter implements SignUpMVP.Presenter {
     public void RealizarCadastro(String nome, String email, String doc, Date dataNasci,
                                  String usuario, String telCel,  String senha, String confSenha) {
 
+
         CollectionReference listUsuarios = database.collection(Constants.USERS_COLLECTION);
 
         // Consulta para verificar se o nome de usuário já existe
-        listUsuarios.whereEqualTo("usuario", usuario).get().addOnCompleteListener(task -> {
+        listUsuarios.whereEqualTo("email", email).get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 boolean userExists = !task.getResult().isEmpty();
                 if (userExists) {
-                    Toast.makeText(view.getContext(), "Nome de usuário já está em uso", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "Email já está em uso", Toast.LENGTH_SHORT).show();
                 } else {
                     User user = new User(nome, email, doc, dataNasci, usuario, telCel, null, null, null, senha, 0.0, 0);
 
@@ -63,7 +66,7 @@ public class SingUpPresenter implements SignUpMVP.Presenter {
                     });
                 }
             } else {
-                Toast.makeText(view.getContext(), "Erro ao verificar nome de usuário.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Erro ao verificar email de usuário.", Toast.LENGTH_SHORT).show();
             }
         });
     }
