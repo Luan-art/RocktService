@@ -1,6 +1,7 @@
 package br.edu.ifsp.dmos.view.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +55,7 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Service model) {
         holder.titleTextView.setText(model.getNomeServico());
-        holder.costTextView.setText(String.valueOf(model.isMediaPreco()));
+        holder.costTextView.setText(String.valueOf(model.getMediaPreco()));
 
     }
 
@@ -73,7 +74,9 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
             infoImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String taskId = (String) infoImageView.getTag();
+                    clickListener.onClick(getSnapshots().getSnapshot(getBindingAdapterPosition()).getId());
+
+                    Log.d("Task id", "Value: o que vai ser passado ao clique" + (taskId));
 
                     presenter.descricaoServico(context, taskId);
                 }

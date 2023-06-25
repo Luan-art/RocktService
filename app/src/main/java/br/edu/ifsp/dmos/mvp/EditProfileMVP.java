@@ -2,7 +2,7 @@ package br.edu.ifsp.dmos.mvp;
 
 import android.content.Context;
 
-public interface EditProfilePresenterMVP {
+public interface EditProfileMVP {
     interface View{
         Context getContext();
 

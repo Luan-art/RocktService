@@ -18,19 +18,18 @@ import android.os.Bundle;
 import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import br.edu.ifsp.dmos.mvp.EditProfilePresenterMVP;
-import br.edu.ifsp.dmos.mvp.UpdatePasswordMVP;
+import br.edu.ifsp.dmos.mvp.EditProfileMVP;
 import br.edu.ifsp.dmos.view.HomeActivity;
 
 
-public class EditProfilePresenter implements EditProfilePresenterMVP.Presenter {
+public class EditProfilePresenter implements EditProfileMVP.Presenter {
 
-    private EditProfilePresenterMVP.View view;
+    private EditProfileMVP.View view;
     private Context context;
     private FirebaseFirestore database;
 
 
-    public EditProfilePresenter(EditProfilePresenterMVP.View view, Context context) {
+    public EditProfilePresenter(EditProfileMVP.View view, Context context) {
         this.view = view;
         this.context = context;
         database = FirebaseFirestore.getInstance();

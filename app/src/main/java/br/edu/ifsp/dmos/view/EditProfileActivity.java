@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,10 +18,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import br.edu.ifsp.dmos.R;
-import br.edu.ifsp.dmos.mvp.EditProfilePresenterMVP;
+import br.edu.ifsp.dmos.mvp.EditProfileMVP;
 import br.edu.ifsp.dmos.presenter.EditProfilePresenter;
 
-public class EditProfileActivity extends AppCompatActivity implements EditProfilePresenterMVP.View {
+public class EditProfileActivity extends AppCompatActivity implements EditProfileMVP.View {
 
     private EditText nomeEditText;
     private EditText emailEditText;

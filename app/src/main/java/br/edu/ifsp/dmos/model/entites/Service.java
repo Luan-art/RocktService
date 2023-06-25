@@ -1,8 +1,45 @@
 package br.edu.ifsp.dmos.model.entites;
 
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_ADD_INFO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_CATEGORIA;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_CIDADE;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_COMENT;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_DATANASC;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_DATA_SERVICO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_DOC;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_EMAIL;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_ENDERECO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_ESTADO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_FORMAS_DE_PAGAMENTO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_FORMA_EXECUCAO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_ID_PROFISSIONAL;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_MEDIA_PRECO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME_PROFISSIONAL;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME_SERVICO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_TELCEL;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_USUARIO;
+import static br.edu.ifsp.dmos.constants.Constants.SERVICE_COLLECTION;
+import static br.edu.ifsp.dmos.constants.Constants.USERS_COLLECTION;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldPath;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.edu.ifsp.dmos.view.HomeActivity;
 
 public class Service {
 
@@ -11,7 +48,7 @@ public class Service {
     private String idProfissional;
     private String nomeProfissional;
     private String categoria;
-    private boolean mediaPreco;
+    private double mediaPreco;
     private String formasDePagamento;
     private String formaExecucao;
     private String addInfo;
@@ -30,7 +67,7 @@ public class Service {
     }
 
     public Service(String nomeServico, String idProfissional, String nomeProfissional, String categoria,
-                   boolean mediaPreco, String formasDePagamento, String formaExecucao, String addInfo,
+                   double mediaPreco, String formasDePagamento, String formaExecucao, String addInfo,
                    String coment, Date date, String status) {
 
         setNomeServico(nomeServico);
@@ -86,11 +123,11 @@ public class Service {
         this.categoria = categoria;
     }
 
-    public boolean isMediaPreco() {
+    public double getMediaPreco() {
         return mediaPreco;
     }
 
-    public void setMediaPreco(boolean mediaPreco) {
+    public void setMediaPreco(double mediaPreco) {
         this.mediaPreco = mediaPreco;
     }
 
@@ -149,4 +186,52 @@ public class Service {
     public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
+
+
+    //---------------------------------------------------------------------
+    //---------------------------------------------------------------------
+    //---------------------------------------------------------------------
+
+    public Service retornarService(String idDocService){
+
+        //Tentativa 1
+        //-------------------------------------------------------------------------
+
+        Service service = new Service();
+
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+
+        database.collection(SERVICE_COLLECTION)
+                .whereEqualTo(FieldPath.documentId(), idDocService)
+
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            QuerySnapshot querySnapshot = task.getResult();
+                            if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                                DocumentSnapshot documentSnapshot = querySnapshot.getDocuments().get(0);
+                                service.nomeServico = documentSnapshot.getString(FIELD_NOME_SERVICO);
+                                service.idProfissional = documentSnapshot.getString(FIELD_ID_PROFISSIONAL);
+                                service.nomeProfissional = documentSnapshot.getString(FIELD_NOME_PROFISSIONAL);
+                                service.categoria = documentSnapshot.getString(FIELD_CATEGORIA);
+                                service.mediaPreco = documentSnapshot.getDouble(FIELD_MEDIA_PRECO);
+                                service.formasDePagamento = documentSnapshot.getString(FIELD_FORMAS_DE_PAGAMENTO);
+                                service.formaExecucao = documentSnapshot.getString(FIELD_FORMA_EXECUCAO);
+                                service.addInfo = documentSnapshot.getString(FIELD_ADD_INFO);
+                                service.coment = documentSnapshot.getString(FIELD_COMENT);
+
+                                Log.d("Service Return Banco", "Value: Encontrou o equivalente no banco");
+                                Log.d("Service Return Banco", "Value: Valor do nome servico " + (service.nomeServico));
+                            }
+                        }
+                    }
+                });
+
+        Log.d("Service Return Banco", "Value: Valor do nome servico antes do return " + (service.nomeServico));
+        return service;
+    }
+
+
 }

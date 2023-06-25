@@ -19,6 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.model.entites.Service;
+import br.edu.ifsp.dmos.model.entites.User;
 import br.edu.ifsp.dmos.mvp.ServiceDescriptionMVP;
 import br.edu.ifsp.dmos.presenter.ServiceDescriptionPresenter;
 
@@ -35,6 +36,8 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
 
     private ServiceDescriptionPresenter presenter;
     private Service service; // Armazena o objeto Service recuperado
+
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,13 +75,8 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
 
     @Override
     public void preencher() {
-        textNomeProf.setText(service.getNomeProfissional());
-        tel.setText("");
-        email.setText("");
-        mediaPrecoNumber.setText(String.valueOf(service.isMediaPreco()));
-        formaPagamentoInfo.setText(service.getFormasDePagamento());
-        formaExecucaoInfo.setText(service.getFormaExecucao());
-        addInfoInfo.setText(service.getAddInfo());    }
+
+    }
 
     private void setListener() {
         btnContratar.setOnClickListener(new View.OnClickListener() {
@@ -90,31 +88,6 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
     }
 
     private void recuperarService() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        String taskId = getIntent().getStringExtra("taskId");
-
-        if (taskId != null) {
-            DocumentReference docRef = db.collection("Services").document(taskId);
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            service = document.toObject(Service.class);
-                            preencher();
-                        } else {
-                            onServiceRetrievalFailed("Document does not exist");
-                        }
-                    } else {
-                        onServiceRetrievalFailed("Error occurred while fetching the document");
-                    }
-                }
-            });
-        } else {
-            onServiceRetrievalFailed("Invalid document ID");
-        }
-
 
     }
 
