@@ -40,7 +40,7 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
     }
 
     @Override
-    public void CadastrarTarefa(String nomeServico, String idProfissional, String nomeProfissional, String categoria, boolean precoHora,
+    public void CadastrarTarefa(String nomeServico, String idProfissional, String nomeProfissional, String categoria, double precoHora,
                                 String formasDePagamento, String formaExecucao, String addInfo,
                                 String coment, Date date, String status) {
 

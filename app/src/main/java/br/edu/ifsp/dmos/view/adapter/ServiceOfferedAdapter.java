@@ -51,7 +51,7 @@ public class ServiceOfferedAdapter extends FirestoreRecyclerAdapter<Service, Ser
     protected void onBindViewHolder(@NonNull Holder holder, int position, @NonNull Service model) {
 
         holder.nomeTextView.setText(model.getNomeServico());
-        holder.precoTextView.setText(String.valueOf(model.isMediaPreco()));
+        holder.precoTextView.setText(String.valueOf(model.getMediaPreco()));
 
         holder.edittClickImg.setOnClickListener(new View.OnClickListener() {
             @Override

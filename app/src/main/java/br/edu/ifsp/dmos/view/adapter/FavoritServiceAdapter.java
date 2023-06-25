@@ -37,7 +37,7 @@ public class FavoritServiceAdapter extends FirestoreRecyclerAdapter<Service, Fav
     protected void onBindViewHolder(@NonNull Holder holder, int position, @NonNull Service model) {
         holder.textTitleListFavorit.setText(model.getNomeServico());
         holder.textNameFavorit.setText(model.getNomeProfissional());
-        holder.textPreco.setText(String.valueOf(model.isMediaPreco()));
+        holder.textPreco.setText(String.valueOf(model.getMediaPreco()));
          holder.imageDeletFavorit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

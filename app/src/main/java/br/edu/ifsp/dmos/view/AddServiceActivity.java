@@ -92,7 +92,7 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
 
                 String categoria = menu.getSelectedItem().toString();
 
-                presenter.CadastrarTarefa(nomeServico,  idUsuario, nomeProfissional, categoria, Boolean.parseBoolean(mediaPreco),
+                presenter.CadastrarTarefa(nomeServico,  idUsuario, nomeProfissional, categoria, Double.parseDouble(mediaPreco),
                         formasPagamento, formaExecucao, informacaoAdicional, "", null, "Nulo");
 
             }
