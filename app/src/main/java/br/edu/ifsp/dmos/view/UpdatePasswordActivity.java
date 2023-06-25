@@ -14,6 +14,7 @@ import android.widget.Toast;
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.mvp.UpdatePasswordMVP;
 import br.edu.ifsp.dmos.presenter.UpdatePasswordPresenter;
+import br.edu.ifsp.dmos.view.md5.Criptografia;
 
 public class UpdatePasswordActivity extends AppCompatActivity implements UpdatePasswordMVP.View {
 
@@ -62,7 +63,8 @@ public class UpdatePasswordActivity extends AppCompatActivity implements UpdateP
                 } else if (!newSenha.equals(confNewSenha)) {
                     showMessage("Nova senha e senha confirmada são diferentes");
                 } else {
-                    presenter.updateSenha(usuario, newSenha);
+                    String criptograSenha = Criptografia.criptografar(newSenha);
+                    presenter.updateSenha(usuario, criptograSenha);
                 }
             }
         });

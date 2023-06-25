@@ -76,9 +76,9 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
                 public void onClick(View view) {
                     clickListener.onClick(getSnapshots().getSnapshot(getBindingAdapterPosition()).getId());
 
-                    Log.d("Task id", "Value: o que vai ser passado ao clique" + (taskId));
+//                    Log.d("Task id", "Value: o que vai ser passado ao clique" + (taskId));
 
-                    presenter.descricaoServico(context, taskId);
+  //                  presenter.descricaoServico(context, taskId);
                 }
             });
             itemView.setOnClickListener(this);

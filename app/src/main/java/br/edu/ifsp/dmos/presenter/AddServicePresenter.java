@@ -20,7 +20,9 @@ import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.model.entites.User;
 import br.edu.ifsp.dmos.mvp.AddServiceMVP;
 import br.edu.ifsp.dmos.mvp.SignUpMVP;
+import br.edu.ifsp.dmos.view.AddServiceActivity;
 import br.edu.ifsp.dmos.view.LoginActivity;
+import br.edu.ifsp.dmos.view.ServiceOfferedActivity;
 
 public class AddServicePresenter implements AddServiceMVP.Presenter {
 
@@ -67,6 +69,8 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
         listaServicos.add(servico)
                 .addOnSuccessListener(documentReference -> {
                     Toast.makeText(view.getContext(), "Tarefa cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, ServiceOfferedActivity.class);
+                    context.startActivity(intent);
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(view.getContext(), "Erro ao cadastrar tarefa.", Toast.LENGTH_SHORT).show();
