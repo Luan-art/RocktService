@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -30,15 +31,10 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
-            String usuario = bundle.getString("usuario");
-            setUsuario(usuario);
-        }
-
         presenter = new MenuPresenter(this, this);
         findVById();
         setListener();
+
     }
 
     public void setUsuario(String usuario) {
@@ -69,8 +65,11 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
 
         pagServiceOfer.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                presenter.servicosOferecidos();
+            public void onClick(View v){
+
+                Bundle bundle = getIntent().getExtras();
+
+                presenter.servicosOferecidos(bundle);
             }
         });
 

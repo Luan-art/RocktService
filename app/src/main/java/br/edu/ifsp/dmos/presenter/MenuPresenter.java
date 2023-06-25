@@ -2,6 +2,7 @@ package br.edu.ifsp.dmos.presenter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import br.edu.ifsp.dmos.mvp.MenuMVP;
 import br.edu.ifsp.dmos.view.EditProfileActivity;
@@ -10,10 +11,8 @@ import br.edu.ifsp.dmos.view.HiredServiceActivity;
 import br.edu.ifsp.dmos.view.HomeActivity;
 import br.edu.ifsp.dmos.view.LoginActivity;
 import br.edu.ifsp.dmos.view.ServiceOfferedActivity;
-import br.edu.ifsp.dmos.view.ServiceSolicitationActivity;
 import br.edu.ifsp.dmos.view.ServiceSolicitionForYou;
 import br.edu.ifsp.dmos.view.UpdatePasswordActivity;
-import br.edu.ifsp.dmos.view.ServiceSolicitationActivity;
 
 public class MenuPresenter implements MenuMVP.Presenter {
 
@@ -55,8 +54,9 @@ public class MenuPresenter implements MenuMVP.Presenter {
     }
 
     @Override
-    public void servicosOferecidos() {
+    public void servicosOferecidos(Bundle bundle) {
         Intent intent = new Intent(context, ServiceOfferedActivity.class);
+        intent.putExtras(bundle);
         context.startActivity(intent);
     }
 

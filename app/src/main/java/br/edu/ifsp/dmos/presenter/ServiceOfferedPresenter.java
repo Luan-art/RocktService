@@ -2,6 +2,7 @@ package br.edu.ifsp.dmos.presenter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -95,9 +96,10 @@ public class ServiceOfferedPresenter implements ServiceOfferedMVP.Presenter {
         }
     }
 
-    private void addService(String documento) {
-        Intent intent = new Intent(view.getContext(), AddServiceActivity.class);
-        intent.putExtra(Constants.FIRESOTRE_DOCUMENT_KEY, documento);
-        view.getContext().startActivity(intent);
+    @Override
+    public void goToAddService(Bundle bundle) {
+        Intent intent = new Intent(context, AddServiceActivity.class);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
     }
 }

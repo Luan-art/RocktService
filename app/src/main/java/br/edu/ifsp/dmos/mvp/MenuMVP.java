@@ -1,7 +1,7 @@
 package br.edu.ifsp.dmos.mvp;
 
 import android.content.Context;
-import android.view.MotionEvent;
+import android.os.Bundle;
 
 public interface MenuMVP {
 
@@ -19,7 +19,7 @@ public interface MenuMVP {
 
         void servicosContratados();
 
-        void servicosOferecidos();
+        void servicosOferecidos(Bundle bundle);
 
         void servicosSolicitados();
 

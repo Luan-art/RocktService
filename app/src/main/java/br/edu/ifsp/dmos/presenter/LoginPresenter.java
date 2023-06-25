@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -62,6 +63,7 @@ public class LoginPresenter implements LoginMVP.Presenter {
                                 assert storedPassword != null;
                                 if (storedPassword.equals(password)) {
                                     String userId = documentSnapshot.getId();
+                                    Log.d("id Do Usuario", "Value: " + (userId));
 
                                     Bundle bundle = new Bundle();
                                     bundle.putString("usuario", username);

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,7 @@ public class ServiceOfferedActivity extends AppCompatActivity implements Service
     private ServiceOfferedPresenter presenter;
     private FloatingActionButton mActionButton;
     private RecyclerView mRecyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +59,8 @@ public class ServiceOfferedActivity extends AppCompatActivity implements Service
     @Override
     public void onClick(View view) {
         if(view == mActionButton){
-            Intent intent = new Intent(this, AddServiceActivity.class);
-            startActivity(intent);
+            Bundle bundle = getIntent().getExtras();
+            presenter.goToAddService(bundle);
         }
     }
 

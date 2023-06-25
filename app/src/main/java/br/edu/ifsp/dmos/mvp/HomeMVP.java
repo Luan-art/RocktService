@@ -1,6 +1,7 @@
 package br.edu.ifsp.dmos.mvp;
 
 import android.content.Context;
+import android.os.Bundle;
 
 public interface HomeMVP {
 
@@ -11,7 +12,8 @@ public interface HomeMVP {
 
     interface Presenter{
 
-        void GoToMenu(String usuario);
+        void GoToMenu(Bundle bundle);
+
         void BuscarTema(String tema);
         void search(String nome);
 

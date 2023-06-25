@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -37,15 +38,9 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_service);
 
-        Intent intent = getIntent();
-        if (intent != null) {
-            idUsuarioBundle = intent.getStringExtra("idUsuarioBundle");
-        }
-
         findById();
         setListener();
         presenter = new AddServicePresenter(this, this, idUsuarioBundle);
-
     }
 
 
@@ -81,6 +76,13 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
         btnCad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Bundle bundle = getIntent().getExtras();
+                String nomeProfissional = bundle.getString("usuario");
+                String idUsuario = bundle.getString("idUsuarioBundle");
+                Log.d("nome Do Usuario no add service activity", "Value: " + (nomeProfissional));
+                Log.d("nome Do Usuario no add service activity", "Value: " + (idUsuario));
+
                 String nomeServico = edittextNomeServico.getText().toString();
                 String mediaPreco = editTextmediaPreco.getText().toString();
                 String formasPagamento = editTextformasPagamento.getText().toString();
@@ -89,7 +91,7 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
 
                 String categoria = menu.getSelectedItem().toString();
 
-                presenter.CadastrarTarefa(nomeServico,  idUsuarioBundle,"", categoria, Boolean.parseBoolean(mediaPreco),
+                presenter.CadastrarTarefa(nomeServico,  idUsuario, nomeProfissional, categoria, Boolean.parseBoolean(mediaPreco),
                         formasPagamento, formaExecucao, informacaoAdicional, "", null, "Nulo");
 
             }

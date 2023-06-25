@@ -9,6 +9,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -34,6 +35,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
     private ImageButton btnEvento;
     private HomePresenter presenter;
 
+    String idUsuarioBundle = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +45,8 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
         findById();
         verificarPermissoes();
         setListener();
-
+        Bundle bundleId = getIntent().getExtras();
         presenter = new HomePresenter(this, this);
-
-
     }
 
     private void setListener() {
@@ -55,8 +55,8 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
             public void onClick(View v) {
                 Bundle bundle = getIntent().getExtras();
                 if (bundle != null) {
-                    String usuario = bundle.getString("usuario");
-                    presenter.GoToMenu(usuario);
+                    //String usuario = bundle.getString("usuario");
+                    presenter.GoToMenu(bundle);
                 }
 
             }

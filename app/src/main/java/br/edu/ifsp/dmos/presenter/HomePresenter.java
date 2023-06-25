@@ -19,10 +19,11 @@ public class HomePresenter implements HomeMVP.Presenter {
     }
 
     @Override
-    public void GoToMenu(String usuario) {
+    public void GoToMenu(Bundle bundle) {
+
+
         Intent intent = new Intent(context, MenuActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString("usuario", usuario);
+
         intent.putExtras(bundle);
         context.startActivity(intent);
     }

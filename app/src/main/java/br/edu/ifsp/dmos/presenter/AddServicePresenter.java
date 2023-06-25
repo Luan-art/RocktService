@@ -44,31 +44,32 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
                                 String formasDePagamento, String formaExecucao, String addInfo,
                                 String coment, Date date, String status) {
 
+        Log.d("Nome Servico chegando", "Value: " + (nomeServico));
+        Log.d("id Profissional chegando", "Value: " + (idProfissional));
+        Log.d("nome Profissional chegando", "Value: " + (nomeProfissional));
+        Log.d("categoria chegando", "Value: " + (categoria));
+        Log.d("preco hora chegando", "Value: " + (precoHora));
+        Log.d("forma pagamento chegando", "Value: " + (formasDePagamento));
+        Log.d("forma execucao chegando", "Value: " + (formaExecucao));
+        Log.d("add info chegando", "Value: " + (addInfo));
+        Log.d("coment chegando", "Value: " + (coment));
+        Log.d("date", "Value: " + (date));
+        Log.d("status", "Value: " + (status));
+
         CollectionReference listaServicos = database.collection(Constants.SERVICE_COLLECTION);
 
         CollectionReference listUsuarios = database.collection(Constants.USERS_COLLECTION);
 
-        listUsuarios.whereEqualTo(FieldPath.documentId(), usuario).get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        DocumentSnapshot documentSnapshot = queryDocumentSnapshots.getDocuments().get(0);
-                        String nomeProfissional = documentSnapshot.getString("nome");
-                        setNomeProfissional(nomeProfissional);
-                        CadastrarTarefa(nomeServico, idProfissional, nomeProfissional, categoria, precoHora,
-                                formasDePagamento, formaExecucao, addInfo, coment, date, status);
+        Log.d("nome Profissional chegando", "Value: " + (nomeProfissional));
+        Service servico = new Service(nomeServico, idProfissional, nomeProfissional, categoria, precoHora,
+                formasDePagamento, formaExecucao, addInfo, coment, date, status);
 
-                        Service servico = new Service(nomeServico, idProfissional, nomeProfissional, categoria, precoHora,
-                                formasDePagamento, formaExecucao, addInfo, coment, date, status);
-
-                        listaServicos.add(servico)
-                                .addOnSuccessListener(documentReference -> {
-                                    Toast.makeText(view.getContext(), "Tarefa cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
-                                })
-                                .addOnFailureListener(e -> {
-                                    Toast.makeText(view.getContext(), "Erro ao cadastrar tarefa.", Toast.LENGTH_SHORT).show();
-                                });
-                    }
+        listaServicos.add(servico)
+                .addOnSuccessListener(documentReference -> {
+                    Toast.makeText(view.getContext(), "Tarefa cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(view.getContext(), "Erro ao cadastrar tarefa.", Toast.LENGTH_SHORT).show();
                 });
     }
 
