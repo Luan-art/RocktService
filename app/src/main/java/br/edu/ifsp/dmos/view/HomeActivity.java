@@ -14,6 +14,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.widget.SearchView;
 
 import br.edu.ifsp.dmos.R;
@@ -35,6 +37,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
     private ImageButton btnEvento;
     private HomePresenter presenter;
 
+    private TextView olaUser;
     private Bundle bundle;
 
     String idUsuarioBundle = "";
@@ -56,6 +59,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
         Log.d("nome Do Usuario no home activity novinho", "Value: " + (nomeProfissional));
         Log.d("nome Do Usuario no home activity", "Value: " + (idUsuario));
 
+        olaUser.setText("Ola, " + nomeProfissional);
         presenter = new HomePresenter(this, this);
     }
 
@@ -150,6 +154,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
         btnArte = findViewById(R.id.home_btn_arte);
         btnSaude = findViewById(R.id.home_btn_saude);
         btnEvento = findViewById(R.id.home_btn_evento);
+        olaUser = findViewById(R.id.olaUser);
 
     }
 
@@ -173,14 +178,12 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
     private void verificarPermissoes() {
 
 
-        // Verifica se a permissão de GPS está concedida
-        if (ContextCompat.checkSelfPermission(this, PERMISSION_GPS)
+         if (ContextCompat.checkSelfPermission(this, PERMISSION_GPS)
                 != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(this, PERMISSION_COARSE)
                         != PackageManager.PERMISSION_GRANTED) {
 
-            // Alguma permissão não está concedida, solicita-as
-            ActivityCompat.requestPermissions(
+             ActivityCompat.requestPermissions(
                     this,
                     new String[]{PERMISSION_GPS, PERMISSION_COARSE},
                     REQUEST_PERMISSION_CODE
