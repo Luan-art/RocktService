@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.mvp.SignUpMVP;
 import br.edu.ifsp.dmos.presenter.SingUpPresenter;
+import br.edu.ifsp.dmos.view.md5.Criptografia;
 
 public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View {
 
@@ -68,8 +69,9 @@ public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View
                     showEmptyFieldsMessage();
 
                 } else {
+                    String criptSenha = Criptografia.criptografar(password);
 
-                    presenter.RealizarCadastro(nome, email, doc, data, username, telcel, password, confPassword);
+                    presenter.RealizarCadastro(nome, email, doc, data, username, telcel, criptSenha, confPassword);
             }
         }
             });
