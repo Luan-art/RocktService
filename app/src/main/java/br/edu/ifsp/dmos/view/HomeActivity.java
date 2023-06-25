@@ -45,6 +45,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
         findById();
         verificarPermissoes();
         setListener();
+        search.setQueryHint("");
         //Bundle bundleId = getIntent().getExtras();
         presenter = new HomePresenter(this, this);
     }
