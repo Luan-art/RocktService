@@ -13,7 +13,7 @@ public interface MenuMVP {
 
         void detach();
 
-        void  visualizarPerfil (String usuario);
+        void  visualizarPerfil (Bundle bundle);
 
         void backToHome();
 

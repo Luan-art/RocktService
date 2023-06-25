@@ -26,6 +26,8 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
 
     private String usuario;
 
+    private Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,12 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
         findVById();
         setListener();
 
+        bundle = getIntent().getExtras();
+
+        String nomeProfissional = bundle.getString("usuario");
+        String idUsuario = bundle.getString("idUsuarioBundle");
+        Log.d("nome Do Usuario no menu activity", "Value: " + (nomeProfissional));
+        Log.d("nome Do Usuario no menu service activity", "Value: " + (idUsuario));
     }
 
     public void setUsuario(String usuario) {
@@ -45,7 +53,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.visualizarPerfil(usuario);
+                presenter.visualizarPerfil(bundle);
             }
         });
 
@@ -67,12 +75,6 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
             @Override
             public void onClick(View v){
 
-                Bundle bundle = getIntent().getExtras();
-
-                String nomeProfissional = bundle.getString("usuario");
-                String idUsuario = bundle.getString("idUsuarioBundle");
-                Log.d("nome Do Usuario no menu activity", "Value: " + (nomeProfissional));
-                Log.d("nome Do Usuario no menu service activity", "Value: " + (idUsuario));
                 presenter.servicosOferecidos(bundle);
             }
         });

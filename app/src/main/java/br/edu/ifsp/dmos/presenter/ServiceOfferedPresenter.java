@@ -19,6 +19,7 @@ import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.mvp.ServiceOfferedMVP;
 import br.edu.ifsp.dmos.view.AddServiceActivity;
 import br.edu.ifsp.dmos.view.EditProfileActivity;
+import br.edu.ifsp.dmos.view.EditServiceActivity;
 import br.edu.ifsp.dmos.view.HiredServiceActivity;
 import br.edu.ifsp.dmos.view.ItemClickListener;
 import br.edu.ifsp.dmos.view.adapter.ServiceOfferedAdapter;
@@ -67,7 +68,7 @@ public class ServiceOfferedPresenter implements ServiceOfferedMVP.Presenter {
 
     @Override
     public void edit(Service service) {
-        Intent intent = new Intent(context, EditProfileActivity.class);
+        Intent intent = new Intent(context, EditServiceActivity.class);
         context.startActivity(intent);
     }
 

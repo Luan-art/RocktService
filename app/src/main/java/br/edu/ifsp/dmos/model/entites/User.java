@@ -7,29 +7,45 @@ public class User {
     private String nome;
     private String email;
     private String doc;
-    private Date datanasc;
+    private Date dataNasc;
     private String usuario;
     private String telCel;
     private String endereco;
     private String cidade;
     private String estado;
     private String senha;
+    private double notaProfissional;
+    private int totalNotas;
 
-    public User(String nome, String email, String doc,Date datanasc,String usuario, String telCel,
-                String endereco,String cidade, String estado, String senha) {
+    private double notaProfissionalAcumulada;
+
+    public User(String nome, String email, String doc, Date dataNasc, String usuario, String telCel,
+                String endereco, String cidade, String estado, String senha, double notaProfissional, int totalNotas) {
 
         setNome(nome);
         setEmail(email);
         setDoc(doc);
-        setDatanasc(datanasc);
+        setDataNasc(dataNasc);
         setUsuario(usuario);
         setTelCel(telCel);
         setEndereco(endereco);
         setCidade(cidade);
         setEstado(estado);
         setSenha(senha);
+        setNotaProfissional(notaProfissional);
+        setTotalNotas(totalNotas);
+        setNotaProfissionalAcumulada(notaProfissionalAcumulada);
     }
 
+    //Outras funcoes
+
+    public void atualizarNota(double novaNota){
+        setTotalNotas(getTotalNotas()+1);
+        setNotaProfissionalAcumulada(getNotaProfissionalAcumulada()+novaNota);
+        setNotaProfissional(getNotaProfissionalAcumulada()/getTotalNotas());
+    }
+
+    //Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -54,12 +70,12 @@ public class User {
         this.doc = doc;
     }
 
-    public Date getDatanasc() {
-        return datanasc;
+    public Date getDataNasc() {
+        return dataNasc;
     }
 
-    public void setDatanasc(Date datanasc) {
-        this.datanasc = datanasc;
+    public void setDataNasc(Date dataNasc) {
+        this.dataNasc = dataNasc;
     }
 
     public String getUsuario() {
@@ -109,4 +125,16 @@ public class User {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public double getNotaProfissional() {return notaProfissional;}
+
+    public void setNotaProfissional(double notaProfissional){this.notaProfissional = notaProfissional;}
+
+    public int getTotalNotas(){return totalNotas;}
+
+    public void setTotalNotas(int totalNotas){this.totalNotas = totalNotas;}
+
+    public double getNotaProfissionalAcumulada() {return notaProfissionalAcumulada;}
+
+    public void setNotaProfissionalAcumulada(double notaProfissionalAcumulada){this.notaProfissionalAcumulada = notaProfissionalAcumulada;}
 }

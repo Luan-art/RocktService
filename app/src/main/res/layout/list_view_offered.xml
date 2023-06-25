@@ -7,22 +7,23 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
+
     <ImageView
         android:id="@+id/image_edit"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="120dp"
+        android:layout_marginTop="8dp"
         android:src="@android:drawable/ic_menu_edit"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_title_listitem"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <ImageView
         android:id="@+id/image_delet"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
         android:src="@android:drawable/ic_menu_delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/image_edit"

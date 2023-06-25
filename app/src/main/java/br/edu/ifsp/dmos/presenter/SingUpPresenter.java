@@ -52,7 +52,7 @@ public class SingUpPresenter implements SignUpMVP.Presenter {
                 if (userExists) {
                     Toast.makeText(view.getContext(), "Nome de usuário já está em uso", Toast.LENGTH_SHORT).show();
                 } else {
-                    User user = new User(nome, email, doc, dataNasci, usuario, telCel, null, null, null, senha);
+                    User user = new User(nome, email, doc, dataNasci, usuario, telCel, null, null, null, senha, 0.0, 0);
 
                     listUsuarios.add(user).addOnSuccessListener(documentReference -> {
                         Toast.makeText(view.getContext(), "Usuário cadastrado com sucesso!", Toast.LENGTH_SHORT).show();

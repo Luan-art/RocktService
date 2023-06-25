@@ -35,6 +35,8 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
     private ImageButton btnEvento;
     private HomePresenter presenter;
 
+    private Bundle bundle;
+
     String idUsuarioBundle = "";
 
     @Override
@@ -45,8 +47,15 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
         findById();
         verificarPermissoes();
         setListener();
-        search.setQueryHint("");
-        //Bundle bundleId = getIntent().getExtras();
+
+        bundle = getIntent().getExtras();
+        //String usuario = bundle.getString("usuario");
+
+        String nomeProfissional = bundle.getString("usuario");
+        String idUsuario = bundle.getString("idUsuarioBundle");
+        Log.d("nome Do Usuario no home activity novinho", "Value: " + (nomeProfissional));
+        Log.d("nome Do Usuario no home activity", "Value: " + (idUsuario));
+
         presenter = new HomePresenter(this, this);
     }
 
@@ -54,16 +63,8 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = getIntent().getExtras();
-                if (bundle != null) {
-                    //String usuario = bundle.getString("usuario");
 
-                    String nomeProfissional = bundle.getString("usuario");
-                    String idUsuario = bundle.getString("idUsuarioBundle");
-                    Log.d("nome Do Usuario no home activity", "Value: " + (nomeProfissional));
-                    Log.d("nome Do Usuario no home activity", "Value: " + (idUsuario));
-                    presenter.GoToMenu(bundle);
-                }
+                presenter.GoToMenu(bundle);
 
             }
         });
