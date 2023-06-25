@@ -16,6 +16,7 @@ import android.widget.Toast;
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.mvp.LoginMVP;
 import br.edu.ifsp.dmos.presenter.LoginPresenter;
+import br.edu.ifsp.dmos.view.md5.Criptografia;
 
 public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
 
@@ -66,7 +67,8 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
             public void onClick(View view) {
                 String user = textUser.getText().toString();
                 String password = textPassword.getText().toString();
-                presenter.login(user, password);
+                String criptPass= Criptografia.criptografar(password);
+                presenter.login(user, criptPass);
 
                 // Salvar o estado do lembrarDeMim no SharedPreferences
                 SharedPreferences.Editor editor = sharedPreferences.edit();
