@@ -27,7 +27,6 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
         setContentView(R.layout.activity_list_service_by_category);
 
         findByID();
-        setListener();
         presenter = new ListServiceByCategoryPresenter(this, this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -35,10 +34,6 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
         getSupportActionBar().setTitle("Listar Serviço por categoria");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-    }
-
-    private void setListener() {
-
     }
 
     private void findByID() {

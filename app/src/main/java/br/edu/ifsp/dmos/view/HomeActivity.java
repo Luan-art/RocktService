@@ -72,42 +72,42 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
         btnTecnologia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.BuscarTema("Tecnologia");
+                presenter.BuscarTema("Tecnologia",bundle);
             }
         });
 
         btnEducacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.BuscarTema("Educação");
+                presenter.BuscarTema("Educação",bundle);
             }
         });
 
         btnCasa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.BuscarTema("Casa");
+                presenter.BuscarTema("Casa",bundle);
             }
         });
 
         btnArte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.BuscarTema("Arte");
+                presenter.BuscarTema("Arte",bundle);
             }
         });
 
         btnSaude.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.BuscarTema("Saúde");
+                presenter.BuscarTema("Saúde",bundle);
             }
         });
 
         btnEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.BuscarTema("Evento");
+                presenter.BuscarTema("Evento",bundle);
             }
         });
 
@@ -117,7 +117,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                     String query = search.getQuery().toString();
-                    presenter.search(query);
+                    presenter.search(query,bundle);
                     return true;
                 }
                 return false;
@@ -127,7 +127,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View{
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                presenter.search(query);
+                presenter.search(query, bundle);
                 return true;
             }
 

@@ -60,7 +60,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
         pagInicial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.backToHome();
+                presenter.backToHome(bundle);
             }
         });
 

@@ -27,6 +27,6 @@ public interface ListServiceByCategoryMVP {
 
     interface Adapter {
 
-        void descricaoServico (Context context);
+        void descricaoServico (Context context, String taskId);
     }
 }

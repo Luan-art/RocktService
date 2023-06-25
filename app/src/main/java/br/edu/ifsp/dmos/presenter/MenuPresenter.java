@@ -42,9 +42,11 @@ public class MenuPresenter implements MenuMVP.Presenter {
     }
 
     @Override
-    public void backToHome() {
+    public void backToHome(Bundle bundle) {
         Intent intent = new Intent(context, HomeActivity.class);
+        intent.putExtras(bundle);
         context.startActivity(intent);
+
     }
 
     @Override

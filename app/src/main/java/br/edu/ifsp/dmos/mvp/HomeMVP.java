@@ -14,8 +14,8 @@ public interface HomeMVP {
 
         void GoToMenu(Bundle bundle);
 
-        void BuscarTema(String tema);
-        void search(String nome);
+        void BuscarTema(String tema, Bundle bundle);
+        void search(String nome, Bundle bundle);
 
     }
 }

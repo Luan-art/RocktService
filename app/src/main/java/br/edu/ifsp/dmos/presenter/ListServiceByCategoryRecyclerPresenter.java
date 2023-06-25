@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import br.edu.ifsp.dmos.mvp.ListServiceByCategoryMVP;
-import br.edu.ifsp.dmos.view.HiredServiceActivity;
 import br.edu.ifsp.dmos.view.ServiceDescriptionActivity;
-import br.edu.ifsp.dmos.view.adapter.ListServiceRecyclerAdapter;
 
 public class ListServiceByCategoryRecyclerPresenter implements ListServiceByCategoryMVP.Adapter{
 
@@ -15,10 +13,9 @@ public class ListServiceByCategoryRecyclerPresenter implements ListServiceByCate
     private ListServiceByCategoryMVP.Adapter adapter;
 
     @Override
-    public void descricaoServico(Context context) {
+    public void descricaoServico(Context context, String taskId) {
         Intent intent = new Intent(context, ServiceDescriptionActivity.class);
-        this.context = context;
+        intent.putExtra("taskId", taskId);
         context.startActivity(intent);
-
     }
 }

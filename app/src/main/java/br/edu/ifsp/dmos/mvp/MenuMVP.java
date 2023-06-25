@@ -15,7 +15,7 @@ public interface MenuMVP {
 
         void  visualizarPerfil (Bundle bundle);
 
-        void backToHome();
+        void backToHome(Bundle bundle);
 
         void servicosContratados();
 

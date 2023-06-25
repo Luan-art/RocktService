@@ -55,6 +55,7 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
     public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Service model) {
         holder.titleTextView.setText(model.getNomeServico());
         holder.costTextView.setText(String.valueOf(model.isMediaPreco()));
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -68,10 +69,13 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
             infoImageView = itemView.findViewById(R.id.image_info);
             titleTextView = itemView.findViewById(R.id.text_title_listitemCategory);
             costTextView = itemView.findViewById(R.id.text_cost_listitemCategory);
+
             infoImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    presenter.descricaoServico(context);
+                    String taskId = (String) infoImageView.getTag();
+
+                    presenter.descricaoServico(context, taskId);
                 }
             });
             itemView.setOnClickListener(this);
