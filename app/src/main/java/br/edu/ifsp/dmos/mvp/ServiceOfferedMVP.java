@@ -5,8 +5,6 @@ import android.os.Bundle;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import br.edu.ifsp.dmos.model.entites.Service;
-
 public interface ServiceOfferedMVP {
 
     interface View{
@@ -22,9 +20,9 @@ public interface ServiceOfferedMVP {
 
         void stopListener();
 
-        void edit(Service service);
+        void edit(String service);
 
-        void delet(Service service);
+        void delet(String service);
 
         void goToAddService(Bundle bundle);
     }

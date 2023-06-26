@@ -49,26 +49,28 @@ public class ServiceOfferedAdapter extends FirestoreRecyclerAdapter<Service, Ser
 
     @Override
     protected void onBindViewHolder(@NonNull Holder holder, int position, @NonNull Service model) {
-
         holder.nomeTextView.setText(model.getNomeServico());
         holder.precoTextView.setText(String.valueOf(model.getMediaPreco()));
+
+        final int finalPosition = position;
 
         holder.edittClickImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.delet(model);
+                String serviceId = getSnapshots().getSnapshot(finalPosition).getId();
+                presenter.delet(serviceId);
             }
         });
 
         holder.deletClickImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.edit(model);
+                String serviceId = getSnapshots().getSnapshot(finalPosition).getId();
+                presenter.edit(serviceId);
             }
         });
-
-
     }
+
 
     public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView nomeTextView;

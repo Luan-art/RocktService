@@ -4,8 +4,6 @@ import android.content.Context;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import br.edu.ifsp.dmos.model.entites.Service;
-
 public interface FavoritServiceMVP {
 
     interface View{
@@ -18,7 +16,7 @@ public interface FavoritServiceMVP {
 
         void populate(RecyclerView recyclerView);
 
-        void deletTesk(Service service);
+        void deletTesk(String service);
 
     }
 }

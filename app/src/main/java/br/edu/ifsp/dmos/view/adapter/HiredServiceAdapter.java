@@ -47,10 +47,13 @@ public class HiredServiceAdapter extends FirestoreRecyclerAdapter<Service, Hired
         holder.statusTextView.setText(model.getStatus());
         holder.nomeProfTextView.setText(model.getNomeProfissional());
 
+        final int finalPosition = position;
+
         holder.imagEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.avaliat(model);
+                String serviceId = getSnapshots().getSnapshot(finalPosition).getId();
+                presenter.avaliat(serviceId);
             }
         });
 

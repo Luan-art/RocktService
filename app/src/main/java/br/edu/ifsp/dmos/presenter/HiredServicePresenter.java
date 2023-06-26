@@ -54,7 +54,7 @@ public class HiredServicePresenter implements HiredServiceMVP.Presenter {
     }
 
     @Override
-    public void avaliat(Service service) {
+    public void avaliat(String service) {
         Intent intent = new Intent(context, ServiceRatingActivity.class);
         context.startActivity(intent);
     }

@@ -2,7 +2,6 @@ package br.edu.ifsp.dmos.presenter;
 
 import android.content.Context;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,10 +12,7 @@ import com.google.firebase.firestore.Query;
 import br.edu.ifsp.dmos.constants.Constants;
 import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.mvp.FavoritServiceMVP;
-import br.edu.ifsp.dmos.mvp.HiredServiceMVP;
-import br.edu.ifsp.dmos.view.FavoritedServiceActivity;
 import br.edu.ifsp.dmos.view.adapter.FavoritServiceAdapter;
-import br.edu.ifsp.dmos.view.adapter.HiredServiceAdapter;
 
 public class FavoritedServicePresenter implements FavoritServiceMVP.Presenter {
 
@@ -40,7 +36,7 @@ public class FavoritedServicePresenter implements FavoritServiceMVP.Presenter {
 
 
     @Override
-    public void deletTesk(Service service) {
+    public void deletTesk(String service) {
 
     }
 

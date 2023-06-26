@@ -69,6 +69,8 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
 
         findById();
         setListener();
+        preencher();
+
     }
 
     private void findById() {
@@ -90,6 +92,9 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
     @Override
     public void preencher() {
 
+        String chave = getIntent().getStringExtra("chave");
+        Log.d("DEBUG", "Valor da chave: " + chave);
+
 
         //BUSCA POR CAMPOS DE SERVICE
         //----------------------------
@@ -97,7 +102,7 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
         FirebaseFirestore database = FirebaseFirestore.getInstance();
 
         database.collection(SERVICE_COLLECTION)
-                .whereEqualTo(FieldPath.documentId(), "FsFhmfLPemvxSIzuGSlW")
+                .whereEqualTo(FieldPath.documentId(), chave)
 
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -117,28 +122,14 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
                                 addInfoInfo.setText(documentSnapshot.getString(FIELD_ADD_INFO));
                                 //service.coment = documentSnapshot.getString(FIELD_COMENT);
                                 String idProfissional = documentSnapshot.getString(FIELD_ID_PROFISSIONAL);
+
+
+
+
                             }
                         }
                     }
                 });
-        
-
-
-
-
-        //-------METODO ANTIGO DE BUSCA-----------
-        //----------------------------------------
-        //----------------------------------------
-        /*
-        textNomeProf.setText(service.getNomeProfissional());
-        tel.setText("user.getTelCel()");
-        email.setText("user.getEmail()");
-        mediaPrecoNumber.setText(String.valueOf(service.getMediaPreco()));
-        formaPagamentoInfo.setText(service.getFormasDePagamento());
-        formaExecucaoInfo.setText(service.getFormaExecucao());
-        addInfoInfo.setText(service.getAddInfo());
-
-         */
     }
 
     private void setListener() {

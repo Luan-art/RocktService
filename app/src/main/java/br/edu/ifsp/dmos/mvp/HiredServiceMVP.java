@@ -15,7 +15,7 @@ public interface HiredServiceMVP {
     interface Presenter{
         void detach();
 
-        void avaliat(Service service);
+        void avaliat(String service);
 
         void populate(RecyclerView recyclerView);
 
