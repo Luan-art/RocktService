@@ -18,6 +18,17 @@ public class ServiceDescriptionPresenter implements ServiceDescriptionMVP.Presen
     }
 
     @Override
+    public void deatach() {
+        this.view= null;
+    }
+
+    @Override
+    public void contratarTarefa(Service service) {
+
+    }
+
+    /*
+    @Override
     public Service findService() {
 
         Service service = new Service();
@@ -25,6 +36,8 @@ public class ServiceDescriptionPresenter implements ServiceDescriptionMVP.Presen
 
         return service;
     }
+
+    */
 
     /*
     public User findUser() {
@@ -34,14 +47,4 @@ public class ServiceDescriptionPresenter implements ServiceDescriptionMVP.Presen
         return service;
     }
     */
-
-    @Override
-    public void deatach() {
-        this.view= null;
-    }
-
-    @Override
-    public void contratarTarefa(Service service) {
-
-    }
 }

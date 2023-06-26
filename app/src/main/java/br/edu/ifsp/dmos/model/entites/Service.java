@@ -173,10 +173,14 @@ public class Service {
     }
 
 
-    //---------------------------------------------------------------------
-    //---------------------------------------------------------------------
-    //---------------------------------------------------------------------
+    //---------------TENTATIVA DE CRIAR UMA MANEIRA UNIFICADA DE PEGAR CAMPOS DO FIREBASE----
+    //---------------HORAS DESPERDIÇADAS NISSO: 8--------------------------------------------
+    //---------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------
+    //--------------O PROBLEMA APRESENTADO É A FUNÇÃO DE BUSCA NO FIREBASE SER ASSINCRONA----
 
+    /*
     public Service retornarService(String idDocService){
 
         //Tentativa 1
@@ -220,6 +224,8 @@ public class Service {
         Log.d("Service Return Banco", "Value: Valor do nome servico antes de retornar " + (service.nomeServico));
         return service;
     }
+
+     */
 
 
 }

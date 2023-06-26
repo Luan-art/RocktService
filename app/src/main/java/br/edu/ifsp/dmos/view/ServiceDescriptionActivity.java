@@ -1,11 +1,24 @@
 package br.edu.ifsp.dmos.view;
 
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_ADD_INFO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_CATEGORIA;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_COMENT;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_FORMAS_DE_PAGAMENTO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_FORMA_EXECUCAO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_ID_PROFISSIONAL;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_MEDIA_PRECO;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME_PROFISSIONAL;
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME_SERVICO;
+import static br.edu.ifsp.dmos.constants.Constants.SERVICE_COLLECTION;
+import static br.edu.ifsp.dmos.constants.Constants.USERS_COLLECTION;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +28,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.model.entites.Service;
@@ -54,7 +69,6 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
 
         findById();
         setListener();
-        recuperarService();
     }
 
     private void findById() {
@@ -76,9 +90,46 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
     @Override
     public void preencher() {
 
-        Service service = presenter.findService();
-        //User user = presenter.findUser();
 
+        //BUSCA POR CAMPOS DE SERVICE
+        //----------------------------
+        //----------------------------
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+
+        database.collection(SERVICE_COLLECTION)
+                .whereEqualTo(FieldPath.documentId(), "FsFhmfLPemvxSIzuGSlW")
+
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            QuerySnapshot querySnapshot = task.getResult();
+                            if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                                DocumentSnapshot documentSnapshot = querySnapshot.getDocuments().get(0);
+                                //textNomeProf.setText(documentSnapshot.getString(FIELD_NOME_SERVICO));
+                                //service.idProfissional = documentSnapshot.getString(FIELD_ID_PROFISSIONAL);
+                                textNomeProf.setText(documentSnapshot.getString(FIELD_NOME_PROFISSIONAL));
+                                //service.categoria = documentSnapshot.getString(FIELD_CATEGORIA);
+                                mediaPrecoNumber.setText(String.valueOf(documentSnapshot.getDouble(FIELD_MEDIA_PRECO)));
+                                formaPagamentoInfo.setText(documentSnapshot.getString(FIELD_FORMAS_DE_PAGAMENTO));
+                                formaExecucaoInfo.setText(documentSnapshot.getString(FIELD_FORMA_EXECUCAO));
+                                addInfoInfo.setText(documentSnapshot.getString(FIELD_ADD_INFO));
+                                //service.coment = documentSnapshot.getString(FIELD_COMENT);
+                                String idProfissional = documentSnapshot.getString(FIELD_ID_PROFISSIONAL);
+                            }
+                        }
+                    }
+                });
+        
+
+
+
+
+        //-------METODO ANTIGO DE BUSCA-----------
+        //----------------------------------------
+        //----------------------------------------
+        /*
         textNomeProf.setText(service.getNomeProfissional());
         tel.setText("user.getTelCel()");
         email.setText("user.getEmail()");
@@ -86,6 +137,8 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
         formaPagamentoInfo.setText(service.getFormasDePagamento());
         formaExecucaoInfo.setText(service.getFormaExecucao());
         addInfoInfo.setText(service.getAddInfo());
+
+         */
     }
 
     private void setListener() {
@@ -97,10 +150,9 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
         });
     }
 
+    /*
     private void recuperarService() {
-
         preencher();
-
-
     }
+     */
 }

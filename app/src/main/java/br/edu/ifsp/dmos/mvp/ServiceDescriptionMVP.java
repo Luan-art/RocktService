@@ -18,7 +18,7 @@ public interface ServiceDescriptionMVP {
 
     interface Presenter{
 
-        Service findService();
+        //Service findService();
 
         //User findUser();
 
