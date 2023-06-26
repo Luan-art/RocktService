@@ -56,7 +56,6 @@ public class FavoritedServicePresenter implements FavoritServiceMVP.Presenter {
 
                         // Recarregue a Activity FavorityServiceActivity
                         Intent intent = new Intent(context, FavoritedServiceActivity.class);
-                       // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                     }
                 })
