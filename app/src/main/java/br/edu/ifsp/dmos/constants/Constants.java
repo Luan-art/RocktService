@@ -17,6 +17,8 @@ public class Constants {
     public static final String FIELD_ESTADO = "estado";
 
     public static final String FIELD_SENHA = "senha";
+
+    //---------------------------------------------------------------
     public static final String SERVICE_COLLECTION = "Services";
     public static final String FIELD_NOME_SERVICO = "nomeServico";
     public static final String FIELD_ID_PROFISSIONAL = "idProfissional";
@@ -31,6 +33,10 @@ public class Constants {
 
     public static final String FIELD_NOTA = "nota";
     public static final String FIELD_COMENT = "coment";
+
+    //----------------------------------------------
+    public static final String CONTRACTS_COLLECTION = "Contracts";
+
 
 
 }

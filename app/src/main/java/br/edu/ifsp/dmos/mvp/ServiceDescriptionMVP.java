@@ -1,6 +1,7 @@
 package br.edu.ifsp.dmos.mvp;
 
 import android.content.Context;
+import android.os.Bundle;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +25,7 @@ public interface ServiceDescriptionMVP {
 
         void deatach();
 
-        void contratarTarefa(Service service);
+        void contratarTarefa(Bundle bundle);
 
     }
 }
