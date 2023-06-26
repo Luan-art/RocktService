@@ -74,7 +74,6 @@ public class ListServiceRecyclerAdapter extends FirestoreRecyclerAdapter<Service
             infoImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    clickListener.onClick(getSnapshots().getSnapshot(getBindingAdapterPosition()).getId());
 
 //                    Log.d("Task id", "Value: o que vai ser passado ao clique" + (taskId));
 

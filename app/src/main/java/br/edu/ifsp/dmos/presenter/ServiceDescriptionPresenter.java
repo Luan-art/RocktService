@@ -18,6 +18,24 @@ public class ServiceDescriptionPresenter implements ServiceDescriptionMVP.Presen
     }
 
     @Override
+    public Service findService() {
+
+        Service service = new Service();
+        service.retornarService("FsFhmfLPemvxSIzuGSlW");
+
+        return service;
+    }
+
+    /*
+    public User findUser() {
+
+        User user = user.retornarUser();
+
+        return service;
+    }
+    */
+
+    @Override
     public void deatach() {
         this.view= null;
     }

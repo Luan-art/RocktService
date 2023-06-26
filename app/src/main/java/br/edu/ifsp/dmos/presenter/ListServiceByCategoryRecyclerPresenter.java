@@ -13,9 +13,8 @@ public class ListServiceByCategoryRecyclerPresenter implements ListServiceByCate
     private ListServiceByCategoryMVP.Adapter adapter;
 
     @Override
-    public void descricaoServico(Context context, String taskId) {
+    public void descricaoServico(Context context) {
         Intent intent = new Intent(context, ServiceDescriptionActivity.class);
-        intent.putExtra("taskId", taskId);
         context.startActivity(intent);
     }
 }

@@ -2,28 +2,15 @@ package br.edu.ifsp.dmos.model.entites;
 
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_ADD_INFO;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_CATEGORIA;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_CIDADE;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_COMENT;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_DATANASC;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_DATA_SERVICO;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_DOC;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_EMAIL;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_ENDERECO;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_ESTADO;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_FORMAS_DE_PAGAMENTO;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_FORMA_EXECUCAO;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_ID_PROFISSIONAL;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_MEDIA_PRECO;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME_PROFISSIONAL;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME_SERVICO;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_TELCEL;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_USUARIO;
 import static br.edu.ifsp.dmos.constants.Constants.SERVICE_COLLECTION;
-import static br.edu.ifsp.dmos.constants.Constants.USERS_COLLECTION;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -38,8 +25,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-
-import br.edu.ifsp.dmos.view.HomeActivity;
 
 public class Service {
 
@@ -224,12 +209,15 @@ public class Service {
 
                                 Log.d("Service Return Banco", "Value: Encontrou o equivalente no banco");
                                 Log.d("Service Return Banco", "Value: Valor do nome servico " + (service.nomeServico));
+                                Log.d("Service Return Banco", "Value: Valor do nome servico " + (service.idProfissional));
+                                Log.d("Service Return Banco", "Value: Valor do nome servico " + (service.mediaPreco));
                             }
                         }
                     }
                 });
 
-        Log.d("Service Return Banco", "Value: Valor do nome servico antes do return " + (service.nomeServico));
+        Log.d("Service Return Banco", "Value: Saida do banco");
+        Log.d("Service Return Banco", "Value: Valor do nome servico antes de retornar " + (service.nomeServico));
         return service;
     }
 

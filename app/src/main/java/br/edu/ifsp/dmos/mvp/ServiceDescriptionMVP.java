@@ -18,14 +18,13 @@ public interface ServiceDescriptionMVP {
 
     interface Presenter{
 
+        Service findService();
+
+        //User findUser();
+
         void deatach();
 
         void contratarTarefa(Service service);
 
-    }
-
-    interface OnServiceRetrievedListener {
-        Service onServiceRetrieved(Service service);
-        void onServiceRetrievalFailed(String errorMessage);
     }
 }

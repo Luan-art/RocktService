@@ -23,7 +23,7 @@ import br.edu.ifsp.dmos.model.entites.User;
 import br.edu.ifsp.dmos.mvp.ServiceDescriptionMVP;
 import br.edu.ifsp.dmos.presenter.ServiceDescriptionPresenter;
 
-public class ServiceDescriptionActivity extends AppCompatActivity implements ServiceDescriptionMVP.View, ServiceDescriptionMVP.OnServiceRetrievedListener {
+public class ServiceDescriptionActivity extends AppCompatActivity implements ServiceDescriptionMVP.View{
 
     private Button btnContratar;
     private TextView textNomeProf;
@@ -76,6 +76,16 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
     @Override
     public void preencher() {
 
+        Service service = presenter.findService();
+        //User user = presenter.findUser();
+
+        textNomeProf.setText(service.getNomeProfissional());
+        tel.setText("user.getTelCel()");
+        email.setText("user.getEmail()");
+        mediaPrecoNumber.setText(String.valueOf(service.getMediaPreco()));
+        formaPagamentoInfo.setText(service.getFormasDePagamento());
+        formaExecucaoInfo.setText(service.getFormaExecucao());
+        addInfoInfo.setText(service.getAddInfo());
     }
 
     private void setListener() {
@@ -89,15 +99,8 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
 
     private void recuperarService() {
 
-    }
+        preencher();
 
-    @Override
-    public Service onServiceRetrieved(Service service) {
-        return service;
-    }
 
-    @Override
-    public void onServiceRetrievalFailed(String errorMessage) {
-        Toast.makeText(ServiceDescriptionActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 }
