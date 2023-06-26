@@ -94,10 +94,6 @@ public class ServiceOfferedPresenter implements ServiceOfferedMVP.Presenter {
 
                         Toast.makeText(context, "Serviço excluído com sucesso", Toast.LENGTH_SHORT).show();
 
-                        // Recarregue a Activity FavorityServiceActivity
-                        Intent intent = new Intent(context, ServiceOfferedActivity.class);
-                        // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        context.startActivity(intent);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
