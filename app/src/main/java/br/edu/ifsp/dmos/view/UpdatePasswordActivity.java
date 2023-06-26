@@ -46,7 +46,6 @@ public class UpdatePasswordActivity extends AppCompatActivity implements UpdateP
 
         bundle = getIntent().getExtras();
         idUsuario = bundle.getString("idUsuarioBundle");
-        Log.d("nome Do Usuario no edit profile activity", "Value: " + (idUsuario));
 
         setListener();
         presenter = new UpdatePasswordPresenter(this, this);
@@ -61,6 +60,8 @@ public class UpdatePasswordActivity extends AppCompatActivity implements UpdateP
     }
 
     private void setListener() {
+
+        //---------BOTAO SALVAR SENHA--------------------------------------------------------
         btmSalvarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +69,7 @@ public class UpdatePasswordActivity extends AppCompatActivity implements UpdateP
                 String newSenha = textNewSenha.getText().toString();
                 String confNewSenha = textConfNewSenha.getText().toString();
 
+                //---------CHECAGENS COM A SENHA-----------------------------------------------
                 if (oldSenha.isEmpty() || newSenha.isEmpty() || confNewSenha.isEmpty()) {
                     showMessage("Preencha todos os campos");
                 } else if (newSenha.equals(oldSenha)) {

@@ -174,11 +174,22 @@ public class Service {
 
 
     //---------------TENTATIVA DE CRIAR UMA MANEIRA UNIFICADA DE PEGAR CAMPOS DO FIREBASE----
-    //---------------HORAS DESPERDIÇADAS NISSO: 8--------------------------------------------
+    //---------------HORAS DESPERDIÇADAS NISSO: 8 -------------------------------------------
     //---------------------------------------------------------------------------------------
     //---------------------------------------------------------------------------------------
     //---------------------------------------------------------------------------------------
     //--------------O PROBLEMA APRESENTADO É A FUNÇÃO DE BUSCA NO FIREBASE SER ASSINCRONA----
+
+    //A função de leitura de dados no firebase é assincrona e portanto qualquer tentativa de
+    //retorno das variaveis como no codigo abaixo retorna vazia.
+    //diversos tentativas foram feitas para contornar essa situacao, com gatilhos, timers
+    //entre outros.
+    //A documentacao do firebase nao foi suficiente para sanar nossas duvidas e informacao
+    //sobre o mesmo no StackOverflow também é escassa, assim ultimamente, foi decidido
+    //abandonar a ideia.
+    //Somente resta o arrependimento por nao termos empregado um banco sql tradicional
+    //---------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------
 
     /*
     public Service retornarService(String idDocService){

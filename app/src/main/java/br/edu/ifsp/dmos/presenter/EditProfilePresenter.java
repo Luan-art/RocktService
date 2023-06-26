@@ -34,6 +34,8 @@ public class EditProfilePresenter implements EditProfileMVP.Presenter {
         this.context = context;
         database = FirebaseFirestore.getInstance();
     }
+
+    //---------METODO PARA DAR UPDATE EM UM DOCUMENT "USER" NO FIREBASE------------------------------------------------------
     @Override
     public void updatePerfil(String idUsuario, String nome,String email, String doc,  String dataNasc,
                              String usuario, String telCel, String endereco,String cidade, String estado) {
@@ -47,6 +49,8 @@ public class EditProfilePresenter implements EditProfileMVP.Presenter {
 
                         String documentId = queryDocumentSnapshots.getDocuments().get(0).getId();
 
+                        //metodo lindo de update no firebase, quem dera todos fossem assim
+                        //--------------------------------------------------------------------------------------------------
                         database.collection(USERS_COLLECTION).document(documentId)
                                 .update(FIELD_NOME, nome,
                                         FIELD_EMAIL, email,

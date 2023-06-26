@@ -31,6 +31,8 @@ public class UpdatePasswordPresenter implements UpdatePasswordMVP.Presenter {
 
         String senhaCrp = Criptografia.criptografar(newSenha);
 
+
+        //---------UPDATE DA SENHA NO FIREBASE---------------------------------------------------------
         database.collection(USERS_COLLECTION)
                 .whereEqualTo(FieldPath.documentId(), idUsuario)
 

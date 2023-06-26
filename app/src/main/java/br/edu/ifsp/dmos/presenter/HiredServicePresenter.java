@@ -55,12 +55,12 @@ public class HiredServicePresenter implements HiredServiceMVP.Presenter {
     }
 
     @Override
-    public void deletTesk(Service service) {
+    public void deleteService(Service service) {
 
     }
 
     @Override
-    public void avaliat(String service) {
+    public void rateService(String service) {
         Intent intent = new Intent(context, ServiceRatingActivity.class);
         context.startActivity(intent);
     }

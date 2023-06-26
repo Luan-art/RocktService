@@ -25,6 +25,7 @@ public class ServiceSolicitationPresenter implements ServiceSolicitationMVP.Pres
         database = FirebaseFirestore.getInstance();
     }
 
+    //---------CRIACAO DE NOVO DOCUMENTO CONTRATO NO FIREBASE--------------------------------------------------------------
     @Override
     public void registrarContrato(String idUser, String idService, String dataPrevista, String infoAdd) {
 

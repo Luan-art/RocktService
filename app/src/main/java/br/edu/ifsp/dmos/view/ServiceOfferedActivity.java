@@ -45,16 +45,19 @@ public class ServiceOfferedActivity extends AppCompatActivity implements Service
         mActionButton.setOnClickListener(this);
     }
 
+    //---------FLOATING ACTION BUTTON DE ADICIONAR NOVO SERVICO--------------------------------
     private void findById() {
         mActionButton = findViewById(R.id.fab_add_service);
         mRecyclerView = findViewById(R.id.recyclerview_service);
     }
 
+    //---------RETORNO A PAGINA ANTERIOR--------------------------------------------------------
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -63,6 +66,8 @@ public class ServiceOfferedActivity extends AppCompatActivity implements Service
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint("Procurar trabalhos oferecidos");
 
+
+        //---------BARRA DE PESQUISA-----------------------------------------------------
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

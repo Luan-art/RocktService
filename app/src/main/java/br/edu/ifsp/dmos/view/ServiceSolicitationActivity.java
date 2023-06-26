@@ -54,6 +54,8 @@ public class ServiceSolicitationActivity extends AppCompatActivity implements Se
             @Override
             public void onClick(View view) {
 
+
+                //---------TRATAMENTO DE DATA-----------------------------------------
                 String stringDataPrevista = dataExecucao.getText().toString();
                 String stringInfoAdd = infoAdd.getText().toString();
 
@@ -69,6 +71,8 @@ public class ServiceSolicitationActivity extends AppCompatActivity implements Se
                 if (stringInfoAdd.isEmpty() || stringDataPrevista.isEmpty() ) {
                     showMessage("Preencha todos os campos");
                 } else {
+
+                    //---------PASSAGEM DE PARAMETROS PARA CRIAR NOVO CONTRATO----------------------------------------
                     presenter.registrarContrato("", "", stringDataPrevista, stringInfoAdd);
                 }
 

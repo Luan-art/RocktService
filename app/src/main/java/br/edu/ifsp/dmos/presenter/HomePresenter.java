@@ -39,6 +39,7 @@ public class HomePresenter implements HomeMVP.Presenter {
         context.startActivity(intent);
     }
 
+    //---------PESQUISA BASEADA EM TEMA--------------
     @Override
     public void BuscarTema(String tema, Bundle bundle1) {
         Intent intent = new Intent(context, ListServiceByCategoryActivity.class);
@@ -48,6 +49,7 @@ public class HomePresenter implements HomeMVP.Presenter {
         context.startActivity(intent);
     }
 
+    //---------PESQUISA BASEADA EM NOME DO SERVICO-------------
     @Override
     public void search(String nome, Bundle bundle1) {
         Intent intent = new Intent(context, ListServiceByCategoryActivity.class);

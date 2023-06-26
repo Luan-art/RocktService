@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements MainMVP.View, Vie
         findViewById(R.id.main_layout).setOnTouchListener(this);
     }
 
+    //-----FUNÇÃO AO TOCAR NA TELA-------------------
+    //-----------------------------------------------
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         presenter.toch(motionEvent);

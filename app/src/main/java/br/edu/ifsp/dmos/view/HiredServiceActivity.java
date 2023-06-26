@@ -37,16 +37,19 @@ public class HiredServiceActivity extends AppCompatActivity implements HiredServ
         presenter = new HiredServicePresenter(this, this);
     }
 
-
     private void findById() {
         mRecyclerView = findViewById(R.id.recyclerview_service_hired);
     }
 
+
+    //---------METODO PARA RETORNAR A PAGINA ANTERIOR----------------------------------
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -54,6 +57,7 @@ public class HiredServiceActivity extends AppCompatActivity implements HiredServ
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint("Procurar trabalhos oferecidos");
 
+        //---------METODOS PADRÃO DA SEARCH VIEW
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

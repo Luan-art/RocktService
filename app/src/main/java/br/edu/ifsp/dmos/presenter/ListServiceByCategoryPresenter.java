@@ -49,6 +49,7 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
             adapter.stopListening();
     }
 
+    //---------POPULAR LISTA DE SERVICOS BASEANDO-SE EM TEMA------------------------------
     @Override
     public void populateByCategoria(RecyclerView mRecyclerView, String tema) {
         Query query = database.collection(Constants.SERVICE_COLLECTION).whereEqualTo("categoria", tema)
@@ -61,6 +62,7 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
         mRecyclerView.setAdapter(adapter);
     }
 
+    //---------POPULAR LISTA DE SERVICOS BASEANDO-SE EM NOME---------------------------------
     @Override
     public void populateByName(RecyclerView mRecyclerView, String nome) {
         Query query = database.collection(Constants.SERVICE_COLLECTION).whereEqualTo(FIELD_NOME_SERVICO, nome).
@@ -73,6 +75,7 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
         mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         mRecyclerView.setAdapter(adapter);
     }
+
 
     @Override
     public void populate(RecyclerView mRecyclerView, String search) {

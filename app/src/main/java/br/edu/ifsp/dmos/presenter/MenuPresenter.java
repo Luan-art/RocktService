@@ -34,6 +34,7 @@ public class MenuPresenter implements MenuMVP.Presenter {
         this.view = null;
     }
 
+    //---------NAVEGAR PARA A TELA EDITAR PERFIL----------------------
     @Override
     public void visualizarPerfil(Bundle bundle) {
         Intent intent = new Intent(context, EditProfileActivity.class);
@@ -41,6 +42,7 @@ public class MenuPresenter implements MenuMVP.Presenter {
         context.startActivity(intent);
     }
 
+    //---------NAVEGAR DE VOLTA A TELA HOME----------------------------
     @Override
     public void backToHome(Bundle bundle) {
         Intent intent = new Intent(context, HomeActivity.class);
@@ -49,12 +51,14 @@ public class MenuPresenter implements MenuMVP.Presenter {
 
     }
 
+    //---------NAVEGAR PARA A TELA SERVICOS CONTRATADOS-----------------
     @Override
     public void servicosContratados() {
         Intent intent = new Intent(context, HiredServiceActivity.class);
         context.startActivity(intent);
     }
 
+    //---------NAVEGAR PARA A TELA SERVICOS OFERECIDOS-------------------
     @Override
     public void servicosOferecidos(Bundle bundle) {
         Intent intent = new Intent(context, ServiceOfferedActivity.class);
@@ -62,18 +66,21 @@ public class MenuPresenter implements MenuMVP.Presenter {
         context.startActivity(intent);
     }
 
+    //---------NAVEGAR PARA A TELA SERVICOS SOLICITADOS-------------------
     @Override
     public void servicosSolicitados() {
         Intent intent = new Intent(context, ServiceSolicitionForYou.class);
         context.startActivity(intent);
     }
 
+    //---------NAVEGAR PARA A TELA SERVICOS FAVORITOS----------------------
     @Override
     public void servicosFavoritos() {
         Intent intent = new Intent(context, FavoritedServiceActivity.class);
         context.startActivity(intent);
     }
 
+    //---------NAVEGAR PARA TELA SERVICOS FAVORITOS------------------------
     @Override
     public void alterSenha(Bundle bundle) {
         Intent intent = new Intent(context, UpdatePasswordActivity.class);
@@ -81,6 +88,7 @@ public class MenuPresenter implements MenuMVP.Presenter {
         context.startActivity(intent);
     }
 
+    //---------NAVEGAR PARA A TELA LOGIN AO SE DESLOGAR---------------------
     @Override
     public void exist() {
         Intent intent = new Intent(context, LoginActivity.class);
