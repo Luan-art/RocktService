@@ -117,6 +117,7 @@ public class SingUpActivity  extends AppCompatActivity implements SignUpMVP.View
         Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
     }
 
+    //---------CHECAGEM DE MAIOR IDADE------------------------------------------
     private boolean isMaiorIdade(String dataNascimento) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date dataNasc = null;

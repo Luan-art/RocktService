@@ -36,13 +36,12 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
         setContentView(R.layout.activity_login);
         findById();
         setListener();
-
-        sharedPreferences = getSharedPreferences("login_preferences", Context.MODE_PRIVATE);
         presenter = new LoginPresenter(this, this);
 
+        //CRIAÇÃO DO SHARED PREFERENCES PARA GUARDAR USERNAME DO USUARIO
+        sharedPreferences = getSharedPreferences("login_preferences", Context.MODE_PRIVATE);
         boolean lembrarDeMimChecked = sharedPreferences.getBoolean("lembrarDeMim", false);
         lembrarDeMim.setChecked(lembrarDeMimChecked);
-
         if (lembrarDeMimChecked) {
             String savedUser = sharedPreferences.getString("usuario", "");
             textUser.setText(savedUser);

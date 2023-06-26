@@ -97,8 +97,10 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
 
 
         //BUSCA POR CAMPOS DE SERVICE
-        //----------------------------
-        //----------------------------
+        //------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------
+        //precisa ser feita aqui devido as restrições do firebase com suas pesquisas assincronas----
+        //------------------------------------------------------------------------------------------
         FirebaseFirestore database = FirebaseFirestore.getInstance();
 
         database.collection(SERVICE_COLLECTION)

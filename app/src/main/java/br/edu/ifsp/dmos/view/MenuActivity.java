@@ -38,18 +38,12 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
         setListener();
 
         bundle = getIntent().getExtras();
-
-        String nomeProfissional = bundle.getString("usuario");
-        String idUsuario = bundle.getString("idUsuarioBundle");
-        Log.d("nome Do Usuario no menu activity", "Value: " + (nomeProfissional));
-        Log.d("nome Do Usuario no menu service activity", "Value: " + (idUsuario));
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 
     private void setListener() {
+
+        //---------BOTAO PAGINA EDITAR PERFIL----------------------
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +51,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
             }
         });
 
+        //---------BOTAO PAGINA INICIAL----------------------
         pagInicial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +59,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
             }
         });
 
+        //---------BOTAO PAGINA SERVICOS CONTRATADOS------------
         pagServiceCont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +67,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
             }
         });
 
+        //---------BOTAO PAGINA SERVICOS OFERECIDOS--------------
         pagServiceOfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -79,6 +76,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
             }
         });
 
+        //---------BOTAO PAGINA SERVICOS SOLICITADOS---------------
         pagServiceSol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +84,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
              }
         });
 
+        //---------BOTAO PAGINA SERVICOS FAVORITOS-----------------
         serviceFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +92,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
             }
         });
 
+        //---------BOTAO PAGINA ALTERAR SENHA------------------------
         alterarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +100,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
             }
         });
 
+        //---------BOTAO DESLOGAR E RETORNAR A TELA DE LOGIN-----------
         sair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,6 +121,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
         sair = findViewById(R.id.text_sair);
     }
 
+    //---------RETORNAR A TELA ANTERIOR----------------
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

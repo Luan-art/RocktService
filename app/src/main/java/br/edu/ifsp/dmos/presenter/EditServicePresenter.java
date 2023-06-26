@@ -29,6 +29,7 @@ public class EditServicePresenter implements EditServiceMVP.Presenter{
 
     }
 
+    //---------UPDATE DO DOCUMENTO SERVICO NO FIREBASE----------------------------------------------------------------------
     @Override
     public void updateService(String nomeServico, String categoria, String mediaPreco, String formaPagamento,
                               String execucao, String InfoAdd, String chave) {

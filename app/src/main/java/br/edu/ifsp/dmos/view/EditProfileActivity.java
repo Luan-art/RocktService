@@ -77,6 +77,8 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
                 String cidade = cidadeEditText.getText().toString();
                 String estado = estadoSpinner.getSelectedItem().toString();
 
+
+                //---------TRATAMENTO DE DATA-------------------------------------
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 java.util.Date utilDate = null;
                 try {
@@ -86,10 +88,12 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
                 }
                 Date data = new Date(utilDate.getTime());
 
+                //---------CHECAGEM CAMPOS VAZIOS--------------------------------------------------
                 if (nome.isEmpty() || email.isEmpty() || doc.isEmpty() || dataNasc.isEmpty() ||
                         usuario.isEmpty() || telCel.isEmpty() || endereco.isEmpty() || cidade.isEmpty() || estado.isEmpty()) {
                     showMessage("Preencha todos os campos");
                 } else {
+                    //---------CHAMADA DE METODO PARA UPDATE DO USUARIO NO FIREBASE----------------
                     presenter.updatePerfil(idUsuario, nome, email, doc,  dataNasc,
                             usuario, telCel, endereco,cidade, estado);
                 }

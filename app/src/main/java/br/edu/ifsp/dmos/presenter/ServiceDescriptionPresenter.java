@@ -25,30 +25,11 @@ public class ServiceDescriptionPresenter implements ServiceDescriptionMVP.Presen
         this.view= null;
     }
 
+    //---------NAVEGAR PARA TELA DE FINALIZAR CONTRATO---------------------------------
     @Override
     public void contratarTarefa(Bundle bundle) {
         Intent intent = new Intent(context, ServiceSolicitationActivity.class);
         context.startActivity(intent);
     }
 
-    /*
-    @Override
-    public Service findService() {
-
-        Service service = new Service();
-        service.retornarService("FsFhmfLPemvxSIzuGSlW");
-
-        return service;
-    }
-
-    */
-
-    /*
-    public User findUser() {
-
-        User user = user.retornarUser();
-
-        return service;
-    }
-    */
 }

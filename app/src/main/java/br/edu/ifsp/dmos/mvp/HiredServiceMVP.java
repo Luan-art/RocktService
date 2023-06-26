@@ -15,11 +15,11 @@ public interface HiredServiceMVP {
     interface Presenter{
         void detach();
 
-        void avaliat(String service);
+        void rateService(String service);
 
         void populate(RecyclerView recyclerView, String searchView);
 
-        void deletTesk(Service service);
+        void deleteService(Service service);
 
     }
 }

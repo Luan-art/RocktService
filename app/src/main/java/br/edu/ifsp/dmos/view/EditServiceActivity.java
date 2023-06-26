@@ -71,6 +71,7 @@ public class EditServiceActivity extends AppCompatActivity implements EditServic
 
     }
 
+    //---------ADAPTER DO SPINNER DE CATEGORIA DO SERVICO-----------------------------------------------------
     private void cratSimpleAdpater() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.categoria_array, android.R.layout.simple_spinner_item);

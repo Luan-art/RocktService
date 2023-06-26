@@ -45,11 +45,8 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View {
     private ImageButton btnSaude;
     private ImageButton btnEvento;
     private HomePresenter presenter;
-
     private TextView olaUser;
     private Bundle bundle;
-
-    String idUsuarioBundle = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,18 +58,17 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View {
         setListener();
 
         bundle = getIntent().getExtras();
-        //String usuario = bundle.getString("usuario");
 
         String nomeProfissional = bundle.getString("usuario");
         String idUsuario = bundle.getString("idUsuarioBundle");
-        Log.d("nome Do Usuario no home activity novinho", "Value: " + (nomeProfissional));
-        Log.d("nome Do Usuario no home activity", "Value: " + (idUsuario));
 
         olaUser.setText("Ola, " + nomeProfissional);
         presenter = new HomePresenter(this, this);
     }
 
     private void setListener() {
+
+        //---------ENTRAR NO MENU----------
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +76,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View {
             }
         });
 
+        //---------PESQUISAR CATEGORIA TECNOLOGIA-------------
         btnTecnologia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +84,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View {
             }
         });
 
+        //---------PESQUISAR CATEGORIA EDUCACAO-----------------
         btnEducacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +92,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View {
             }
         });
 
+        //---------PESQUISAR CATEGORIA CASA---------------------
         btnCasa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +100,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View {
             }
         });
 
+        //---------PESQUISAR CATEGORIA ARTE----------------------
         btnArte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +108,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View {
             }
         });
 
+        //---------PESQUISAR CATEGORIA SAUDE-----------------------
         btnSaude.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,12 +116,14 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View {
             }
         });
 
+        //---------PESQUISAR CATEGORIA EVENTO-----------------------
         btnEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.BuscarTema("Evento", bundle);
             }
         });
+
 
         // Adicione o setOnKeyListener para capturar a tecla "Enter"
         search.setOnKeyListener(new View.OnKeyListener() {
@@ -135,6 +138,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View {
             }
         });
 
+        // PESQUISA PADRÃO DO SEARCH VIEW
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -178,6 +182,7 @@ public class HomeActivity extends AppCompatActivity implements HomeMVP.View {
         }
     }
 
+    // CHECAGEM DE PERMISSOES PARA O GPS
     private void verificarPermissoes() {
         String permissoes_necessarias[] = new String[]{
                 Manifest.permission.ACCESS_FINE_LOCATION,

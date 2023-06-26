@@ -47,6 +47,7 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint("Procurar trabalhos oferecidos");
 
+        //---------METODOS PADRAO DA SEARCH VIEW--------------------------------------------------
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -67,6 +68,8 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
         });
         return super.onCreateOptionsMenu(menu);
     }
+
+    //---------RETORNAR A TELA ANTERIOR
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -74,6 +77,8 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
     }
     @Override
     protected void onStart() {
+
+        //---------CHECAGEM SE A BUSCA SERA FEITA VIA TEMA OU VIA NOME--------------------------
         super.onStart();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

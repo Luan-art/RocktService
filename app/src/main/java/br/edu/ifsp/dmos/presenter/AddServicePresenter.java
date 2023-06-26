@@ -44,6 +44,10 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
                                 String formasDePagamento, String formaExecucao, String addInfo,
                                 String coment, Date date, String status) {
 
+        //---------MULTIPLOS LOGS UTILIZADOS PARA GARANTIR QUE OS DADOS ESTAO DEVIDAMENTE ESTRUTURADOS----------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------
+        //--------eu pensei em apagar mas achei um bloco bonito e deixo como honra as horas gastas nesse código-------------------------
+        //------------------------------------------------------------------------------------------------------------------------------
         Log.d("Nome Servico chegando", "Value: " + (nomeServico));
         Log.d("id Profissional chegando", "Value: " + (idProfissional));
         Log.d("nome Profissional chegando", "Value: " + (nomeProfissional));
@@ -56,10 +60,14 @@ public class AddServicePresenter implements AddServiceMVP.Presenter {
         Log.d("date", "Value: " + (date));
         Log.d("status", "Value: " + (status));
 
+
+        //---------CADASTRO DO SERVICO NO FIREBASE------------------------------------------------------------------
         CollectionReference listaServicos = database.collection(Constants.SERVICE_COLLECTION);
 
-        CollectionReference listUsuarios = database.collection(Constants.USERS_COLLECTION);
 
+        //originalmente iria haver uma busca pelos dados do usuario no banco, mas a nao cooperacao do firebase tornou
+        // mais viavel pegar os dados via bundle
+        //--------------------------------------------------------------------------------------------------------------------
         Log.d("nome Profissional chegando", "Value: " + (nomeProfissional));
         Service servico = new Service(nomeServico, idProfissional, nomeProfissional, categoria, precoHora,
                 formasDePagamento, formaExecucao, addInfo, coment, date, status);

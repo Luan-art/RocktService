@@ -16,9 +16,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.mvp.HiredServiceMVP;
-import br.edu.ifsp.dmos.mvp.ServiceOfferedMVP;
 import br.edu.ifsp.dmos.presenter.HiredServicePresenter;
-import br.edu.ifsp.dmos.presenter.ServiceOfferedPresenter;
 import br.edu.ifsp.dmos.view.ItemClickListener;
 
 public class HiredServiceAdapter extends FirestoreRecyclerAdapter<Service, HiredServiceAdapter.Holder> {
@@ -53,7 +51,7 @@ public class HiredServiceAdapter extends FirestoreRecyclerAdapter<Service, Hired
             @Override
             public void onClick(View view) {
                 String serviceId = getSnapshots().getSnapshot(finalPosition).getId();
-                presenter.avaliat(serviceId);
+                presenter.rateService(serviceId);
             }
         });
 
@@ -61,7 +59,7 @@ public class HiredServiceAdapter extends FirestoreRecyclerAdapter<Service, Hired
             @Override
             public void onClick(View view) {
                 String serviceId = getSnapshots().getSnapshot(finalPosition).getId();
-                presenter.avaliat(serviceId);
+                presenter.rateService(serviceId);
             }
         });
 

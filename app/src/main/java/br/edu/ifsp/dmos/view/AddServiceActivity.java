@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -47,10 +45,7 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Bundle bundle = getIntent().getExtras();
-        nomeProfissional = bundle.getString("usuario");
         idUsuario = bundle.getString("idUsuarioBundle");
-        Log.d("nome Do Usuario no add service activity", "Value: " + (nomeProfissional));
-        Log.d("nome Do Usuario no add service activity", "Value: " + (idUsuario));
 
         findById();
         setListener();
@@ -74,11 +69,12 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
         menu = findViewById(R.id.spinner_AddCategoria);
 
 
-        cratSimpleAdpater();
+        createSimpleAdpater();
 
     }
 
-    private void cratSimpleAdpater() {
+    //---------CRIANDO O ADAPTER DO SPINNER DE CATEGORIA-------------------------------------
+    private void createSimpleAdpater() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.categoria_array, android.R.layout.simple_spinner_item);
 
@@ -101,15 +97,13 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
 
                 String categoria = menu.getSelectedItem().toString();
 
+                //---------ENVIANDO DADOS DA TAREFA PARA SER CADASTRADA NO PRESENTER-----------------------------------------------
                 presenter.CadastrarTarefa(nomeServico,  idUsuario, nomeProfissional, categoria, Double.parseDouble(mediaPreco),
                         formasPagamento, formaExecucao, informacaoAdicional, "", null, "Nulo");
 
             }
         });
     }
-
-
-
 
     @Override
     public Context getContext() {

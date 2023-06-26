@@ -41,6 +41,8 @@ public class SingUpPresenter implements SignUpMVP.Presenter {
         context.startActivity(intent);
     }
 
+    //-----------FUNCAO CADASTRAR NOVO USUARIO------------------------------
+    //----------------------------------------------------------------------
     @Override
     public void RealizarCadastro(String nome, String email, String doc, Date dataNasci,
                                  String usuario, String telCel,  String senha, String confSenha) {
@@ -55,6 +57,8 @@ public class SingUpPresenter implements SignUpMVP.Presenter {
                 if (userExists) {
                     Toast.makeText(view.getContext(), "Email já está em uso", Toast.LENGTH_SHORT).show();
                 } else {
+
+                    //----SE USUARIO NÃO EXISTIR AQUI SERA CADASTRADO----------
                     User user = new User(nome, email, doc, dataNasci, usuario, telCel, null, null, null, senha, 0.0, 0);
 
                     listUsuarios.add(user).addOnSuccessListener(documentReference -> {

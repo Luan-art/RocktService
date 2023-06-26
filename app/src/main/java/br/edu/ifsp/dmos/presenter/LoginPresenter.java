@@ -47,6 +47,8 @@ public class LoginPresenter implements LoginMVP.Presenter {
         }
     }
 
+    //----------FAZER A VERIFICACAO DE USUARIO A PARTIR DE SER USERNAME E SENHA------------
+    //-------------------------------------------------------------------------------------
     private void verificarUserESenha(String username, String password) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference usuarioRef = db.collection(USERS_COLLECTION);
@@ -85,6 +87,8 @@ public class LoginPresenter implements LoginMVP.Presenter {
                 });
     }
 
+    //----------IR A TELA DE CADASTRO--------------------
+    //---------------------------------------------------
     @Override
     public void cadast() {
         Intent intent = new Intent(context, SingUpActivity.class);

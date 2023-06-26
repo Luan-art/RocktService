@@ -21,6 +21,9 @@ public class MainPresenter implements MainMVP.Presenter {
         this.view = null;
     }
 
+
+    //-----FUNÇÃO PARA IR AO LOGIN ASSIM QUE DER UM CLIQUE NA TELA--------------
+    //--------------------------------------------------------------------------
     @Override
     public void toch(MotionEvent motionEvent) {
         if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
