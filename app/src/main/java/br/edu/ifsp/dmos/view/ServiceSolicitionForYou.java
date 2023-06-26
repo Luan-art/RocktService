@@ -34,20 +34,27 @@ public class ServiceSolicitionForYou extends AppCompatActivity implements Servic
     }
 
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem menuItem = menu.findItem(R.id.search_menu);
         SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.setQueryHint("Procurar solicitados para você");
+        searchView.setQueryHint("Procurar trabalhos oferecidos");
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query){
+            public boolean onQueryTextSubmit(String query) {
+                presenter.populate(mRecyclerView, query);
+                presenter.startListener();
+
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText){
+            public boolean onQueryTextChange(String newText) {
+
+                presenter.populate(mRecyclerView, newText);
+                presenter.startListener();
                 return false;
             }
         });
@@ -74,7 +81,7 @@ public class ServiceSolicitionForYou extends AppCompatActivity implements Servic
     @Override
     protected void onStart() {
         super.onStart();
-        presenter.populate(mRecyclerView);
+        presenter.populate(mRecyclerView, null);
         presenter.startListener();
     }
 

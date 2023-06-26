@@ -36,11 +36,16 @@ public class ServiceSolicitionForYouPresenter implements ServiceSolicitionForYou
     }
 
     @Override
-    public void populate(RecyclerView recyclerView) {
+    public void populate(RecyclerView recyclerView, String searchView) {
+        Query query = data.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO, Query.Direction.ASCENDING);
+        if (searchView != null){
+            if (searchView.length() == 0){
+                populate(recyclerView, null);
+            } else{
+                query = data.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO).startAt(searchView).endAt(searchView + '\uf8ff');
+            }
+        }
 
-
-        Query query = data.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO,
-                Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>().
                 setQuery(query, Service.class).build();
 

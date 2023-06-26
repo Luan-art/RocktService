@@ -141,9 +141,9 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
         });
     }
 
-    /*
-    private void recuperarService() {
-        preencher();
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
-     */
 }

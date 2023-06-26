@@ -14,7 +14,7 @@ public interface FavoritServiceMVP {
         void deatach();
 
 
-        void populate(RecyclerView recyclerView);
+        void populate(RecyclerView recyclerView, String searchView);
 
         void deletTesk(String service);
 

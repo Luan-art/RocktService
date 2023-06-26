@@ -49,13 +49,22 @@ public class HiredServiceAdapter extends FirestoreRecyclerAdapter<Service, Hired
 
         final int finalPosition = position;
 
-        holder.imagEdit.setOnClickListener(new View.OnClickListener() {
+        holder.imagAval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String serviceId = getSnapshots().getSnapshot(finalPosition).getId();
                 presenter.avaliat(serviceId);
             }
         });
+
+        holder.imagExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String serviceId = getSnapshots().getSnapshot(finalPosition).getId();
+                presenter.avaliat(serviceId);
+            }
+        });
+
 
 
     }
@@ -76,7 +85,7 @@ public class HiredServiceAdapter extends FirestoreRecyclerAdapter<Service, Hired
         public TextView nomeProfTextView;
 
         public ImageView imagExcluir;
-        public ImageView imagEdit;
+        public ImageView imagAval;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
@@ -84,8 +93,8 @@ public class HiredServiceAdapter extends FirestoreRecyclerAdapter<Service, Hired
             dataTextView = itemView.findViewById(R.id.text_date);
             statusTextView = itemView.findViewById(R.id.text_status);
             nomeProfTextView = itemView.findViewById(R.id.text_namePro);
-            //imagExcluir = itemView.findViewById(R.id.image_delet);
-            imagEdit = itemView.findViewById(R.id.image_delet);
+            imagExcluir = itemView.findViewById(R.id.image_delet);
+            imagAval = itemView.findViewById(R.id.image_Avaliativ);
 
             itemView.setOnClickListener(this);
         }

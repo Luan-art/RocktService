@@ -23,6 +23,8 @@ public interface ListServiceByCategoryMVP {
         void populateByCategoria(RecyclerView mRecyclerView, String tema);
 
         void populateByName(RecyclerView mRecyclerView, String nome);
+
+        void populate(RecyclerView mRecyclerView, String search);
     }
 
     interface Adapter {

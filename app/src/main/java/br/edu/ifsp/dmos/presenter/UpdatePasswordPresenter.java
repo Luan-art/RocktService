@@ -1,13 +1,15 @@
 package br.edu.ifsp.dmos.presenter;
 
+import static br.edu.ifsp.dmos.constants.Constants.FIELD_SENHA;
 import static br.edu.ifsp.dmos.constants.Constants.USERS_COLLECTION;
 
 import android.content.Context;
 
+import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import br.edu.ifsp.dmos.mvp.SignUpMVP;
 import br.edu.ifsp.dmos.mvp.UpdatePasswordMVP;
+import br.edu.ifsp.dmos.view.md5.Criptografia;
 
 public class UpdatePasswordPresenter implements UpdatePasswordMVP.Presenter {
 
@@ -18,18 +20,19 @@ public class UpdatePasswordPresenter implements UpdatePasswordMVP.Presenter {
     private String usuario;
 
 
-    public UpdatePasswordPresenter(UpdatePasswordMVP.View view, Context context, String usuario) {
+    public UpdatePasswordPresenter(UpdatePasswordMVP.View view, Context context) {
         this.view = view;
         this.context = context;
-        this.usuario = usuario;
         database = FirebaseFirestore.getInstance();
     }
 
     @Override
-    public void updateSenha(String usuario, String newSenha) {
+    public void updateSenha(String idUsuario, String newSenha) {
+
+        String senhaCrp = Criptografia.criptografar(newSenha);
 
         database.collection(USERS_COLLECTION)
-                .whereEqualTo("usuario", usuario)
+                .whereEqualTo(FieldPath.documentId(), idUsuario)
 
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
@@ -38,7 +41,7 @@ public class UpdatePasswordPresenter implements UpdatePasswordMVP.Presenter {
                         String documentId = queryDocumentSnapshots.getDocuments().get(0).getId();
 
                         database.collection(USERS_COLLECTION).document(documentId)
-                                .update("senha", newSenha)
+                                .update(FIELD_SENHA, senhaCrp)
                                 .addOnSuccessListener(aVoid -> {
                                     view.showMessage("Senha atualizada com sucesso.");
                                 })

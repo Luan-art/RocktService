@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import br.edu.ifsp.dmos.R;
 import br.edu.ifsp.dmos.mvp.UpdatePasswordMVP;
 import br.edu.ifsp.dmos.presenter.UpdatePasswordPresenter;
 
+
 public class UpdatePasswordActivity extends AppCompatActivity implements UpdatePasswordMVP.View {
 
     private TextView textOldeSenha;
@@ -22,29 +24,40 @@ public class UpdatePasswordActivity extends AppCompatActivity implements UpdateP
     private TextView textConfNewSenha;
     private Button btmSalvarSenha;
     private UpdatePasswordPresenter presenter;
-    private String usuario;
+    private Bundle bundle;
+
+    private String idUsuario;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_password);
 
-        Intent intent = getIntent();
-        if (intent != null) {
-            usuario = intent.getStringExtra("usuario");
-            setUsuario(usuario);
-        }
 
         findById();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Avaliar Serviços");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        bundle = getIntent().getExtras();
+        idUsuario = bundle.getString("idUsuarioBundle");
+        Log.d("nome Do Usuario no edit profile activity", "Value: " + (idUsuario));
+
         setListener();
-        presenter = new UpdatePasswordPresenter(this, this, usuario);
+        presenter = new UpdatePasswordPresenter(this, this);
 
 
     }
 
-    private void setUsuario(String usuario) {
-        this.usuario = usuario;
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void setListener() {
@@ -62,7 +75,7 @@ public class UpdatePasswordActivity extends AppCompatActivity implements UpdateP
                 } else if (!newSenha.equals(confNewSenha)) {
                     showMessage("Nova senha e senha confirmada são diferentes");
                 } else {
-                    presenter.updateSenha(usuario, newSenha);
+                    presenter.updateSenha(idUsuario, newSenha);
                 }
             }
         });

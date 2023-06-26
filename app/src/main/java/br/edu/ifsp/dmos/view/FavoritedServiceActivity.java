@@ -48,12 +48,18 @@ public class FavoritedServiceActivity extends AppCompatActivity implements Favor
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
             @Override
-            public boolean onQueryTextSubmit(String query){
+            public boolean onQueryTextSubmit(String query) {
+                presenter.populate(mRecyclerView, query);
+                presenter.startListener();
+
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText){
+            public boolean onQueryTextChange(String newText) {
+
+                presenter.populate(mRecyclerView, newText);
+                presenter.startListener();
                 return false;
             }
         });
@@ -73,7 +79,7 @@ public class FavoritedServiceActivity extends AppCompatActivity implements Favor
     @Override
     protected void onStart() {
         super.onStart();
-        presenter.populate(mRecyclerView);
+        presenter.populate(mRecyclerView, null);
         presenter.startListener();
     }
 

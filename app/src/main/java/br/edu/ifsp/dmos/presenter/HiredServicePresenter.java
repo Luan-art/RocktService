@@ -37,9 +37,15 @@ public class HiredServicePresenter implements HiredServiceMVP.Presenter {
 
 
     @Override
-    public void populate(RecyclerView recyclerView) {
-
+    public void populate(RecyclerView recyclerView, String search) {
         Query query = data.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO, Query.Direction.ASCENDING);
+        if (search != null){
+            if (search.length() == 0){
+                populate(recyclerView, null);
+            } else{
+                query = data.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO).startAt(search).endAt(search + '\uf8ff');
+            }
+        }
         FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>().setQuery(query, Service.class).build();
 
         adapter = new HiredServiceAdapter(options, view,context);

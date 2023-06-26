@@ -96,7 +96,7 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
         alterarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.alterSenha( usuario);
+                presenter.alterSenha(bundle);
             }
         });
 
@@ -120,6 +120,11 @@ public class MenuActivity extends AppCompatActivity implements MenuMVP.View {
         sair = findViewById(R.id.text_sair);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
     @Override
     public Context getContext() {
         return this;

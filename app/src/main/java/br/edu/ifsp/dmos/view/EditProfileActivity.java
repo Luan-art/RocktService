@@ -58,6 +58,11 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         presenter = new EditProfilePresenter(this, this);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
     private void setListener() {
         salvarButton.setOnClickListener(new View.OnClickListener() {
             @Override

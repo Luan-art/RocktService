@@ -57,6 +57,34 @@ public class ServiceOfferedActivity extends AppCompatActivity implements Service
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        MenuItem menuItem = menu.findItem(R.id.search_menu);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Procurar trabalhos oferecidos");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                presenter.populate(mRecyclerView, query);
+                presenter.startListener();
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                presenter.populate(mRecyclerView, newText);
+                presenter.startListener();
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
     public void onClick(View view) {
         if(view == mActionButton){
             Bundle bundle = getIntent().getExtras();
@@ -72,7 +100,7 @@ public class ServiceOfferedActivity extends AppCompatActivity implements Service
     @Override
     protected void onStart() {
         super.onStart();
-        presenter.populate(mRecyclerView);
+        presenter.populate(mRecyclerView, null);
         presenter.startListener();
     }
 

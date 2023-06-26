@@ -1,8 +1,11 @@
 package br.edu.ifsp.dmos.presenter;
 
+import static br.edu.ifsp.dmos.constants.Constants.SERVICE_COLLECTION;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -19,6 +23,8 @@ import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.mvp.ServiceOfferedMVP;
 import br.edu.ifsp.dmos.view.AddServiceActivity;
 import br.edu.ifsp.dmos.view.EditServiceActivity;
+import br.edu.ifsp.dmos.view.FavoritedServiceActivity;
+import br.edu.ifsp.dmos.view.ServiceOfferedActivity;
 import br.edu.ifsp.dmos.view.adapter.ServiceOfferedAdapter;
 
 public class ServiceOfferedPresenter implements ServiceOfferedMVP.Presenter {
@@ -41,8 +47,16 @@ public class ServiceOfferedPresenter implements ServiceOfferedMVP.Presenter {
     }
 
     @Override
-    public void populate(RecyclerView recyclerView) {
+    public void populate(RecyclerView recyclerView, String searchView) {
         Query query = data.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO, Query.Direction.ASCENDING);
+        if (searchView != null){
+            if (searchView.length() == 0){
+                populate(recyclerView, null);
+            } else{
+                query = data.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO).startAt(searchView).endAt(searchView + '\uf8ff');
+            }
+        }
+
         FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>().setQuery(query, Service.class).build();
 
         adapter = new ServiceOfferedAdapter(options, view,context);
@@ -64,34 +78,37 @@ public class ServiceOfferedPresenter implements ServiceOfferedMVP.Presenter {
     }
 
     @Override
-    public void edit(String service) {
+    public void edit(String chave) {
         Intent intent = new Intent(context, EditServiceActivity.class);
+        intent.putExtra("chave", chave);
         context.startActivity(intent);
     }
 
     @Override
-    public void delet(String service) {
-        if (service != null) {
+    public void delet(String idService) {
 
-            // Acesse a coleção e o documento correspondente
-            data.collection(Constants.SERVICE_COLLECTION)
-                    .document()
-                    .delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            // Exclusão bem-sucedida
-                            // Implemente qualquer lógica adicional, se necessário
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            // Exclusão falhou
-                            // Implemente qualquer lógica adicional, se necessário
-                        }
-                    });
-        }
+        DocumentReference documentRef = data.collection(SERVICE_COLLECTION).document(idService);
+        documentRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                        Toast.makeText(context, "Serviço excluído com sucesso", Toast.LENGTH_SHORT).show();
+
+                        // Recarregue a Activity FavorityServiceActivity
+                        Intent intent = new Intent(context, ServiceOfferedActivity.class);
+                        // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context, "Falha ao excluir o serviço", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
     }
 
     @Override

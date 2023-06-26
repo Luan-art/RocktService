@@ -2,21 +2,11 @@ package br.edu.ifsp.dmos.presenter;
 
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_ADD_INFO;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_CATEGORIA;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_CIDADE;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_DATANASC;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_DOC;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_EMAIL;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_ENDERECO;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_ESTADO;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_FORMAS_DE_PAGAMENTO;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_FORMA_EXECUCAO;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_MEDIA_PRECO;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME;
 import static br.edu.ifsp.dmos.constants.Constants.FIELD_NOME_SERVICO;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_TELCEL;
-import static br.edu.ifsp.dmos.constants.Constants.FIELD_USUARIO;
 import static br.edu.ifsp.dmos.constants.Constants.SERVICE_COLLECTION;
-import static br.edu.ifsp.dmos.constants.Constants.USERS_COLLECTION;
 
 import android.content.Context;
 
@@ -41,10 +31,13 @@ public class EditServicePresenter implements EditServiceMVP.Presenter{
 
     @Override
     public void updateService(String nomeServico, String categoria, String mediaPreco, String formaPagamento,
-                              String execucao, String InfoAdd) {
-        database.collection(SERVICE_COLLECTION)
-                .whereEqualTo(FieldPath.documentId(), "idUsuario")
+                              String execucao, String InfoAdd, String chave) {
 
+        // Convertendo mediaPreco para um tipo numérico
+        double preco = Double.parseDouble(mediaPreco);
+
+        database.collection(SERVICE_COLLECTION)
+                .whereEqualTo(FieldPath.documentId(), chave)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     if (!queryDocumentSnapshots.isEmpty()) {
@@ -54,16 +47,15 @@ public class EditServicePresenter implements EditServiceMVP.Presenter{
                         database.collection(SERVICE_COLLECTION).document(documentId)
                                 .update(FIELD_NOME_SERVICO, nomeServico,
                                         FIELD_CATEGORIA, categoria,
-                                        FIELD_MEDIA_PRECO, mediaPreco,
+                                        FIELD_MEDIA_PRECO, preco, // Usando o valor convertido
                                         FIELD_FORMAS_DE_PAGAMENTO, formaPagamento,
                                         FIELD_FORMA_EXECUCAO, execucao,
                                         FIELD_ADD_INFO, InfoAdd)
                                 .addOnSuccessListener(aVoid -> {
-                                    view.showMessage("Perfil atualizada com sucesso.");
-
+                                    view.showMessage("Perfil atualizado com sucesso.");
                                 })
                                 .addOnFailureListener(e -> {
-                                    view.showMessage("Erro ao atualizar a Perfil: " + e.getMessage());
+                                    view.showMessage("Erro ao atualizar o perfil: " + e.getMessage());
                                 });
                     } else {
                         view.showMessage("Usuário não encontrado.");
@@ -73,4 +65,5 @@ public class EditServicePresenter implements EditServiceMVP.Presenter{
                     view.showMessage("Erro ao buscar usuário: " + e.getMessage());
                 });
     }
+
 }

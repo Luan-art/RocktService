@@ -31,13 +31,20 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
 
     private AddServiceMVP.Presenter presenter;
 
-    String nomeProfissional;
-    String idUsuario;
+    private String nomeProfissional;
+    private String idUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_service);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Adicionar Serviço");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Bundle bundle = getIntent().getExtras();
         nomeProfissional = bundle.getString("usuario");
@@ -50,6 +57,12 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
         presenter = new AddServicePresenter(this, this, idUsuarioBundle);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     private void findById() {
         edittextNomeServico = findViewById(R.id.edittext_AddnomeServico);
@@ -59,11 +72,7 @@ public class AddServiceActivity extends AppCompatActivity implements AddServiceM
         editTextinformacaoAdcional = findViewById(R.id.AddeditText);
         btnCad = findViewById(R.id.Addbtn_save);
         menu = findViewById(R.id.spinner_AddCategoria);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Adicionar Serviço");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         cratSimpleAdpater();
 

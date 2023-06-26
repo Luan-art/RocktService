@@ -51,6 +51,12 @@ public class EditServiceActivity extends AppCompatActivity implements EditServic
 
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     private void findById() {
         edittextNomeServico = findViewById(R.id.edittext_nomeServico);
@@ -86,13 +92,14 @@ public class EditServiceActivity extends AppCompatActivity implements EditServic
                 String formaExecucao = edittextFormaExecucao.getText().toString();
                 String text = editText.getText().toString();
 
+                String chave = getIntent().getStringExtra("chave");
 
                 if (nomeServico.isEmpty() || categoria.isEmpty() || mediaPreco.isEmpty() || formasPagamento.isEmpty() ||
                         formaExecucao.isEmpty() ||text.isEmpty()) {
                     showMessage("Preencha todos os campos");
                 } else {
                     presenter.updateService(nomeServico, categoria, mediaPreco, formasPagamento,  formaExecucao,
-                            text);
+                            text, chave);
                 }
             }
         });

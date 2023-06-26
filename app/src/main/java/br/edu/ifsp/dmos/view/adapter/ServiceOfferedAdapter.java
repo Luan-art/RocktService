@@ -58,7 +58,7 @@ public class ServiceOfferedAdapter extends FirestoreRecyclerAdapter<Service, Ser
             @Override
             public void onClick(View view) {
                 String serviceId = getSnapshots().getSnapshot(finalPosition).getId();
-                presenter.delet(serviceId);
+                presenter.edit(serviceId);
             }
         });
 
@@ -66,7 +66,7 @@ public class ServiceOfferedAdapter extends FirestoreRecyclerAdapter<Service, Ser
             @Override
             public void onClick(View view) {
                 String serviceId = getSnapshots().getSnapshot(finalPosition).getId();
-                presenter.edit(serviceId);
+                presenter.delet(serviceId);
             }
         });
     }

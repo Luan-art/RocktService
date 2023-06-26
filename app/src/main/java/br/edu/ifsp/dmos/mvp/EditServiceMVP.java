@@ -16,8 +16,8 @@ public interface EditServiceMVP {
 
 
 
-        void updateService(String nomeServico, String categoria,String mediaPreco, String formaPagamento,
-                           String execucao, String InfoAdd);
+        void updateService(String nomeServico, String categoria, String mediaPreco, String formaPagamento,
+                           String execucao, String InfoAdd, String chave);
 
 
     }

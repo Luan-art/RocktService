@@ -49,18 +49,29 @@ public class ListServiceByCategoryActivity extends AppCompatActivity implements 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
             @Override
-            public boolean onQueryTextSubmit(String query){
+            public boolean onQueryTextSubmit(String query) {
+                presenter.populate(mRecyclerView, query);
+
+                presenter.startListener();
+
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText){
+            public boolean onQueryTextChange(String newText) {
+
+                presenter.populate(mRecyclerView, newText);
+                presenter.startListener();
                 return false;
             }
         });
         return super.onCreateOptionsMenu(menu);
     }
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
     @Override
     protected void onStart() {
         super.onStart();

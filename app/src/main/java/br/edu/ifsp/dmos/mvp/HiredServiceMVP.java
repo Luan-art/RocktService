@@ -17,7 +17,7 @@ public interface HiredServiceMVP {
 
         void avaliat(String service);
 
-        void populate(RecyclerView recyclerView);
+        void populate(RecyclerView recyclerView, String searchView);
 
         void deletTesk(Service service);
 

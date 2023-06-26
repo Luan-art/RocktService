@@ -75,9 +75,9 @@ public class MenuPresenter implements MenuMVP.Presenter {
     }
 
     @Override
-    public void alterSenha( String usuario) {
+    public void alterSenha(Bundle bundle) {
         Intent intent = new Intent(context, UpdatePasswordActivity.class);
-        intent.putExtra("usuario", usuario);
+        intent.putExtras(bundle);
         context.startActivity(intent);
     }
 

@@ -15,6 +15,7 @@ import com.google.firebase.firestore.Query;
 import br.edu.ifsp.dmos.constants.Constants;
 import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.mvp.ListServiceByCategoryMVP;
+import br.edu.ifsp.dmos.view.adapter.FavoritServiceAdapter;
 import br.edu.ifsp.dmos.view.adapter.ListServiceRecyclerAdapter;
 
 public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.Presenter {
@@ -68,6 +69,25 @@ public class ListServiceByCategoryPresenter implements ListServiceByCategoryMVP.
         Log.d("chegueiPresenter", nome);
 
         adapter = new ListServiceRecyclerAdapter(options, view, view.getContext());
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        mRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void populate(RecyclerView mRecyclerView, String search) {
+        Query query = database.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO, Query.Direction.ASCENDING);
+        if (search != null){
+            if (search.length() == 0){
+                populate(mRecyclerView, null);
+            } else{
+                query = database.collection(Constants.SERVICE_COLLECTION).orderBy(Constants.FIELD_NOME_SERVICO).startAt(search).endAt(search + '\uf8ff');
+            }
+        }
+        FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>()
+                .setQuery(query, Service.class).build();
+
+        adapter =  new ListServiceRecyclerAdapter(options, view, view.getContext());
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         mRecyclerView.setAdapter(adapter);

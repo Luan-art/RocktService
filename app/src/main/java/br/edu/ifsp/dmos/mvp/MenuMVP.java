@@ -25,7 +25,7 @@ public interface MenuMVP {
 
         void servicosFavoritos();
 
-        void alterSenha(String usuario);
+        void alterSenha(Bundle bundle);
 
         void exist();
 
