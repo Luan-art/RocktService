@@ -1,11 +1,14 @@
 package br.edu.ifsp.dmos.presenter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 
 import br.edu.ifsp.dmos.model.entites.Service;
 import br.edu.ifsp.dmos.mvp.HomeMVP;
 import br.edu.ifsp.dmos.mvp.ServiceDescriptionMVP;
 import br.edu.ifsp.dmos.view.ServiceDescriptionActivity;
+import br.edu.ifsp.dmos.view.ServiceSolicitationActivity;
 
 public class ServiceDescriptionPresenter implements ServiceDescriptionMVP.Presenter {
 
@@ -23,8 +26,9 @@ public class ServiceDescriptionPresenter implements ServiceDescriptionMVP.Presen
     }
 
     @Override
-    public void contratarTarefa(Service service) {
-
+    public void contratarTarefa(Bundle bundle) {
+        Intent intent = new Intent(context, ServiceSolicitationActivity.class);
+        context.startActivity(intent);
     }
 
     /*

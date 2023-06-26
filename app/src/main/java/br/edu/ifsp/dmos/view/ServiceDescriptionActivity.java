@@ -48,9 +48,9 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
     private TextView formaPagamentoInfo;
     private TextView formaExecucaoInfo;
     private TextView addInfoInfo;
+    private TextView tituloService;
 
     private ServiceDescriptionPresenter presenter;
-    private Service service; // Armazena o objeto Service recuperado
 
     private User user;
 
@@ -70,10 +70,10 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
         findById();
         setListener();
         preencher();
-
     }
 
     private void findById() {
+        tituloService = findViewById(R.id.tituloService);
         btnContratar = findViewById(R.id.btnContratar);
         textNomeProf = findViewById(R.id.textNomeProf);
         tel = findViewById(R.id.tel);
@@ -112,7 +112,7 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
                             QuerySnapshot querySnapshot = task.getResult();
                             if (querySnapshot != null && !querySnapshot.isEmpty()) {
                                 DocumentSnapshot documentSnapshot = querySnapshot.getDocuments().get(0);
-                                //textNomeProf.setText(documentSnapshot.getString(FIELD_NOME_SERVICO));
+                                tituloService.setText(documentSnapshot.getString(FIELD_NOME_SERVICO));
                                 //service.idProfissional = documentSnapshot.getString(FIELD_ID_PROFISSIONAL);
                                 textNomeProf.setText(documentSnapshot.getString(FIELD_NOME_PROFISSIONAL));
                                 //service.categoria = documentSnapshot.getString(FIELD_CATEGORIA);
@@ -136,7 +136,8 @@ public class ServiceDescriptionActivity extends AppCompatActivity implements Ser
         btnContratar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.contratarTarefa(service);
+                Bundle bundle = getIntent().getExtras();
+                presenter.contratarTarefa(bundle);
             }
         });
     }
