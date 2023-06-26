@@ -76,7 +76,7 @@
         android:layout_marginTop="10dp"
         android:background="@color/white"
         android:hint="@string/string_singup_edittext_datanasc"
-        android:inputType="text"
+        android:inputType="date"
         android:padding="8dp"
         android:textAlignment="textStart"
         android:textColor="@color/black"
